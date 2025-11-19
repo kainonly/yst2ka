@@ -24,6 +24,7 @@ type Option struct {
 	PrivateKey        string `yaml:"private_key" env:"PRIVATE_KEY"`
 	AllinpayPublicKey string `yaml:"allinpay_public_key" env:"ALLINPAY_PUBLIC_KEY"`
 	AppID             string `yaml:"app_id" env:"APP_ID"`
+	SpAppID           string `json:"sp_app_id" env:"SP_APP_ID"`
 	SecretKey         string `yaml:"secret_key" env:"SECRET_KEY"`
 }
 

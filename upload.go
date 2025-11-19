@@ -1,21 +1,22 @@
 package yst2ka
 
 import (
+	"bytes"
 	"context"
+	"crypto/md5"
+	"encoding/base64"
+	"fmt"
+	"time"
+
+	"github.com/bytedance/sonic"
+	"github.com/kainonly/go/help"
+	"resty.dev/v3"
 )
 
-type FileUploadDto struct {
-	AppId     string `json:"appId"`     // 应用号
-	SpAppId   string `json:"spAppId"`   // 服务商应用号
-	FileType  string `json:"fileType"`  // 文件类型
-	Md5       string `json:"md5"`       // 文件的MD5值
-	Timestamp string `json:"timestamp"` // 时间戳
-	Sign      string `json:"sign"`      // 签名
-	File      string `json:"file"`      // 文件流
-}
-
-func NewFileUploadDto(orgRespTraceNum string, closeReason string) *FileUploadDto {
-	return &FileUploadDto{}
+type FileUploadOption struct {
+	Name  string
+	Type  string
+	Bytes []byte
 }
 
 type FileUploadResult struct {
@@ -24,18 +25,60 @@ type FileUploadResult struct {
 	RespMsg  string `json:"RespMsg"`  // 返回说明
 }
 
-func (x *Yst2Ka) FileUpload(ctx context.Context, dto *FileUploadDto) (_ *FileUploadResult, err error) {
-	//now := time.Now()
-	//var data string
-	//if data, err = sonic.MarshalString(*dto); err != nil {
-	//	return
-	//}
-	//
-	//
-	//var result FileUploadResult
-	//if err = sonic.UnmarshalString(bizData, &result); err != nil {
-	//	return
-	//}
-	//return &result, nil
-	return
+func (x *Yst2Ka) FileUpload(ctx context.Context, opt FileUploadOption) (_ *FileUploadResult, err error) {
+	hash := md5.Sum(opt.Bytes)
+	data := map[string]string{
+		`appId`:     x.Option.AppID,
+		`fileType`:  opt.Type,
+		`md5`:       base64.StdEncoding.EncodeToString(hash[:]),
+		`timestamp`: time.Now().Format("2006-01-02 15:04:05"),
+	}
+
+	if data["sign"], err = help.Sm2Sign(x.priKey, x.Option.AppID+data["fileType"]+data["md5"]+data["timestamp"]); err != nil {
+		return
+	}
+
+	var resp *resty.Response
+	if resp, err = x.Client.R().
+		SetContext(ctx).
+		SetMultipartFormData(data).
+		SetFileReader(`file`, opt.Name, bytes.NewBuffer(opt.Bytes)).
+		Post(`/file/upload`); err != nil {
+		return
+	}
+
+	if resp.StatusCode() != 200 {
+		err = help.E(0, `第三方接口响应失败!`)
+		return
+	}
+
+	var content M
+	if err = sonic.Unmarshal(resp.Bytes(), &content); err != nil {
+		return
+	}
+
+	if content["code"] != "00000" {
+		err = help.E(0, fmt.Sprintf(`第三方请求失败![%s]: %s`, content["code"], content["msg"]))
+		return
+	}
+
+	sign := content["sign"].(string)
+	delete(content, "sign")
+	delete(content, "signType")
+
+	var verify bool
+	if verify, err = help.Sm2Verify(x.pubKey, help.MapToSignText(content), sign); err != nil {
+		return
+	}
+	if !verify {
+		err = help.E(0, `第三方响应内容签名存在不一致!`)
+		return
+	}
+
+	var result FileUploadResult
+	if err = sonic.UnmarshalString(content["bizData"].(string), &result); err != nil {
+		return
+	}
+
+	return &result, nil
 }
