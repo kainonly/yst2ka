@@ -11,19 +11,19 @@ import (
 
 func TestYst2Ka_Tm1010(t *testing.T) {
 	ctx := context.TODO()
-	code := `SUP10001`
+	code := `2705wx100002`
 	num := Num(`X`, code, `0`)
 
-	cerNum, err := help.SM4Encrypt(secretKey, `51370119380325580x`)
+	cerNum, err := help.SM4Encrypt(secretKey, `410725199907022818`)
 	assert.NoError(t, err)
 
-	acctNum, err := help.SM4Encrypt(secretKey, `6210260123456789012`)
+	acctNum, err := help.SM4Encrypt(secretKey, `6217858000141669850`)
 	assert.NoError(t, err)
 
-	dto := yst2ka.NewTm1010Dto(num, code, `王三华`, `1`, cerNum).
-		SetMemberRole(`门店`).
-		SetPhone(`12312341234`).
-		//SetBindType(`6`).
+	dto := yst2ka.NewTm1010Dto(num, code, `苏大大`, `1`, cerNum).
+		SetMemberRole(`分销方`).
+		SetPhone(`15617906676`).
+		SetBindType(`8`).
 		SetAcctNum(acctNum)
 
 	r, err := x.Tm1010(ctx, dto)
@@ -33,6 +33,6 @@ func TestYst2Ka_Tm1010(t *testing.T) {
 
 	t.Log(`code:`, r.RespCode)
 	t.Log(`msg:`, r.RespMsg)
-	t.Log(`respTraceNum:`, r.RespTraceNum)
+	t.Log(`respTraceNum:`, r.RespTraceNum) // 20251121135117101000409346
 	t.Log(`signNum:`, r.SignNum)
 }
