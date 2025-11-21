@@ -69,13 +69,10 @@ func (x *Tm1020Dto) SetBankAcctDetail(v BankAcctDetail) *Tm1020Dto {
 }
 
 type Tm1020Result struct {
-	ReqTraceNum     string `json:"reqTraceNum"`               // 商户订单号
-	RespTraceNum    string `json:"respTraceNum"`              // 通联订单号
-	CloseResult     string `json:"closeResult,omitempty"`     // 订单关闭结果
-	CloseFinishTime string `json:"closeFinishTime,omitempty"` // 订单关闭完成时间
-	Result          string `json:"result,omitempty"`          // 订单状态
-	RespCode        string `json:"respCode"`                  // 业务返回码
-	RespMsg         string `json:"respMsg"`                   // 业务返回说明
+	RespTraceNum string `json:"respTraceNum"` // 响应流水号
+	SignNum      string `json:"signNum"`      // 商户会员编号
+	RespCode     string `json:"respCode"`     // 业务返回码
+	RespMsg      string `json:"respMsg"`      // 业务返回说明
 }
 
 func (x *Yst2Ka) Tm1020(ctx context.Context, dto *Tm1020Dto) (_ *Tm1020Result, err error) {

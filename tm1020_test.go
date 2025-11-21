@@ -54,4 +54,8 @@ func TestYst2Ka_Tm1020(t *testing.T) {
 	assert.NoError(t, err)
 
 	t.Log(r)
+
+	t.Log(`code:`, r.RespCode)
+	t.Log(`msg:`, r.RespMsg)
+	t.Log(`respTraceNum:`, r.RespTraceNum)
 }

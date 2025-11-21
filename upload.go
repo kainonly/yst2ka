@@ -20,9 +20,9 @@ type FileUploadOption struct {
 }
 
 type FileUploadResult struct {
-	FileId   string `json:"FileId"`   // 文件标识
-	RespCode string `json:"RespCode"` // 业务返回码
-	RespMsg  string `json:"RespMsg"`  // 返回说明
+	FileId   string `json:"fileId"`   // 文件标识
+	RespCode string `json:"respCode"` // 业务返回码
+	RespMsg  string `json:"respMsg"`  // 返回说明
 }
 
 func (x *Yst2Ka) FileUpload(ctx context.Context, opt FileUploadOption) (_ *FileUploadResult, err error) {
