@@ -54,7 +54,7 @@ type Tm1030Result struct {
 	SignUrl      string `json:"signUrl"`      // 授权手机号签约链接
 }
 
-func (x *Yst2Ka) Tm1030(ctx context.Context, dto *Tm1010Dto) (_ *Tm1030Result, err error) {
+func (x *Yst2Ka) Tm1030(ctx context.Context, dto *Tm1030Dto) (_ *Tm1030Result, err error) {
 	now := time.Now()
 	var data string
 	if data, err = sonic.MarshalString(*dto); err != nil {
