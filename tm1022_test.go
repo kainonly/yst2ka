@@ -18,7 +18,7 @@ func TestYst2Ka_Tm1022(t *testing.T) {
 		SetLegpCerBack(`3320251120151991413871184859138`).
 		SetUnifiedSocialCredit(`3320251120151991415604724256769`)
 
-	r, err := x.Tm1022(ctx, dto)
+	r, err := client.Tm1022(ctx, dto)
 	assert.NoError(t, err)
 
 	t.Log(r)

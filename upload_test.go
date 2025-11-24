@@ -12,7 +12,7 @@ import (
 func TestYst2Ka_FileUpload(t *testing.T) {
 	ctx := context.TODO()
 
-	r, err := x.FileUpload(ctx, yst2ka.FileUploadOption{
+	r, err := client.FileUpload(ctx, yst2ka.FileUploadOption{
 		Name:  "hi.text",
 		Type:  "0",
 		Bytes: []byte(`你好！`),
@@ -27,7 +27,7 @@ func TestYst2Ka_FileUploadLegpCerFront(t *testing.T) {
 	b, err := os.ReadFile(`./ocr/legpCerFront.jpg`)
 	assert.NoError(t, err)
 
-	r, err := x.FileUpload(ctx, yst2ka.FileUploadOption{
+	r, err := client.FileUpload(ctx, yst2ka.FileUploadOption{
 		Name:  "kain.legpCerFront",
 		Type:  "0",
 		Bytes: b,
@@ -46,7 +46,7 @@ func TestYst2Ka_FileUploadLegpCerBack(t *testing.T) {
 	b, err := os.ReadFile(`./ocr/legpCerBack.jpg`)
 	assert.NoError(t, err)
 
-	r, err := x.FileUpload(ctx, yst2ka.FileUploadOption{
+	r, err := client.FileUpload(ctx, yst2ka.FileUploadOption{
 		Name:  "kain.legpCerBack",
 		Type:  "0",
 		Bytes: b,
@@ -65,7 +65,7 @@ func TestYst2Ka_FileUploadUnifiedSocialCredit(t *testing.T) {
 	b, err := os.ReadFile(`./ocr/unifiedSocialCredit.jpg`)
 	assert.NoError(t, err)
 
-	r, err := x.FileUpload(ctx, yst2ka.FileUploadOption{
+	r, err := client.FileUpload(ctx, yst2ka.FileUploadOption{
 		Name:  "kain.unifiedSocialCredit",
 		Type:  "0",
 		Bytes: b,

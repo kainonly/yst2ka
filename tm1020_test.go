@@ -4,7 +4,6 @@ import (
 	"context"
 	"testing"
 
-	"github.com/kainonly/go/help"
 	"github.com/kainonly/yst2ka"
 	"github.com/stretchr/testify/assert"
 )
@@ -14,10 +13,10 @@ func TestYst2Ka_Tm1020(t *testing.T) {
 	code := `SUP10000`
 	num := Num(`X`, code, `0`)
 
-	legalPersonCerNum, err := help.SM4Encrypt(secretKey, `51370119380325580x`)
+	legalPersonCerNum, err := v.Encrypt(`51370119380325580x`)
 	assert.NoError(t, err)
 
-	acctNum, err := help.SM4Encrypt(secretKey, `123426789159100`)
+	acctNum, err := v.Encrypt(`123426789159100`)
 	assert.NoError(t, err)
 
 	dto := yst2ka.NewTm1020Dto(num, code, `https://notify.kainonly.com:8443`).
@@ -50,7 +49,7 @@ func TestYst2Ka_Tm1020(t *testing.T) {
 			OpenBankCity:       "上海市",
 		})
 
-	r, err := x.Tm1020(ctx, dto)
+	r, err := client.Tm1020(ctx, dto)
 	assert.NoError(t, err)
 
 	t.Log(r)

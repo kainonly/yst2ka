@@ -4,7 +4,6 @@ import (
 	"context"
 	"testing"
 
-	"github.com/kainonly/go/help"
 	"github.com/kainonly/yst2ka"
 	"github.com/stretchr/testify/assert"
 )
@@ -14,10 +13,10 @@ func TestYst2Ka_Tm1010(t *testing.T) {
 	code := `2705wx100002`
 	num := Num(`X`, code, `0`)
 
-	cerNum, err := help.SM4Encrypt(secretKey, `410725199907022818`)
+	cerNum, err := v.Encrypt(`410725199907022818`)
 	assert.NoError(t, err)
 
-	acctNum, err := help.SM4Encrypt(secretKey, `6217858000141669850`)
+	acctNum, err := v.Encrypt(`6217858000141669850`)
 	assert.NoError(t, err)
 
 	dto := yst2ka.NewTm1010Dto(num, code, `苏大大`, `1`, cerNum).
@@ -26,7 +25,7 @@ func TestYst2Ka_Tm1010(t *testing.T) {
 		SetBindType(`8`).
 		SetAcctNum(acctNum)
 
-	r, err := x.Tm1010(ctx, dto)
+	r, err := client.Tm1010(ctx, dto)
 	assert.NoError(t, err)
 
 	t.Log(r)
