@@ -8,13 +8,13 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestYst2Ka_Tm1030(t *testing.T) {
+func TestYst2Ka_Tm1031(t *testing.T) {
 	ctx := context.TODO()
 	code := `2705wx100002`
 	num := Num(`X`, code, `0`)
 
-	dto := yst2ka.NewTm1030Dto(num, code, cfg.Phone)
-	r, err := client.Tm1030(ctx, dto)
+	dto := yst2ka.NewTm1031Dto(num, code, cfg.Phone)
+	r, err := client.Tm1031(ctx, dto)
 	assert.NoError(t, err)
 
 	t.Log(r)
@@ -23,5 +23,4 @@ func TestYst2Ka_Tm1030(t *testing.T) {
 	t.Log(`msg:`, r.RespMsg)
 	t.Log(`respTraceNum:`, r.RespTraceNum)
 	t.Log(`signNum:`, r.SignNum)
-	t.Log(`signUrl:`, r.SignUrl)
 }
