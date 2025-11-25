@@ -18,20 +18,20 @@ func TestYst2Ka_Tm1010(t *testing.T) {
 	assert.NoError(t, err)
 
 	// 银行卡号
-	//acctNum, err := v.Encrypt(`6217008176725413`)
-	//assert.NoError(t, err)
+	acctNum, err := v.Encrypt(`6210262695475575477`)
+	assert.NoError(t, err)
 
 	dto := yst2ka.NewTm1010Dto(num, code, `李一四`, `1`, cerNum).
 		SetMemberRole(`门店`).
-		SetPhone(cfg.Phone)
-	//SetBindType(`8`).
-	//SetAcctNum(acctNum)
+		SetPhone(cfg.Phone).
+		SetBindType(`8`).
+		SetAcctNum(acctNum)
 
 	r, err := client.Tm1010(ctx, dto)
 	assert.NoError(t, err)
 
 	t.Log(`respCode:`, r.RespCode)
 	t.Log(`respMsg:`, r.RespMsg)
-	t.Log(`respTraceNum:`, r.RespTraceNum) // 20251125092409101000401842
+	t.Log(`respTraceNum:`, r.RespTraceNum) // 20251125101604101000402256
 	t.Log(`signNum:`, r.SignNum)
 }
