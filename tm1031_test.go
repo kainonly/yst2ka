@@ -21,6 +21,6 @@ func TestYst2Ka_Tm1031(t *testing.T) {
 
 	t.Log(`code:`, r.RespCode)
 	t.Log(`msg:`, r.RespMsg)
-	t.Log(`respTraceNum:`, r.RespTraceNum)
+	t.Log(`respTraceNum:`, r.RespTraceNum) // 20251125134601103000403719
 	t.Log(`signNum:`, r.SignNum)
 }
