@@ -54,7 +54,7 @@ func (x *Yst2Ka) GetPrivateKey() *sm2.PrivateKey {
 	return x.priKey
 }
 
-type M map[string]any
+type M = map[string]any
 
 func (x *Yst2Ka) SetNow(ctx context.Context, ts time.Time) context.Context {
 	return context.WithValue(ctx, "now", ts)

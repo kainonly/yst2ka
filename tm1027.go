@@ -30,7 +30,7 @@ type Tm1027Result[T PersonInfo | EnterpriseInfo | map[string]any] struct {
 	BindPhoneJson     BindPhoneJson     `json:"bindPhoneJson,omitempty"`     // 绑定手机号信息
 	PayAcctOpenJson   PayAcctOpenJson   `json:"payAcctOpenJson,omitempty"`   // 支付账户开户信息
 	PayAcctAuditJson  PayAcctAuditJson  `json:"payAcctAuditJson,omitempty"`  // 支付账户审核结果详情
-	BankSubAcctInfo   map[string]any    `json:"bankSubAcctInfo,omitempty"`   // 银行子账户信息
+	BankSubAcctInfo   M                 `json:"bankSubAcctInfo,omitempty"`   // 银行子账户信息
 	SettleAcctInfo    SettleAcctInfo    `json:"settleAcctInfo,omitempty"`    // 待结算户信息
 	MemberControlInfo MemberControlInfo `json:"memberControlInfo,omitempty"` // 会员交易控制类型
 }
@@ -190,5 +190,85 @@ func (x *Yst2Ka) GetAcctInfos(ctx context.Context, signNum string) (infos []Acct
 		return
 	}
 	infos = r.AcctInfo
+	return
+}
+
+func (x *Yst2Ka) GetAgreements(ctx context.Context, signNum string) (agreements []Agreement, err error) {
+	var r Tm1027Result[M]
+	dto := NewTm1027Dto(signNum, "3")
+	if err = x.Tm1027(ctx, dto, &r); err != nil {
+		return
+	}
+	agreements = r.AgreementArray
+	return
+}
+
+func (x *Yst2Ka) GetOcrResultJson(ctx context.Context, signNum string) (ocr OcrResultJson, err error) {
+	var r Tm1027Result[M]
+	dto := NewTm1027Dto(signNum, "4")
+	if err = x.Tm1027(ctx, dto, &r); err != nil {
+		return
+	}
+	ocr = r.OcrResultJson
+	return
+}
+
+func (x *Yst2Ka) GetBindPhoneJson(ctx context.Context, signNum string) (bindPhone BindPhoneJson, err error) {
+	var r Tm1027Result[M]
+	dto := NewTm1027Dto(signNum, "5")
+	if err = x.Tm1027(ctx, dto, &r); err != nil {
+		return
+	}
+	bindPhone = r.BindPhoneJson
+	return
+}
+
+func (x *Yst2Ka) GetPayAcctOpenJson(ctx context.Context, signNum string) (info PayAcctOpenJson, err error) {
+	var r Tm1027Result[M]
+	dto := NewTm1027Dto(signNum, "6")
+	if err = x.Tm1027(ctx, dto, &r); err != nil {
+		return
+	}
+	info = r.PayAcctOpenJson
+	return
+}
+
+func (x *Yst2Ka) GetPayAcctAuditJson(ctx context.Context, signNum string) (info PayAcctAuditJson, err error) {
+	var r Tm1027Result[M]
+	dto := NewTm1027Dto(signNum, "7")
+	if err = x.Tm1027(ctx, dto, &r); err != nil {
+		return
+	}
+	info = r.PayAcctAuditJson
+	return
+}
+
+func (x *Yst2Ka) GetbankSubAcctInfo(ctx context.Context, signNum string) (info M, err error) {
+	var r Tm1027Result[M]
+	dto := NewTm1027Dto(signNum, "8")
+	if err = x.Tm1027(ctx, dto, &r); err != nil {
+		return
+	}
+	info = r.BankSubAcctInfo
+	return
+}
+
+func (x *Yst2Ka) GetSettleAcctInfo(ctx context.Context, signNum string) (info SettleAcctInfo, err error) {
+	var r Tm1027Result[M]
+	dto := NewTm1027Dto(signNum, "9")
+	if err = x.Tm1027(ctx, dto, &r); err != nil {
+		return
+	}
+	info = r.SettleAcctInfo
+	return
+}
+
+func (x *Yst2Ka) GetMemberControlInfo(ctx context.Context, signNum string) (info MemberControlInfo, err error) {
+	var r Tm1027Result[M]
+	dto := NewTm1027Dto(signNum, "10")
+	if err = x.Tm1027(ctx, dto, &r); err != nil {
+		return
+	}
+	info = r.MemberControlInfo
 	return
 }

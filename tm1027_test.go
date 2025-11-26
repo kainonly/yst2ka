@@ -107,3 +107,112 @@ func TestYst2Ka_GetAcctInfos(t *testing.T) {
 		t.Logf(`========== %d End ==========`, i)
 	}
 }
+
+func TestYst2Ka_GetAgreements(t *testing.T) {
+	ctx := context.TODO()
+
+	infos, err := client.GetAgreements(ctx, `SUP10000`)
+	assert.NoError(t, err)
+
+	for i, info := range infos {
+		t.Logf(`========== %d Start ==========`, i)
+		t.Log(`signAccount:`, info.SignAccount)
+		t.Log(`agreementType:`, info.AgreementType)
+		t.Log(`signResult:`, info.SignResult)
+		t.Log(`agreeNo:`, info.AgreeNo)
+		t.Log(`signTime:`, info.SignTime)
+		t.Log(`anotherMemberInfo:`, info.AnotherMemberInfo)
+		t.Logf(`========== %d End ==========`, i)
+	}
+}
+
+func TestYst2Ka_GetOcrResultJson(t *testing.T) {
+	ctx := context.TODO()
+	info, err := client.GetOcrResultJson(ctx, `SUP10000`)
+	assert.NoError(t, err)
+
+	t.Log(`========== OcrResultJson Start ==========`)
+	t.Log(`enterpriseCompareResult:`, info.EnterpriseCompareResult)
+	t.Log(`legalPersonCompareResult:`, info.LegalPersonCompareResult)
+	t.Log(`========== OcrResultJson End ==========`)
+}
+
+func TestYst2Ka_GetBindPhoneJson(t *testing.T) {
+	ctx := context.TODO()
+	info, err := client.GetBindPhoneJson(ctx, `bf10006`)
+	assert.NoError(t, err)
+
+	t.Log(`========== BindPhoneJson Start ==========`)
+	t.Log(`isBind:`, info.IsBind)
+	t.Log(`phone:`, info.Phone)
+	t.Log(`========== BindPhoneJson End ==========`)
+}
+
+func TestYst2Ka_GetPayAcctOpenJson(t *testing.T) {
+	ctx := context.TODO()
+	info, err := client.GetPayAcctOpenJson(ctx, `bf10006`)
+	assert.NoError(t, err)
+
+	t.Log(`========== PayAcctOpenJson Start ==========`)
+	t.Log(`cusId:`, info.CusId)
+	t.Log(`payAcctNo:`, info.PayAcctNo)
+	t.Log(`payAcctNoStatus:`, info.PayAcctNoStatus)
+	t.Log(`openAcctTime:`, info.OpenAcctTime)
+	t.Log(`========== PayAcctOpenJson End ==========`)
+}
+
+func TestYst2Ka_GetPayAcctAuditJson(t *testing.T) {
+	ctx := context.TODO()
+	info, err := client.GetPayAcctAuditJson(ctx, `SUP10000`)
+	assert.NoError(t, err)
+
+	t.Log(`========== PayAcctAuditJson Start ==========`)
+	t.Log(`enterpriseVerifyResult:`, info.EnterpriseVerifyResult)
+	t.Log(`legalIdCardVerifyResult:`, info.LegalIdCardVerifyResult)
+	t.Log(`bankAcctVerifyResult:`, info.BankAcctVerifyResult)
+	t.Log(`unifiedCreditPhotoResult:`, info.UnifiedCreditPhotoResult)
+	t.Log(`legalCerPhotoResult:`, info.LegalCerPhotoResult)
+	t.Log(`settleAcctPhotoResult:`, info.SettleAcctPhotoResult)
+	t.Log(`busOutdoorPhotoResult:`, info.BusOutdoorPhotoResult)
+	t.Log(`busInnerPhotoResult:`, info.BusInnerPhotoResult)
+	t.Log(`acctManOutdoorPhotoResult:`, info.AcctManOutdoorPhotoResult)
+	t.Log(`acctManWithIdPhotoResult:`, info.AcctManWithIdPhotoResult)
+	t.Log(`busCoopConfirmResult:`, info.BusCoopConfirmResult)
+	t.Log(`nonNatBenfitInfoResult:`, info.NonNatBenfitInfoResult)
+	t.Log(`tlPayAcctNoAgreeResult:`, info.TlPayAcctNoAgreeResult)
+	t.Log(`========== PayAcctAuditJson End ==========`)
+}
+
+func TestYst2Ka_GetbankSubAcctInfo(t *testing.T) {
+	ctx := context.TODO()
+	info, err := client.GetbankSubAcctInfo(ctx, `SUP10000`)
+	assert.NoError(t, err)
+
+	t.Log(`========== BankSubAcctInfo Start ==========`)
+	t.Log(`bankSubAcctInfo:`, info)
+	t.Log(`========== BankSubAcctInfo End ==========`)
+}
+
+func TestYst2Ka_GetSettleAcctInfo(t *testing.T) {
+	ctx := context.TODO()
+	info, err := client.GetSettleAcctInfo(ctx, `SUP10000`)
+	assert.NoError(t, err)
+
+	t.Log(`========== SettleAcctInfo Start ==========`)
+	t.Log(`vspCusId:`, info.VspCusId)
+	t.Log(`acctNo:`, info.AcctNo)
+	t.Log(`status:`, info.Status)
+	t.Log(`========== SettleAcctInfo End ==========`)
+}
+
+func TestYst2Ka_GetMemberControlInfo(t *testing.T) {
+	ctx := context.TODO()
+	info, err := client.GetMemberControlInfo(ctx, `bf10006`)
+	assert.NoError(t, err)
+
+	t.Log(`========== MemberControlInfo Start ==========`)
+	t.Log(`sepOutFlag:`, info.SepOutFlag)
+	t.Log(`sepInFlag:`, info.SepInFlag)
+	t.Log(`memberWithdrawFlag:`, info.MemberWithdrawFlag)
+	t.Log(`========== MemberControlInfo End ==========`)
+}
