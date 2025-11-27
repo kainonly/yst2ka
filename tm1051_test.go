@@ -35,7 +35,7 @@ import (
 
 func TestYst2Ka_Tm1051Pay(t *testing.T) {
 	ctx := context.TODO()
-	code := `bf10006`
+	code := `SUP10000`
 	num := Num(`X`, code, `0`)
 
 	payAgreementJson := yst2ka.NewPayAgreementJson(
@@ -43,7 +43,7 @@ func TestYst2Ka_Tm1051Pay(t *testing.T) {
 		`3320240327141772874286441426946`,
 		`3320240327141772874286441426946`,
 	)
-	dto := yst2ka.NewTm1051Dto[yst2ka.PayAgreementJson](num, code, `李一四`, `2`,
+	dto := yst2ka.NewTm1051Dto[yst2ka.PayAgreementJson](num, code, `竹溪县子怡鞋店`, `2`,
 		*payAgreementJson, `https://notify.kainonly.com:8443`,
 	)
 	r, err := client.Tm1051(ctx, dto)
