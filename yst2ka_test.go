@@ -35,7 +35,6 @@ type ConfigMap struct {
 	AllinpayPublicKeyStr string `yaml:"allinpay_public_key_str"`
 	AppID                string `yaml:"app_id"`
 	SecretKey            string `yaml:"secret_key"`
-	Code                 string `yaml:"code"`
 	Phone                string `yaml:"phone"`
 }
 

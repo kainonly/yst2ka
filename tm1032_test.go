@@ -13,8 +13,8 @@ func TestYst2Ka_Tm1032(t *testing.T) {
 	code := `bf10006`
 	num := Num(`X`, code, `0`)
 
-	applyRespTraceNum := `20251125135128103000403759`
-	verifyCode := `342556`
+	applyRespTraceNum := `20251127083616103000400262`
+	verifyCode := `111111`
 	dto := yst2ka.NewTm1032Dto(num, code, applyRespTraceNum, cfg.Phone, verifyCode)
 	r, err := client.Tm1032(ctx, dto)
 	assert.NoError(t, err)
