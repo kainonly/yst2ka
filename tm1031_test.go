@@ -10,7 +10,7 @@ import (
 
 func TestYst2Ka_Tm1031(t *testing.T) {
 	ctx := context.TODO()
-	code := `2705wx100002`
+	code := `bf10006`
 	num := Num(`X`, code, `0`)
 
 	dto := yst2ka.NewTm1031Dto(num, code, cfg.Phone)
@@ -21,6 +21,6 @@ func TestYst2Ka_Tm1031(t *testing.T) {
 
 	t.Log(`code:`, r.RespCode)
 	t.Log(`msg:`, r.RespMsg)
-	t.Log(`respTraceNum:`, r.RespTraceNum) // 20251125134601103000403719
+	t.Log(`respTraceNum:`, r.RespTraceNum) // 20251127085331103100400341
 	t.Log(`signNum:`, r.SignNum)
 }
