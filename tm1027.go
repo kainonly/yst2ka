@@ -19,7 +19,7 @@ func NewTm1027Dto(signNum string, infoType string) *Tm1027Dto {
 	}
 }
 
-type Tm1027Result[T PersonInfo | EnterpriseInfo | map[string]any] struct {
+type Tm1027Result[T PersonInfo | EnterpriseInfo | M] struct {
 	RespCode          string            `json:"respCode"`                    // 业务返回码
 	RespMsg           string            `json:"respMsg"`                     // 业务返回说明
 	SignNum           string            `json:"signNum"`                     // 商户会员编号
