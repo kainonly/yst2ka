@@ -2,7 +2,6 @@ package yst2ka
 
 import (
 	"context"
-	"fmt"
 	"time"
 
 	"github.com/bytedance/sonic"
@@ -59,8 +58,6 @@ func (x *Yst2Ka) Tm1023(ctx context.Context, dto *Tm1023Dto, i any) (err error) 
 		`/tm/handle`, `1023`, data); err != nil {
 		return
 	}
-
-	fmt.Println(bizData)
 
 	if err = sonic.UnmarshalString(bizData, i); err != nil {
 		return
