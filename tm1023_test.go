@@ -22,7 +22,7 @@ func TestYst2Ka_Tm1023(t *testing.T) {
 	t.Log(`balanceDetail:`, r.BalanceDetail)
 }
 
-func TestYst2Ka_GetPlatformBalance(t *testing.T) {
+func TestYst2Ka_GetPlatformBalanceDetail(t *testing.T) {
 	ctx := context.TODO()
 	balance, err := client.GetPlatformBalanceDetail(ctx)
 	assert.NoError(t, err)
@@ -36,7 +36,7 @@ func TestYst2Ka_GetPlatformBalance(t *testing.T) {
 	t.Log(`retentionLimitAmt:`, balance.RetentionLimitAmt)
 }
 
-func TestYst2Ka_GetMemberBalance(t *testing.T) {
+func TestYst2Ka_GetMemberBalanceDetails(t *testing.T) {
 	ctx := context.TODO()
 	details, err := client.GetMemberBalanceDetails(ctx, `SUP10000`)
 	assert.NoError(t, err)
