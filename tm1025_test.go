@@ -24,15 +24,15 @@ func TestYst2Ka_Tm1025(t *testing.T) {
 		SetLegalPersonName(`王三华`).
 		SetLegalPersonCerType(`1`).
 		SetLegalPersonCerNum(legalPersonCerNum).
-		SetLegalPersonPhone(``)
+		SetLegalPersonPhone(`12312341234`)
 
 	shareholderCerNum, err := v.Encrypt(`51370119380325580x`)
 	assert.NoError(t, err)
 
 	legAndBeneficiaryInfo := yst2ka.NewTm1025LegAndBeneficiaryInfo(
-		`中国`, `1`, `1`, `凤岗村`, `01`, `1`, `1`, `1`,
-		``, legalPersonCerNum, `9999-12-31`, `1`, `凤岗村`,
-		``, shareholderCerNum, `2099-12-31`,
+		`中国`, `1`, `1`, `凤岗村`, `1`, `1`, `1`, `1`,
+		`王三华`, legalPersonCerNum, `9999-12-31`, `1`, `凤岗村`,
+		`王三华`, shareholderCerNum, `2099-12-31`,
 	).
 		SetBeneficiaryJudgmentCriteria(`1`).
 		SetBeneficiaryJudgmentFile(`61`)
@@ -40,9 +40,9 @@ func TestYst2Ka_Tm1025(t *testing.T) {
 	acctNum, err := v.Encrypt(`123426789159100`)
 	assert.NoError(t, err)
 
-	bankAcctDetail := yst2ka.NewTm1025BankAcctDetail(`1`, `上海市`, `上海市`).
+	bankAcctDetail := yst2ka.NewTm1025BankAcctDetail(acctNum, `上海市`, `上海市`).
 		SetOpenBankNo(`01040000`).
-		SetAcctAttr(acctNum).
+		SetAcctAttr(`1`).
 		SetOpenBankBranchName(`中国银行上海滩分行`).
 		SetPayBankNumber(`100504100265`)
 
