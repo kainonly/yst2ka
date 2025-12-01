@@ -8,15 +8,15 @@ import (
 )
 
 type Tm1020Dto struct {
-	ReqTraceNum        string             `json:"reqTraceNum"`        // 商户请求流水号
-	SignNum            string             `json:"signNum"`            // 商户会员编号
-	MemberRole         string             `json:"memberRole"`         // 会员角色
-	NotifyUrl          string             `json:"notifyUrl"`          // 企业会员审核结果通知地址
-	EnterpriseBaseInfo EnterpriseBaseInfo `json:"enterpriseBaseInfo"` // 企业基本信息
-	BankAcctDetail     BankAcctDetail     `json:"bankAcctDetail"`     // 银行账户信息
+	ReqTraceNum        string                   `json:"reqTraceNum"`        // 商户请求流水号
+	SignNum            string                   `json:"signNum"`            // 商户会员编号
+	MemberRole         string                   `json:"memberRole"`         // 会员角色
+	NotifyUrl          string                   `json:"notifyUrl"`          // 企业会员审核结果通知地址
+	EnterpriseBaseInfo Tm1020EnterpriseBaseInfo `json:"enterpriseBaseInfo"` // 企业基本信息
+	BankAcctDetail     Tm1020BankAcctDetail     `json:"bankAcctDetail"`     // 银行账户信息
 }
 
-type EnterpriseBaseInfo struct {
+type Tm1020EnterpriseBaseInfo struct {
 	EnterpriseName            string `json:"enterpriseName"`            // 企业名称
 	EnterpriseNature          string `json:"enterpriseNature"`          // 企业性质
 	AddressCode               string `json:"addressCode"`               // 省市地区码
@@ -34,7 +34,7 @@ type EnterpriseBaseInfo struct {
 	UnifiedSocialCreditFileId string `json:"unifiedSocialCreditFileId"` // 统一信用证
 }
 
-type BankAcctDetail struct {
+type Tm1020BankAcctDetail struct {
 	AcctAttr           string `json:"acctAttr"`           // 账户类型
 	AcctNum            string `json:"acctNum"`            // 账号
 	BankReservePhone   string `json:"bankReservePhone"`   // 银行预留手机
@@ -58,12 +58,12 @@ func (x *Tm1020Dto) SetMemberRole(v string) *Tm1020Dto {
 	return x
 }
 
-func (x *Tm1020Dto) SetEnterpriseBaseInfo(v EnterpriseBaseInfo) *Tm1020Dto {
+func (x *Tm1020Dto) SetEnterpriseBaseInfo(v Tm1020EnterpriseBaseInfo) *Tm1020Dto {
 	x.EnterpriseBaseInfo = v
 	return x
 }
 
-func (x *Tm1020Dto) SetBankAcctDetail(v BankAcctDetail) *Tm1020Dto {
+func (x *Tm1020Dto) SetBankAcctDetail(v Tm1020BankAcctDetail) *Tm1020Dto {
 	x.BankAcctDetail = v
 	return x
 }
