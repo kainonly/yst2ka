@@ -41,11 +41,6 @@ type BalanceDetail struct {
 	RetentionLimitAmt int64  `json:"retentionLimitAmt,omitempty"` // 账户留存额度 通过1043-账户留存额度管理接口设置后返回
 }
 
-func (x *BalanceDetail) SetRetentionLimitAmt(v int64) *BalanceDetail {
-	x.RetentionLimitAmt = v
-	return x
-}
-
 func (x *Yst2Ka) Tm1023(ctx context.Context, dto *Tm1023Dto, i any) (err error) {
 	now := time.Now()
 	var data string
