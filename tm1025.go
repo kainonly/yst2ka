@@ -8,25 +8,25 @@ import (
 )
 
 type Tm1025Dto struct {
-	ReqTraceNum            string                      `json:"reqTraceNum"`            // 请求流水号
-	SignNum                string                      `json:"signNum"`                // 商户会员编号
-	MemberRole             string                      `json:"memberRole"`             // 会员角色
-	EnterpriseNature       string                      `json:"enterpriseNature"`       // 企业性质
-	NotifyUrl              string                      `json:"notifyUrl"`              // 企业会员审核结果通知地址
-	EnterpriseBaseInfo     Tm1025EnterpriseBaseInfo    `json:"enterpriseBaseInfo"`     // 企业基本信息
-	LegaAndBeneficiaryInfo Tm1025LegAndBeneficiaryInfo `json:"legaAndBeneficiaryInfo"` // 受益人信息
-	BankAcctDetail         Tm1025BankAcctDetail        `json:"bankAcctDetail"`         // 银行账户信息
-	Attachments            Tm1025Attachments           `json:"attachments"`            // 开户附件材料
+	ReqTraceNum            string                       `json:"reqTraceNum"`            // 请求流水号
+	SignNum                string                       `json:"signNum"`                // 商户会员编号
+	MemberRole             string                       `json:"memberRole"`             // 会员角色
+	EnterpriseNature       string                       `json:"enterpriseNature"`       // 企业性质
+	NotifyUrl              string                       `json:"notifyUrl"`              // 企业会员审核结果通知地址
+	EnterpriseBaseInfo     *Tm1025EnterpriseBaseInfo    `json:"enterpriseBaseInfo"`     // 企业基本信息
+	LegaAndBeneficiaryInfo *Tm1025LegAndBeneficiaryInfo `json:"legaAndBeneficiaryInfo"` // 受益人信息
+	BankAcctDetail         *Tm1025BankAcctDetail        `json:"bankAcctDetail"`         // 银行账户信息
+	Attachments            *Tm1025Attachments           `json:"attachments"`            // 开户附件材料
 }
 
 func NewTm1025Dto(
 	reqTraceNum string,
 	signNum string,
 	notifyUrl string,
-	enterpriseBaseInfo Tm1025EnterpriseBaseInfo,
-	legaAndBeneficiaryInfo Tm1025LegAndBeneficiaryInfo,
-	bankAcctDetail Tm1025BankAcctDetail,
-	attachments Tm1025Attachments,
+	enterpriseBaseInfo *Tm1025EnterpriseBaseInfo,
+	legaAndBeneficiaryInfo *Tm1025LegAndBeneficiaryInfo,
+	bankAcctDetail *Tm1025BankAcctDetail,
+	attachments *Tm1025Attachments,
 ) *Tm1025Dto {
 	return &Tm1025Dto{
 		ReqTraceNum:            reqTraceNum,

@@ -34,6 +34,63 @@ type Tm1020EnterpriseBaseInfo struct {
 	UnifiedSocialCreditFileId string `json:"unifiedSocialCreditFileId"` // 统一信用证
 }
 
+func NewTm1020EnterpriseBaseInfo(
+	enterpriseName string,
+	addressCode string,
+	enterpriseAdress string,
+	unifiedSocialCredit string,
+	legalPersonName string,
+	legalPersonCerType string,
+	legalPersonCerNum string,
+	legalPersonPhone string,
+) *Tm1020EnterpriseBaseInfo {
+	return &Tm1020EnterpriseBaseInfo{
+		EnterpriseName:      enterpriseName,
+		AddressCode:         addressCode,
+		EnterpriseAdress:    enterpriseAdress,
+		UnifiedSocialCredit: unifiedSocialCredit,
+		LegalPersonName:     legalPersonName,
+		LegalPersonCerType:  legalPersonCerType,
+		LegalPersonCerNum:   legalPersonCerNum,
+		LegalPersonPhone:    legalPersonPhone,
+	}
+}
+
+func (t *Tm1020EnterpriseBaseInfo) SetEnterpriseNature(enterpriseNature string) *Tm1020EnterpriseBaseInfo {
+	t.EnterpriseNature = enterpriseNature
+	return t
+}
+
+func (t *Tm1020EnterpriseBaseInfo) SetBusLicenseValidate(busLicenseValidate string) *Tm1020EnterpriseBaseInfo {
+	t.BusLicenseValidate = busLicenseValidate
+	return t
+}
+
+func (t *Tm1020EnterpriseBaseInfo) SetIdValidateStart(idValidateStart string) *Tm1020EnterpriseBaseInfo {
+	t.IdValidateStart = idValidateStart
+	return t
+}
+
+func (t *Tm1020EnterpriseBaseInfo) SetIdValidateEnd(idValidateEnd string) *Tm1020EnterpriseBaseInfo {
+	t.IdValidateEnd = idValidateEnd
+	return t
+}
+
+func (t *Tm1020EnterpriseBaseInfo) SetLegpCerFrontFileId(legpCerFrontFileId string) *Tm1020EnterpriseBaseInfo {
+	t.LegpCerFrontFileId = legpCerFrontFileId
+	return t
+}
+
+func (t *Tm1020EnterpriseBaseInfo) SetLegpCerBackFileId(legpCerBackFileId string) *Tm1020EnterpriseBaseInfo {
+	t.LegpCerBackFileId = legpCerBackFileId
+	return t
+}
+
+func (t *Tm1020EnterpriseBaseInfo) SetUnifiedSocialCreditFileId(unifiedSocialCreditFileId string) *Tm1020EnterpriseBaseInfo {
+	t.UnifiedSocialCreditFileId = unifiedSocialCreditFileId
+	return t
+}
+
 type Tm1020BankAcctDetail struct {
 	AcctAttr           string `json:"acctAttr"`           // 账户类型
 	AcctNum            string `json:"acctNum"`            // 账号
@@ -43,6 +100,43 @@ type Tm1020BankAcctDetail struct {
 	PayBankNumber      string `json:"payBankNumber"`      // 支付行号，12位数字
 	OpenBankProvince   string `json:"openBankProvince"`   // 开户行所在省
 	OpenBankCity       string `json:"openBankCity"`       // 开户行所在市
+}
+
+func NewTm1020BankAcctDetail(
+	acctNum string,
+	openBankProvince string,
+	openBankCity string,
+) *Tm1020BankAcctDetail {
+	return &Tm1020BankAcctDetail{
+		AcctNum:          acctNum,
+		OpenBankProvince: openBankProvince,
+		OpenBankCity:     openBankCity,
+	}
+}
+
+func (t *Tm1020BankAcctDetail) SetAcctAttr(acctAttr string) *Tm1020BankAcctDetail {
+	t.AcctAttr = acctAttr
+	return t
+}
+
+func (t *Tm1020BankAcctDetail) SetBankReservePhone(bankReservePhone string) *Tm1020BankAcctDetail {
+	t.BankReservePhone = bankReservePhone
+	return t
+}
+
+func (t *Tm1020BankAcctDetail) SetOpenBankNo(openBankNo string) *Tm1020BankAcctDetail {
+	t.OpenBankNo = openBankNo
+	return t
+}
+
+func (t *Tm1020BankAcctDetail) SetOpenBankBranchName(openBankBranchName string) *Tm1020BankAcctDetail {
+	t.OpenBankBranchName = openBankBranchName
+	return t
+}
+
+func (t *Tm1020BankAcctDetail) SetPayBankNumber(payBankNumber string) *Tm1020BankAcctDetail {
+	t.PayBankNumber = payBankNumber
+	return t
 }
 
 func NewTm1020Dto(reqTraceNum string, signNum string, notifyUrl string) *Tm1020Dto {
