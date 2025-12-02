@@ -48,7 +48,7 @@ func TestMain(m *testing.M) {
 		return
 	}
 	cfg = v.Config()
-	if client, err = yst2ka.NewYst2(yst2ka.Option{
+	if client, err = yst2ka.NewYst2Ka(yst2ka.Option{
 		BaseURL:           cfg.BaseUrl,
 		PrivateKey:        cfg.PrivateKeyStr,
 		AllinpayPublicKey: cfg.AllinpayPublicKeyStr,
