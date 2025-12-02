@@ -28,7 +28,7 @@ type Option struct {
 	SecretKey         string `yaml:"secret_key" env:"SECRET_KEY"`
 }
 
-func NewYst2(opt Option) (x *Yst2Ka, err error) {
+func NewYst2Ka(opt Option) (x *Yst2Ka, err error) {
 	x = &Yst2Ka{
 		Option: &opt,
 		Client: resty.New().SetBaseURL(opt.BaseURL),
