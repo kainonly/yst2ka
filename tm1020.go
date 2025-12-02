@@ -2,6 +2,7 @@ package yst2ka
 
 import (
 	"context"
+	"fmt"
 	"time"
 
 	"github.com/bytedance/sonic"
@@ -175,6 +176,8 @@ func (x *Yst2Ka) Tm1020(ctx context.Context, dto *Tm1020Dto) (_ *Tm1020Result, e
 	if data, err = sonic.MarshalString(*dto); err != nil {
 		return
 	}
+
+	fmt.Println(data)
 
 	var bizData string
 	if bizData, err = x.Request(x.SetNow(ctx, now),
