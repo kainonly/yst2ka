@@ -10,7 +10,7 @@ import (
 
 func TestYst2Ka_Tm1020(t *testing.T) {
 	ctx := context.TODO()
-	code := `VAN1000`
+	code := `VAN1001`
 	num := Num(`EN`, code, `0`)
 
 	legalPersonCerNum, err := v.Encrypt(`51370119380325580x`)
@@ -22,16 +22,16 @@ func TestYst2Ka_Tm1020(t *testing.T) {
 	dto := yst2ka.NewTm1020Dto(num, code, `https://notify.kainonly.com:8443/tm1020/callback`).
 		SetMemberRole(`门店`).
 		SetEnterpriseBaseInfo(*yst2ka.NewTm1020EnterpriseBaseInfo(
-			"供应A",
+			"竹溪县子怡鞋店",
 			"310115",
 			"上海市浦东新区金桥镇",
-			"913312178154RMU53N",
+			"92420324MA4D68J28J",
 			"王三华",
 			"1",
 			legalPersonCerNum,
 			"12312341234",
 		).
-			SetEnterpriseNature("1").
+			SetEnterpriseNature("2").
 			SetBusLicenseValidate("9999-12-31").
 			SetIdValidateStart("2023-12-31").
 			SetIdValidateEnd("9999-12-31")).
