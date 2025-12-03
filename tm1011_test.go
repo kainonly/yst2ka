@@ -10,11 +10,11 @@ import (
 
 func TestYst2Ka_Tm1011(t *testing.T) {
 	ctx := context.TODO()
-	code := `bf10006`
+	code := `PS2001`
 	num := Num(`X`, code, `0`)
 
 	dto := yst2ka.NewTm1011Dto(num, code,
-		`20251125101604101000402256`,
+		`20251203141134101000525663`,
 		cfg.Phone,
 		`277733`,
 	)

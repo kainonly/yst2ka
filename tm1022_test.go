@@ -10,7 +10,7 @@ import (
 
 func TestYst2Ka_Tm1022(t *testing.T) {
 	ctx := context.TODO()
-	code := `SUP10000`
+	code := `ES1002`
 	num := Num(`X`, code, `0`)
 
 	dto := yst2ka.NewTm1022Dto(num, code, `https://notify.kainonly.com:8443/tm1022/callback`).

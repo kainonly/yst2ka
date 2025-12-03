@@ -10,7 +10,7 @@ import (
 
 func TestYst2Ka_Tm1031(t *testing.T) {
 	ctx := context.TODO()
-	code := `bf10006`
+	code := `PS2001`
 	num := Num(`X`, code, `0`)
 
 	dto := yst2ka.NewTm1031Dto(num, code, cfg.Phone)

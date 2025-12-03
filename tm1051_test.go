@@ -33,18 +33,40 @@ import (
 //	t.Log(`respTraceNum:`, r.RespTraceNum)
 //}
 
+//func TestYst2Ka_Tm1051Pay(t *testing.T) {
+//	ctx := context.TODO()
+//	code := `VAN1001`
+//	num := Num(`X`, code, `0`)
+//
+//	payAgreementJson := yst2ka.NewPayAgreementJson(
+//		`3320240327141772874573646393345`,
+//		`3320240327141772874286441426946`,
+//		`3320240327141772874286441426946`,
+//	)
+//	dto := yst2ka.NewTm1051Dto[yst2ka.PayAgreementJson](num, code, `竹溪县子怡鞋店`, `1`,
+//		*payAgreementJson, `https://notify.kainonly.com:8443/tm1052/callback`,
+//	)
+//	r, err := client.Tm1051(ctx, dto)
+//	assert.NoError(t, err)
+//
+//	t.Log(`code:`, r.RespCode)
+//	t.Log(`msg:`, r.RespMsg)
+//	t.Log(`signNum:`, r.SignNum)
+//	t.Log(`respTraceNum:`, r.RespTraceNum)
+//}
+
 func TestYst2Ka_Tm1051Pay(t *testing.T) {
 	ctx := context.TODO()
-	code := `SUP10000`
+	code := `PS2001`
 	num := Num(`X`, code, `0`)
 
-	payAgreementJson := yst2ka.NewPayAgreementJson(
-		`3320240327141772874573646393345`,
-		`3320240327141772874286441426946`,
-		`3320240327141772874286441426946`,
-	)
-	dto := yst2ka.NewTm1051Dto[yst2ka.PayAgreementJson](num, code, `竹溪县子怡鞋店`, `2`,
-		*payAgreementJson, `https://notify.kainonly.com:8443`,
+	//payAgreementJson := yst2ka.NewPayAgreementJson(
+	//	`3320240327141772874573646393345`,
+	//	`3320240327141772874286441426946`,
+	//	`3320240327141772874286441426946`,
+	//)
+	dto := yst2ka.NewTm1051Dto[yst2ka.PayAgreementJson](num, code, `李一四`, `1`,
+		yst2ka.PayAgreementJson{}, `https://notify.kainonly.com:8443/tm1052/callback`,
 	)
 	r, err := client.Tm1051(ctx, dto)
 	assert.NoError(t, err)

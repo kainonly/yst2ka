@@ -60,9 +60,9 @@ func (x *AcctAgreementJson) SetAuthPerAgreeInfo(v *AuthPerAgreeInfo) *AcctAgreem
 }
 
 type PayAgreementJson struct {
-	PayAcctNoOpenAgreeToken  string `json:"payAcctNoOpenAgreeToken"`  // 通联支付账户服务协议文件token
-	CoopConfirmToken         string `json:"coopConfirmToken"`         // 客户业务合作确认函文件token
-	NonNatureCusBenefitToken string `json:"nonNatureCusBenefitToken"` // 非自然人客户受益所有人信息登记表文件token
+	PayAcctNoOpenAgreeToken  string `json:"payAcctNoOpenAgreeToken,omitempty"`  // 通联支付账户服务协议文件token
+	CoopConfirmToken         string `json:"coopConfirmToken,omitempty"`         // 客户业务合作确认函文件token
+	NonNatureCusBenefitToken string `json:"nonNatureCusBenefitToken,omitempty"` // 非自然人客户受益所有人信息登记表文件token
 }
 
 func NewPayAgreementJson(payAcctNoOpenAgreeToken string, coopConfirmToken string, nonNatureCusBenefitToken string) *PayAgreementJson {

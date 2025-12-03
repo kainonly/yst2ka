@@ -11,7 +11,7 @@ import (
 
 func TestYst2Ka_Tm1027(t *testing.T) {
 	ctx := context.TODO()
-	dto := yst2ka.NewTm1027Dto(`bf10006`, "1")
+	dto := yst2ka.NewTm1027Dto(`PS2001`, "1")
 
 	var r yst2ka.Tm1027Result[yst2ka.PersonInfo]
 	err := client.Tm1027(ctx, dto, &r)
@@ -38,7 +38,7 @@ func TestYst2Ka_Tm1027(t *testing.T) {
 
 func TestYst2Ka_GetPersonInfo(t *testing.T) {
 	ctx := context.TODO()
-	info, err := client.GetPersonInfo(ctx, `bf10006`)
+	info, err := client.GetPersonInfo(ctx, `PS2001`)
 	assert.NoError(t, err)
 
 	t.Log(`name:`, info.Name)
@@ -58,7 +58,7 @@ func TestYst2Ka_GetPersonInfo(t *testing.T) {
 
 func TestYst2Ka_GetEnterpriseInfo(t *testing.T) {
 	ctx := context.TODO()
-	info, err := client.GetEnterpriseInfo(ctx, `SUP10000`)
+	info, err := client.GetEnterpriseInfo(ctx, `ES1002`)
 	assert.NoError(t, err)
 
 	t.Log(`memberRole:`, info.MemberRole)
@@ -85,7 +85,7 @@ func TestYst2Ka_GetEnterpriseInfo(t *testing.T) {
 func TestYst2Ka_GetAcctInfos(t *testing.T) {
 	ctx := context.TODO()
 
-	infos, err := client.GetAcctInfos(ctx, `SUP10000`)
+	infos, err := client.GetAcctInfos(ctx, `ES1002`)
 	assert.NoError(t, err)
 
 	for i, info := range infos {
@@ -111,7 +111,7 @@ func TestYst2Ka_GetAcctInfos(t *testing.T) {
 func TestYst2Ka_GetAgreements(t *testing.T) {
 	ctx := context.TODO()
 
-	infos, err := client.GetAgreements(ctx, `SUP10000`)
+	infos, err := client.GetAgreements(ctx, `ES1002`)
 	assert.NoError(t, err)
 
 	for i, info := range infos {
@@ -128,7 +128,7 @@ func TestYst2Ka_GetAgreements(t *testing.T) {
 
 func TestYst2Ka_GetOcrResultJson(t *testing.T) {
 	ctx := context.TODO()
-	info, err := client.GetOcrResultJson(ctx, `SUP10000`)
+	info, err := client.GetOcrResultJson(ctx, `ES1002`)
 	assert.NoError(t, err)
 
 	t.Log(`========== OcrResultJson Start ==========`)
@@ -139,7 +139,7 @@ func TestYst2Ka_GetOcrResultJson(t *testing.T) {
 
 func TestYst2Ka_GetBindPhoneJson(t *testing.T) {
 	ctx := context.TODO()
-	info, err := client.GetBindPhoneJson(ctx, `bf10006`)
+	info, err := client.GetBindPhoneJson(ctx, `PS2001`)
 	assert.NoError(t, err)
 
 	t.Log(`========== BindPhoneJson Start ==========`)
@@ -150,7 +150,7 @@ func TestYst2Ka_GetBindPhoneJson(t *testing.T) {
 
 func TestYst2Ka_GetPayAcctOpenJson(t *testing.T) {
 	ctx := context.TODO()
-	info, err := client.GetPayAcctOpenJson(ctx, `bf10006`)
+	info, err := client.GetPayAcctOpenJson(ctx, `PS2001`)
 	assert.NoError(t, err)
 
 	t.Log(`========== PayAcctOpenJson Start ==========`)
@@ -163,7 +163,7 @@ func TestYst2Ka_GetPayAcctOpenJson(t *testing.T) {
 
 func TestYst2Ka_GetPayAcctAuditJson(t *testing.T) {
 	ctx := context.TODO()
-	info, err := client.GetPayAcctAuditJson(ctx, `SUP10000`)
+	info, err := client.GetPayAcctAuditJson(ctx, `ES1002`)
 	assert.NoError(t, err)
 
 	t.Log(`========== PayAcctAuditJson Start ==========`)
@@ -185,7 +185,7 @@ func TestYst2Ka_GetPayAcctAuditJson(t *testing.T) {
 
 func TestYst2Ka_GetbankSubAcctInfo(t *testing.T) {
 	ctx := context.TODO()
-	info, err := client.GetbankSubAcctInfo(ctx, `SUP10000`)
+	info, err := client.GetbankSubAcctInfo(ctx, `PS2001`)
 	assert.NoError(t, err)
 
 	t.Log(`========== BankSubAcctInfo Start ==========`)
@@ -195,7 +195,7 @@ func TestYst2Ka_GetbankSubAcctInfo(t *testing.T) {
 
 func TestYst2Ka_GetSettleAcctInfo(t *testing.T) {
 	ctx := context.TODO()
-	info, err := client.GetSettleAcctInfo(ctx, `SUP10000`)
+	info, err := client.GetSettleAcctInfo(ctx, `ES1002`)
 	assert.NoError(t, err)
 
 	t.Log(`========== SettleAcctInfo Start ==========`)
@@ -207,7 +207,7 @@ func TestYst2Ka_GetSettleAcctInfo(t *testing.T) {
 
 func TestYst2Ka_GetMemberControlInfo(t *testing.T) {
 	ctx := context.TODO()
-	info, err := client.GetMemberControlInfo(ctx, `bf10006`)
+	info, err := client.GetMemberControlInfo(ctx, `PS2001`)
 	assert.NoError(t, err)
 
 	t.Log(`========== MemberControlInfo Start ==========`)
