@@ -12,7 +12,7 @@ func TestYst2Ka_Tm1023(t *testing.T) {
 	ctx := context.TODO()
 	dto := yst2ka.NewTm1023Dto(`yunBizUserId_B2C`)
 
-	var r yst2ka.Tm1023Result[yst2ka.BalanceDetail]
+	var r yst2ka.Tm1023Result[yst2ka.Tm1023BalanceDetail]
 	err := client.Tm1023(ctx, dto, &r)
 	assert.NoError(t, err)
 

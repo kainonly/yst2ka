@@ -8,16 +8,16 @@ import (
 )
 
 type Tm1030Dto struct {
-	ReqTraceNum string         `json:"reqTraceNum"` // 商户请求流水号
-	SignNum     string         `json:"signNum"`     // 商户会员编号
-	Phone       string         `json:"phone"`       // 绑定手机号
-	PhoneType   string         `json:"phoneType"`   // 绑定手机类型
-	JumpUrl     string         `json:"jumpUrl"`     // 前端跳转地址
-	NotifyUrl   string         `json:"notifyUrl"`   // 签约结果通知地址
-	AuthPerInfo map[string]any `json:"authPerInfo"` // 被授权人信息
+	ReqTraceNum string            `json:"reqTraceNum"` // 商户请求流水号
+	SignNum     string            `json:"signNum"`     // 商户会员编号
+	Phone       string            `json:"phone"`       // 绑定手机号
+	PhoneType   string            `json:"phoneType"`   // 绑定手机类型
+	JumpUrl     string            `json:"jumpUrl"`     // 前端跳转地址
+	NotifyUrl   string            `json:"notifyUrl"`   // 签约结果通知地址
+	AuthPerInfo Tm1030AuthPerInfo `json:"authPerInfo"` // 被授权人信息
 }
 
-type AuthPerInfo struct {
+type Tm1030AuthPerInfo struct {
 	AuthPerName    string `json:"authPerName"`    // 被授权人姓名
 	AuthPerCerNum  string `json:"authPerCerNum"`  // 被授权人证件号
 	AuthPerCerType string `json:"authPerCerType"` // 被授权人证件类型

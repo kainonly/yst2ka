@@ -7,7 +7,7 @@ import (
 	"github.com/bytedance/sonic"
 )
 
-type Tm1051Dto[T AcctAgreementJson | PayAgreementJson] struct {
+type Tm1051Dto[T Tm1051AcctAgreementJson | Tm1051PayAgreementJson] struct {
 	ReqTraceNum   string `json:"reqTraceNum"`   // 商户请求流水号
 	SignNum       string `json:"signNum"`       // 签约会员编号
 	MemberName    string `json:"memberName"`    // 签约会员名称
@@ -16,13 +16,13 @@ type Tm1051Dto[T AcctAgreementJson | PayAgreementJson] struct {
 	NotifyUrl     string `json:"notifyUrl"`     // 签约结果通知地址
 }
 
-type AcctAgreementJson struct {
-	PayeeAgreeToken    string            `json:"payeeAgreeToken,omitempty"`    // 签约会员的收款协议文件token 收款方协议
-	WithdrawAgreeToken string            `json:"withdrawAgreeToken,omitempty"` // 签约会员的账户提现协议文件token 若会员需要按照企业/个人主体签账户提现协议,则上送文件token
-	AuthPerAgreeInfo   *AuthPerAgreeInfo `json:"authPerAgreeInfo,omitempty"`   // 签约会员的授权委托协议信息 上送,则进行签约 具体字段见【线下授权委托协议(绑定手机号)信息】
+type Tm1051AcctAgreementJson struct {
+	PayeeAgreeToken    string                  `json:"payeeAgreeToken,omitempty"`    // 签约会员的收款协议文件token 收款方协议
+	WithdrawAgreeToken string                  `json:"withdrawAgreeToken,omitempty"` // 签约会员的账户提现协议文件token 若会员需要按照企业/个人主体签账户提现协议,则上送文件token
+	AuthPerAgreeInfo   *Tm1051AuthPerAgreeInfo `json:"authPerAgreeInfo,omitempty"`   // 签约会员的授权委托协议信息 上送,则进行签约 具体字段见【线下授权委托协议(绑定手机号)信息】
 }
 
-type AuthPerAgreeInfo struct {
+type Tm1051AuthPerAgreeInfo struct {
 	AuthPhone         string `json:"authPhone"`         // 被授权人手机号
 	AuthPerName       string `json:"authPerName"`       // 被授权人姓名
 	AuthPerCerNum     string `json:"authPerCerNum"`     // 被授权人证件号 SM4 加密
@@ -30,8 +30,8 @@ type AuthPerAgreeInfo struct {
 	AuthPerAgreeToken string `json:"authPerAgreeToken"` // 签约会员的授权委托协议文件token
 }
 
-func NewAuthPerAgreeInfo(authPhone string, authPerName string, authPerCerNum string, authPerCerType string, authPerAgreeToken string) *AuthPerAgreeInfo {
-	return &AuthPerAgreeInfo{
+func NewTm1051AuthPerAgreeInfo(authPhone string, authPerName string, authPerCerNum string, authPerCerType string, authPerAgreeToken string) *Tm1051AuthPerAgreeInfo {
+	return &Tm1051AuthPerAgreeInfo{
 		AuthPhone:         authPhone,
 		AuthPerName:       authPerName,
 		AuthPerCerNum:     authPerCerNum,
@@ -40,40 +40,40 @@ func NewAuthPerAgreeInfo(authPhone string, authPerName string, authPerCerNum str
 	}
 }
 
-func NewAcctAgreementJson() *AcctAgreementJson {
-	return &AcctAgreementJson{}
+func NewAcctAgreementJson() *Tm1051AcctAgreementJson {
+	return &Tm1051AcctAgreementJson{}
 }
 
-func (x *AcctAgreementJson) SetPayeeAgreeToken(v string) *AcctAgreementJson {
+func (x *Tm1051AcctAgreementJson) SetPayeeAgreeToken(v string) *Tm1051AcctAgreementJson {
 	x.PayeeAgreeToken = v
 	return x
 }
 
-func (x *AcctAgreementJson) SetWithdrawAgreeToken(v string) *AcctAgreementJson {
+func (x *Tm1051AcctAgreementJson) SetWithdrawAgreeToken(v string) *Tm1051AcctAgreementJson {
 	x.WithdrawAgreeToken = v
 	return x
 }
 
-func (x *AcctAgreementJson) SetAuthPerAgreeInfo(v *AuthPerAgreeInfo) *AcctAgreementJson {
+func (x *Tm1051AcctAgreementJson) SetAuthPerAgreeInfo(v *Tm1051AuthPerAgreeInfo) *Tm1051AcctAgreementJson {
 	x.AuthPerAgreeInfo = v
 	return x
 }
 
-type PayAgreementJson struct {
+type Tm1051PayAgreementJson struct {
 	PayAcctNoOpenAgreeToken  string `json:"payAcctNoOpenAgreeToken,omitempty"`  // 通联支付账户服务协议文件token
 	CoopConfirmToken         string `json:"coopConfirmToken,omitempty"`         // 客户业务合作确认函文件token
 	NonNatureCusBenefitToken string `json:"nonNatureCusBenefitToken,omitempty"` // 非自然人客户受益所有人信息登记表文件token
 }
 
-func NewPayAgreementJson(payAcctNoOpenAgreeToken string, coopConfirmToken string, nonNatureCusBenefitToken string) *PayAgreementJson {
-	return &PayAgreementJson{
+func NewTm1051PayAgreementJson(payAcctNoOpenAgreeToken string, coopConfirmToken string, nonNatureCusBenefitToken string) *Tm1051PayAgreementJson {
+	return &Tm1051PayAgreementJson{
 		PayAcctNoOpenAgreeToken:  payAcctNoOpenAgreeToken,
 		CoopConfirmToken:         coopConfirmToken,
 		NonNatureCusBenefitToken: nonNatureCusBenefitToken,
 	}
 }
 
-func NewTm1051Dto[T AcctAgreementJson | PayAgreementJson](reqTraceNum string, signNum string, memberName string,
+func NewTm1051Dto[T Tm1051AcctAgreementJson | Tm1051PayAgreementJson](reqTraceNum string, signNum string, memberName string,
 	agreementType string, agreementJson T, notifyUrl string) *Tm1051Dto[T] {
 	return &Tm1051Dto[T]{
 		ReqTraceNum:   reqTraceNum,

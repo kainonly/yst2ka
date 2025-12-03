@@ -19,23 +19,23 @@ func NewTm1027Dto(signNum string, infoType string) *Tm1027Dto {
 	}
 }
 
-type Tm1027Result[T PersonInfo | EnterpriseInfo | M] struct {
-	RespCode          string            `json:"respCode"`                    // 业务返回码
-	RespMsg           string            `json:"respMsg"`                     // 业务返回说明
-	SignNum           string            `json:"signNum"`                     // 商户会员编号
-	MemberBasicInfo   T                 `json:"memberBasicInfo,omitempty"`   // 会员基本信息
-	AcctInfo          []AcctInfo        `json:"acctInfo,omitempty"`          // 银行账户信息
-	AgreementArray    []Agreement       `json:"agreementArray,omitempty"`    // 协议信息
-	OcrResultJson     OcrResultJson     `json:"ocrResultJson,omitempty"`     // 影印件OCR核对结果
-	BindPhoneJson     BindPhoneJson     `json:"bindPhoneJson,omitempty"`     // 绑定手机号信息
-	PayAcctOpenJson   PayAcctOpenJson   `json:"payAcctOpenJson,omitempty"`   // 支付账户开户信息
-	PayAcctAuditJson  PayAcctAuditJson  `json:"payAcctAuditJson,omitempty"`  // 支付账户审核结果详情
-	BankSubAcctInfo   M                 `json:"bankSubAcctInfo,omitempty"`   // 银行子账户信息
-	SettleAcctInfo    SettleAcctInfo    `json:"settleAcctInfo,omitempty"`    // 待结算户信息
-	MemberControlInfo MemberControlInfo `json:"memberControlInfo,omitempty"` // 会员交易控制类型
+type Tm1027Result[T Tm1027PersonInfo | Tm1027EnterpriseInfo | M] struct {
+	RespCode          string                  `json:"respCode"`                    // 业务返回码
+	RespMsg           string                  `json:"respMsg"`                     // 业务返回说明
+	SignNum           string                  `json:"signNum"`                     // 商户会员编号
+	MemberBasicInfo   T                       `json:"memberBasicInfo,omitempty"`   // 会员基本信息
+	AcctInfo          []Tm1027AcctInfo        `json:"acctInfo,omitempty"`          // 银行账户信息
+	AgreementArray    []Tm1027Agreement       `json:"agreementArray,omitempty"`    // 协议信息
+	OcrResultJson     Tm1027OcrResultJson     `json:"ocrResultJson,omitempty"`     // 影印件OCR核对结果
+	BindPhoneJson     Tm1027BindPhoneJson     `json:"bindPhoneJson,omitempty"`     // 绑定手机号信息
+	PayAcctOpenJson   Tm1027PayAcctOpenJson   `json:"payAcctOpenJson,omitempty"`   // 支付账户开户信息
+	PayAcctAuditJson  Tm1027PayAcctAuditJson  `json:"payAcctAuditJson,omitempty"`  // 支付账户审核结果详情
+	BankSubAcctInfo   M                       `json:"bankSubAcctInfo,omitempty"`   // 银行子账户信息
+	SettleAcctInfo    Tm1027SettleAcctInfo    `json:"settleAcctInfo,omitempty"`    // 待结算户信息
+	MemberControlInfo Tm1027MemberControlInfo `json:"memberControlInfo,omitempty"` // 会员交易控制类型
 }
 
-type PersonInfo struct {
+type Tm1027PersonInfo struct {
 	Name             string `json:"name"`             // 姓名
 	CerType          string `json:"cerType"`          // 证件类型
 	CerNum           string `json:"cerNum"`           // 身份证号码
@@ -51,7 +51,7 @@ type PersonInfo struct {
 	MemberType       string `json:"memberType"`       // 会员类型
 }
 
-type EnterpriseInfo struct {
+type Tm1027EnterpriseInfo struct {
 	MemberRole          string `json:"memberRole"`
 	MemberType          string `json:"memberType"`
 	EnterpriseName      string `json:"enterpriseName"`
@@ -73,7 +73,7 @@ type EnterpriseInfo struct {
 	RespMsg             string `json:"respMsg"`
 }
 
-type AcctInfo struct {
+type Tm1027AcctInfo struct {
 	BankCardNo         string `json:"bankCardNo"`         // 银行卡号
 	BankAccountName    string `json:"bankAccountName"`    // 银行户名
 	BankName           string `json:"bankName"`           // 银行名称
@@ -90,7 +90,7 @@ type AcctInfo struct {
 	IsSpecifyAcct      string `json:"isSpecifyAcct"`      // 是否为支付账户指定出入金银行账户
 }
 
-type Agreement struct {
+type Tm1027Agreement struct {
 	SignAccount       string            `json:"signAccount"`       // 签约户名
 	AgreementType     string            `json:"agreementType"`     // 协议类型
 	SignResult        string            `json:"signResult"`        // 签约结果
@@ -99,24 +99,24 @@ type Agreement struct {
 	AnotherMemberInfo map[string]string `json:"anotherMemberInfo"` // 另一方(收款方/分账方)签约信息
 }
 
-type OcrResultJson struct {
+type Tm1027OcrResultJson struct {
 	EnterpriseCompareResult  string `json:"enterpriseCompareResult"`  // OCR识别与企业工商认证信息是否一致
 	LegalPersonCompareResult string `json:"legalPersonCompareResult"` // OCR识别与企业法人实名信息是否一致
 }
 
-type BindPhoneJson struct {
+type Tm1027BindPhoneJson struct {
 	IsBind string `json:"isBind"` // 是否已绑定手机
 	Phone  string `json:"phone"`  // 绑定手机
 }
 
-type PayAcctOpenJson struct {
+type Tm1027PayAcctOpenJson struct {
 	CusId           string `json:"cusId"`           // 统一客户号
 	PayAcctNo       string `json:"payAcctNo"`       // 支付账户号
 	PayAcctNoStatus string `json:"payAcctNoStatus"` // 支付账户状态
 	OpenAcctTime    string `json:"openAcctTime"`    // 开户时间
 }
 
-type PayAcctAuditJson struct {
+type Tm1027PayAcctAuditJson struct {
 	EnterpriseVerifyResult    string `json:"enterpriseVerifyResult"`    // 工商验证
 	LegalIdCardVerifyResult   string `json:"legalIdCardVerifyResult"`   // 法人验证
 	BankAcctVerifyResult      string `json:"bankAcctVerifyResult"`      // 银行结算账户验证
@@ -132,13 +132,13 @@ type PayAcctAuditJson struct {
 	TlPayAcctNoAgreeResult    string `json:"tlPayAcctNoAgreeResult"`    // 通联单位支付账户服务协议
 }
 
-type SettleAcctInfo struct {
+type Tm1027SettleAcctInfo struct {
 	VspCusId string `json:"vspCusId"` // 收银宝商户号
 	AcctNo   string `json:"acctNo"`   // 待结算账户号
 	Status   string `json:"status"`   // 待结算户状态
 }
 
-type MemberControlInfo struct {
+type Tm1027MemberControlInfo struct {
 	SepOutFlag         string `json:"sepOutFlag"`         // 分账出金
 	SepInFlag          string `json:"sepInFlag"`          // 分账入金
 	MemberWithdrawFlag string `json:"memberWithdrawFlag"` // 会员提现
@@ -163,8 +163,8 @@ func (x *Yst2Ka) Tm1027(ctx context.Context, dto *Tm1027Dto, i any) (err error) 
 	return
 }
 
-func (x *Yst2Ka) GetPersonInfo(ctx context.Context, signNum string) (info PersonInfo, err error) {
-	var r Tm1027Result[PersonInfo]
+func (x *Yst2Ka) GetPersonInfo(ctx context.Context, signNum string) (info Tm1027PersonInfo, err error) {
+	var r Tm1027Result[Tm1027PersonInfo]
 	dto := NewTm1027Dto(signNum, "1")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
 		return
@@ -173,8 +173,8 @@ func (x *Yst2Ka) GetPersonInfo(ctx context.Context, signNum string) (info Person
 	return
 }
 
-func (x *Yst2Ka) GetEnterpriseInfo(ctx context.Context, signNum string) (info EnterpriseInfo, err error) {
-	var r Tm1027Result[EnterpriseInfo]
+func (x *Yst2Ka) GetEnterpriseInfo(ctx context.Context, signNum string) (info Tm1027EnterpriseInfo, err error) {
+	var r Tm1027Result[Tm1027EnterpriseInfo]
 	dto := NewTm1027Dto(signNum, "1")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
 		return
@@ -183,7 +183,7 @@ func (x *Yst2Ka) GetEnterpriseInfo(ctx context.Context, signNum string) (info En
 	return
 }
 
-func (x *Yst2Ka) GetAcctInfos(ctx context.Context, signNum string) (infos []AcctInfo, err error) {
+func (x *Yst2Ka) GetAcctInfos(ctx context.Context, signNum string) (infos []Tm1027AcctInfo, err error) {
 	var r Tm1027Result[map[string]any]
 	dto := NewTm1027Dto(signNum, "2")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
@@ -193,7 +193,7 @@ func (x *Yst2Ka) GetAcctInfos(ctx context.Context, signNum string) (infos []Acct
 	return
 }
 
-func (x *Yst2Ka) GetAgreements(ctx context.Context, signNum string) (agreements []Agreement, err error) {
+func (x *Yst2Ka) GetAgreements(ctx context.Context, signNum string) (agreements []Tm1027Agreement, err error) {
 	var r Tm1027Result[M]
 	dto := NewTm1027Dto(signNum, "3")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
@@ -203,7 +203,7 @@ func (x *Yst2Ka) GetAgreements(ctx context.Context, signNum string) (agreements 
 	return
 }
 
-func (x *Yst2Ka) GetOcrResultJson(ctx context.Context, signNum string) (ocr OcrResultJson, err error) {
+func (x *Yst2Ka) GetOcrResultJson(ctx context.Context, signNum string) (ocr Tm1027OcrResultJson, err error) {
 	var r Tm1027Result[M]
 	dto := NewTm1027Dto(signNum, "4")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
@@ -213,7 +213,7 @@ func (x *Yst2Ka) GetOcrResultJson(ctx context.Context, signNum string) (ocr OcrR
 	return
 }
 
-func (x *Yst2Ka) GetBindPhoneJson(ctx context.Context, signNum string) (bindPhone BindPhoneJson, err error) {
+func (x *Yst2Ka) GetBindPhoneJson(ctx context.Context, signNum string) (bindPhone Tm1027BindPhoneJson, err error) {
 	var r Tm1027Result[M]
 	dto := NewTm1027Dto(signNum, "5")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
@@ -223,7 +223,7 @@ func (x *Yst2Ka) GetBindPhoneJson(ctx context.Context, signNum string) (bindPhon
 	return
 }
 
-func (x *Yst2Ka) GetPayAcctOpenJson(ctx context.Context, signNum string) (info PayAcctOpenJson, err error) {
+func (x *Yst2Ka) GetPayAcctOpenJson(ctx context.Context, signNum string) (info Tm1027PayAcctOpenJson, err error) {
 	var r Tm1027Result[M]
 	dto := NewTm1027Dto(signNum, "6")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
@@ -233,7 +233,7 @@ func (x *Yst2Ka) GetPayAcctOpenJson(ctx context.Context, signNum string) (info P
 	return
 }
 
-func (x *Yst2Ka) GetPayAcctAuditJson(ctx context.Context, signNum string) (info PayAcctAuditJson, err error) {
+func (x *Yst2Ka) GetPayAcctAuditJson(ctx context.Context, signNum string) (info Tm1027PayAcctAuditJson, err error) {
 	var r Tm1027Result[M]
 	dto := NewTm1027Dto(signNum, "7")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
@@ -253,7 +253,7 @@ func (x *Yst2Ka) GetbankSubAcctInfo(ctx context.Context, signNum string) (info M
 	return
 }
 
-func (x *Yst2Ka) GetSettleAcctInfo(ctx context.Context, signNum string) (info SettleAcctInfo, err error) {
+func (x *Yst2Ka) GetSettleAcctInfo(ctx context.Context, signNum string) (info Tm1027SettleAcctInfo, err error) {
 	var r Tm1027Result[M]
 	dto := NewTm1027Dto(signNum, "9")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
@@ -263,7 +263,7 @@ func (x *Yst2Ka) GetSettleAcctInfo(ctx context.Context, signNum string) (info Se
 	return
 }
 
-func (x *Yst2Ka) GetMemberControlInfo(ctx context.Context, signNum string) (info MemberControlInfo, err error) {
+func (x *Yst2Ka) GetMemberControlInfo(ctx context.Context, signNum string) (info Tm1027MemberControlInfo, err error) {
 	var r Tm1027Result[M]
 	dto := NewTm1027Dto(signNum, "10")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {

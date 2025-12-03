@@ -13,7 +13,7 @@ func TestYst2Ka_Tm1027(t *testing.T) {
 	ctx := context.TODO()
 	dto := yst2ka.NewTm1027Dto(`PS2001`, "1")
 
-	var r yst2ka.Tm1027Result[yst2ka.PersonInfo]
+	var r yst2ka.Tm1027Result[yst2ka.Tm1027PersonInfo]
 	err := client.Tm1027(ctx, dto, &r)
 	assert.NoError(t, err)
 

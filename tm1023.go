@@ -31,7 +31,7 @@ type Tm1023Result[T any] struct {
 	BalanceDetail T      `json:"balanceDetail"` // 此应用下该会员号对应的所有账户余额
 }
 
-type BalanceDetail struct {
+type Tm1023BalanceDetail struct {
 	AcctNum           string `json:"acctNum"`                     // 账户号
 	AcctType          string `json:"acctType"`                    // 账户类型 01-簿记账户 11-支付账户 02-应用营销账户 03-应用担保账户 04-应用预充手续费 09-应用储值卡账户 10-储值卡待结算户
 	TotalAmt          int64  `json:"totalAmt"`                    // 总余额 可用+在途
@@ -60,8 +60,8 @@ func (x *Yst2Ka) Tm1023(ctx context.Context, dto *Tm1023Dto, i any) (err error) 
 	return
 }
 
-func (x *Yst2Ka) GetPlatformBalanceDetail(ctx context.Context) (detail BalanceDetail, err error) {
-	var r *Tm1023Result[BalanceDetail]
+func (x *Yst2Ka) GetPlatformBalanceDetail(ctx context.Context) (detail Tm1023BalanceDetail, err error) {
+	var r *Tm1023Result[Tm1023BalanceDetail]
 	if err = x.Tm1023(ctx, NewTm1023Dto(`yunBizUserId_B2C`), &r); err != nil {
 		return
 	}
@@ -69,7 +69,7 @@ func (x *Yst2Ka) GetPlatformBalanceDetail(ctx context.Context) (detail BalanceDe
 	return
 }
 
-func (x *Yst2Ka) GetMemberBalanceDetails(ctx context.Context, signNum string) (details []BalanceDetail, err error) {
+func (x *Yst2Ka) GetMemberBalanceDetails(ctx context.Context, signNum string) (details []Tm1023BalanceDetail, err error) {
 	var r *Tm1023Result[string]
 	if err = x.Tm1023(ctx, NewTm1023Dto(signNum), &r); err != nil {
 		return
@@ -84,7 +84,7 @@ func (x *Yst2Ka) GetMemberBalanceDetails(ctx context.Context, signNum string) (d
 		return
 	}
 
-	details = make([]BalanceDetail, 0)
+	details = make([]Tm1023BalanceDetail, 0)
 	if err = sonic.UnmarshalString(r.BalanceDetail, &details); err != nil {
 		return
 	}
