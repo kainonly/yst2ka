@@ -10,7 +10,7 @@ import (
 
 func TestYst2Ka_Tm1020(t *testing.T) {
 	ctx := context.TODO()
-	code := `VAN1001`
+	code := `VAN1002`
 	num := Num(`EN`, code, `0`)
 
 	legalPersonCerNum, err := v.Encrypt(`51370119380325580x`)
