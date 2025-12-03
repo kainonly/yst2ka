@@ -10,7 +10,7 @@ import (
 
 func TestYst2Ka_Tm1026(t *testing.T) {
 	ctx := context.TODO()
-	num := Num(`X`, `0`, `0`)
+	num := Num(`X`, cfg.PersonCode, `0`)
 
 	dto := yst2ka.NewTm1026Dto(num)
 
