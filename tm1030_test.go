@@ -10,16 +10,13 @@ import (
 
 func TestYst2Ka_Tm1030(t *testing.T) {
 	ctx := context.TODO()
-	code := `ES1002`
-	num := Num(`X`, code, `0`)
-
-	dto := yst2ka.NewTm1030Dto(num, code, cfg.Phone).
-		SetNotifyUrl(`https://notify.kainonly.com:8443/tm1030/callback`)
+	num := Num(`X`, cfg.EnterpriseCode, `0`)
+	dto := yst2ka.NewTm1030Dto(num, cfg.EnterpriseCode, cfg.Phone).
+		SetPhoneType(`1`).
+		SetNotifyUrl(v.Notify(`/tm1030/callback`))
 
 	r, err := client.Tm1030(ctx, dto)
 	assert.NoError(t, err)
-
-	t.Log(r)
 
 	t.Log(`code:`, r.RespCode)
 	t.Log(`msg:`, r.RespMsg)

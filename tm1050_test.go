@@ -10,17 +10,16 @@ import (
 
 func TestYst2Ka_Tm1050(t *testing.T) {
 	ctx := context.TODO()
-	code := `PS2001`
-	num := Num(`X`, code, `0`)
+	num := Num(`X`, cfg.PersonCode, `0`)
 
-	dto := yst2ka.NewTm1050Dto(num, code, `李一四`, `1`,
-		`https://notify.kainonly.com:8443/tm1052/callback`,
+	dto := yst2ka.NewTm1050Dto(num, cfg.PersonCode, `李一四`, `1`,
+		v.Notify(`/tm1052/callback`),
 	)
 	r, err := client.Tm1050(ctx, dto)
 	assert.NoError(t, err)
 
 	t.Log(`code:`, r.RespCode)
 	t.Log(`msg:`, r.RespMsg)
-	t.Log(`signNum:`, r.Phone)
+	t.Log(`signAgreementUrl:`, r.SignAgreementUrl)
 	t.Log(`respTraceNum:`, r.RespTraceNum)
 }

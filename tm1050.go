@@ -28,10 +28,10 @@ func NewTm1050Dto(reqTraceNum string, signNum string, memberName string, agreeme
 }
 
 type Tm1050Result struct {
-	RespTraceNum string `json:"respTraceNum"` // 响应流水号
-	Phone        string `json:"phone"`        // 绑定或解绑手机号
-	RespCode     string `json:"respCode"`     // 业务返回码
-	RespMsg      string `json:"respMsg"`      // 业务返回说明
+	RespTraceNum     string `json:"respTraceNum"`     // 响应流水号
+	RespCode         string `json:"respCode"`         // 业务返回码
+	RespMsg          string `json:"respMsg"`          // 业务返回说明
+	SignAgreementUrl string `json:"signAgreementUrl"` // 会员签订的相关协议签约地址
 }
 
 func (x *Yst2Ka) Tm1050(ctx context.Context, dto *Tm1050Dto) (_ *Tm1050Result, err error) {

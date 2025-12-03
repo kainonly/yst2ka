@@ -29,12 +29,19 @@ func (x *Values) Encrypt(plaintext string) (string, error) {
 	return help.SM4Encrypt(x.Config().SecretKey, plaintext)
 }
 
+func (x *Values) Notify(path string) string {
+	return fmt.Sprintf("%s/%s", x.Config().NotifyUrl, path)
+}
+
 type ConfigMap struct {
 	BaseUrl              string `yaml:"base_url"`
+	NotifyUrl            string `yaml:"notify_url"`
 	PrivateKeyStr        string `yaml:"private_key_str"`
 	AllinpayPublicKeyStr string `yaml:"allinpay_public_key_str"`
 	AppID                string `yaml:"app_id"`
 	SecretKey            string `yaml:"secret_key"`
+	PersonCode           string `yaml:"person_code"`
+	EnterpriseCode       string `yaml:"enterprise_code"`
 	Phone                string `yaml:"phone"`
 }
 

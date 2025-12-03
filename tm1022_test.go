@@ -10,10 +10,9 @@ import (
 
 func TestYst2Ka_Tm1022(t *testing.T) {
 	ctx := context.TODO()
-	code := `ES1002`
-	num := Num(`X`, code, `0`)
+	num := Num(`X`, cfg.EnterpriseCode, `0`)
 
-	dto := yst2ka.NewTm1022Dto(num, code, `https://notify.kainonly.com:8443/tm1022/callback`).
+	dto := yst2ka.NewTm1022Dto(num, cfg.EnterpriseCode, v.Notify(`/tm1022/callback`)).
 		SetLegpCerFront(`3320251120151991415567696941058`).
 		SetLegpCerBack(`3320251120151991413871184859138`).
 		SetUnifiedSocialCredit(`3320251120151991415604724256769`)

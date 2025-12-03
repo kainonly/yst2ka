@@ -10,14 +10,11 @@ import (
 
 func TestYst2Ka_Tm1031(t *testing.T) {
 	ctx := context.TODO()
-	code := `PS2001`
-	num := Num(`X`, code, `0`)
+	num := Num(`X`, cfg.EnterpriseCode, `0`)
 
-	dto := yst2ka.NewTm1031Dto(num, code, cfg.Phone)
+	dto := yst2ka.NewTm1031Dto(num, cfg.EnterpriseCode, cfg.Phone)
 	r, err := client.Tm1031(ctx, dto)
 	assert.NoError(t, err)
-
-	t.Log(r)
 
 	t.Log(`code:`, r.RespCode)
 	t.Log(`msg:`, r.RespMsg)

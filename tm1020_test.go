@@ -10,8 +10,7 @@ import (
 
 func TestYst2Ka_Tm1020(t *testing.T) {
 	ctx := context.TODO()
-	code := `ES1002`
-	num := Num(`X`, code, `0`)
+	num := Num(`X`, cfg.EnterpriseCode, `0`)
 
 	legalPersonCerNum, err := v.Encrypt(`51370119380325580x`)
 	assert.NoError(t, err)
@@ -19,7 +18,7 @@ func TestYst2Ka_Tm1020(t *testing.T) {
 	acctNum, err := v.Encrypt(`123426789159100`)
 	assert.NoError(t, err)
 
-	dto := yst2ka.NewTm1020Dto(num, code, `https://notify.kainonly.com:8443/tm1020/callback`).
+	dto := yst2ka.NewTm1020Dto(num, cfg.EnterpriseCode, v.Notify(`/tm1020/callback`)).
 		SetMemberRole(`门店`).
 		SetEnterpriseBaseInfo(*yst2ka.NewTm1020EnterpriseBaseInfo(
 			"竹溪县子怡鞋店",

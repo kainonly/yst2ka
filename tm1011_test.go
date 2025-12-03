@@ -9,12 +9,15 @@ import (
 )
 
 func TestYst2Ka_Tm1011(t *testing.T) {
-	ctx := context.TODO()
-	code := `PS2001`
-	num := Num(`X`, code, `0`)
+	// 以下两种需要确认
+	// 6-通联通协议支付签约
+	// 7-收银宝快捷支付签约
 
-	dto := yst2ka.NewTm1011Dto(num, code,
-		`20251203141134101000525663`,
+	ctx := context.TODO()
+	num := Num(`X`, cfg.PersonCode, `0`)
+
+	dto := yst2ka.NewTm1011Dto(num, cfg.PersonCode,
+		`20251203151610101000526390`,
 		cfg.Phone,
 		`277733`,
 	)
