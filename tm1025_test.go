@@ -10,9 +10,10 @@ import (
 
 func TestYst2Ka_Tm1025(t *testing.T) {
 	ctx := context.TODO()
-	code := `ES1002`
-	num := Num(`X`, code, `0`)
+	code := `ES5000`
+	//Register(t, code)
 
+	num := Num(`X`, code, `0`)
 	legalPersonCerNum, err := v.Encrypt(`51370119380325580x`)
 	assert.NoError(t, err)
 
@@ -59,12 +60,14 @@ func TestYst2Ka_Tm1025(t *testing.T) {
 		SetBeneficiaryFile(`3320240402211775150181608763394`)
 
 	dto := yst2ka.NewTm1025Dto(num, code,
-		`https://notify.kainonly.com:8443`,
+		v.Notify(`/tm1025/callback`),
 		enterpriseBaseInfo,
 		legAndBeneficiaryInfo,
 		bankAcctDetail,
 		attachments,
-	)
+	).
+		SetMemberRole(`门店`).
+		SetEnterpriseNature(`2`)
 
 	var r *yst2ka.Tm1025Result
 	r, err = client.Tm1025(ctx, dto)

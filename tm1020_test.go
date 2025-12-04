@@ -9,8 +9,12 @@ import (
 )
 
 func TestYst2Ka_Tm1020(t *testing.T) {
+	Register(t, cfg.EnterpriseCode)
+}
+
+func Register(t *testing.T, code string) {
 	ctx := context.TODO()
-	num := Num(`X`, cfg.EnterpriseCode, `0`)
+	num := Num(`X`, code, `0`)
 
 	legalPersonCerNum, err := v.Encrypt(`51370119380325580x`)
 	assert.NoError(t, err)
@@ -18,7 +22,7 @@ func TestYst2Ka_Tm1020(t *testing.T) {
 	acctNum, err := v.Encrypt(`123426789159100`)
 	assert.NoError(t, err)
 
-	dto := yst2ka.NewTm1020Dto(num, cfg.EnterpriseCode, v.Notify(`/tm1020/callback`)).
+	dto := yst2ka.NewTm1020Dto(num, code, v.Notify(`/tm1020/callback`)).
 		SetMemberRole(`门店`).
 		SetEnterpriseBaseInfo(*yst2ka.NewTm1020EnterpriseBaseInfo(
 			"竹溪县子怡鞋店",
@@ -30,7 +34,7 @@ func TestYst2Ka_Tm1020(t *testing.T) {
 			legalPersonCerNum,
 			"12312341234",
 		).
-			SetEnterpriseNature("2").
+			SetEnterpriseNature(`2`).
 			SetBusLicenseValidate("9999-12-31").
 			SetIdValidateStart("2023-12-31").
 			SetIdValidateEnd("9999-12-31")).
@@ -47,8 +51,6 @@ func TestYst2Ka_Tm1020(t *testing.T) {
 
 	r, err := client.Tm1020(ctx, dto)
 	assert.NoError(t, err)
-
-	t.Log(r)
 
 	t.Log(`code:`, r.RespCode)
 	t.Log(`msg:`, r.RespMsg)
