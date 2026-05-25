@@ -7,17 +7,17 @@ import (
 	"github.com/bytedance/sonic"
 )
 
-type Tq3004Dto struct {
+type Tq3001Dto struct {
 }
 
-func NewTq3004Dto() *Tq3004Dto {
-	return &Tq3004Dto{}
+func NewTq3001Dto() *Tq3001Dto {
+	return &Tq3001Dto{}
 }
 
-type Tq3004Result struct {
+type Tq3001Result struct {
 }
 
-func (x *Yst2Ka) Tm3004(ctx context.Context, dto *Tq3004Dto) (_ *Tq3004Result, err error) {
+func (x *Yst2Ka) Tq3001(ctx context.Context, dto *Tq3001Dto) (_ *Tq3001Result, err error) {
 	now := time.Now()
 	var data string
 	if data, err = sonic.MarshalString(*dto); err != nil {
@@ -26,11 +26,11 @@ func (x *Yst2Ka) Tm3004(ctx context.Context, dto *Tq3004Dto) (_ *Tq3004Result, e
 
 	var bizData string
 	if bizData, err = x.Request(x.SetNow(ctx, now),
-		`/tm/handle`, `3004`, data); err != nil {
+		`/tq/handle`, `3001`, data); err != nil {
 		return
 	}
 
-	var result Tq3004Result
+	var result Tq3001Result
 	if err = sonic.UnmarshalString(bizData, &result); err != nil {
 		return
 	}
