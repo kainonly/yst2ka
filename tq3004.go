@@ -25,34 +25,34 @@ func NewTq3004Dto(signNum string, acctType string) *Tq3004Dto {
 	}
 }
 
-func (t *Tq3004Dto) SetQryTransCode(qryTransCode string) *Tq3004Dto {
-	t.QryTransCode = qryTransCode
-	return t
+func (x *Tq3004Dto) SetQryTransCode(qryTransCode string) *Tq3004Dto {
+	x.QryTransCode = qryTransCode
+	return x
 }
 
-func (t *Tq3004Dto) SetRespTraceNum(respTraceNum string) *Tq3004Dto {
-	t.RespTraceNum = respTraceNum
-	return t
+func (x *Tq3004Dto) SetRespTraceNum(respTraceNum string) *Tq3004Dto {
+	x.RespTraceNum = respTraceNum
+	return x
 }
 
-func (t *Tq3004Dto) SetBeginTime(beginTime string) *Tq3004Dto {
-	t.BeginTime = beginTime
-	return t
+func (x *Tq3004Dto) SetBeginTime(beginTime string) *Tq3004Dto {
+	x.BeginTime = beginTime
+	return x
 }
 
-func (t *Tq3004Dto) SetEndTime(endTime string) *Tq3004Dto {
-	t.EndTime = endTime
-	return t
+func (x *Tq3004Dto) SetEndTime(endTime string) *Tq3004Dto {
+	x.EndTime = endTime
+	return x
 }
 
-func (t *Tq3004Dto) SetQryStart(qryStart string) *Tq3004Dto {
-	t.QryStart = qryStart
-	return t
+func (x *Tq3004Dto) SetQryStart(qryStart string) *Tq3004Dto {
+	x.QryStart = qryStart
+	return x
 }
 
-func (t *Tq3004Dto) SetQryCount(qryCount string) *Tq3004Dto {
-	t.QryCount = qryCount
-	return t
+func (x *Tq3004Dto) SetQryCount(qryCount string) *Tq3004Dto {
+	x.QryCount = qryCount
+	return x
 }
 
 type Tq3004Result struct {

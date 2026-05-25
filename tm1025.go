@@ -39,14 +39,14 @@ func NewTm1025Dto(
 	}
 }
 
-func (t *Tm1025Dto) SetMemberRole(memberRole string) *Tm1025Dto {
-	t.MemberRole = memberRole
-	return t
+func (x *Tm1025Dto) SetMemberRole(memberRole string) *Tm1025Dto {
+	x.MemberRole = memberRole
+	return x
 }
 
-func (t *Tm1025Dto) SetEnterpriseNature(enterpriseNature string) *Tm1025Dto {
-	t.EnterpriseNature = enterpriseNature
-	return t
+func (x *Tm1025Dto) SetEnterpriseNature(enterpriseNature string) *Tm1025Dto {
+	x.EnterpriseNature = enterpriseNature
+	return x
 }
 
 type Tm1025EnterpriseBaseInfo struct {
