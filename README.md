@@ -114,10 +114,14 @@ Tm 接口实现情况：
 | -------- | ------------------------------ | --------------------------------------------- | -------- |
 | Tm1010   | 个人会员实名及绑卡（申请）     | [663](https://prodoc.allinpay.com/doc/663/)   | ✓        |
 | Tm1011   | 个人会员实名及绑卡（确认）     | [664](https://prodoc.allinpay.com/doc/664/)   | ✓        |
+| Tm1012   | 个人会员开户h5                 | [2070](https://prodoc.allinpay.com/doc/2070/) | ✓        |
+| Tm1013   | 企业会员开户h5                 | [2072](https://prodoc.allinpay.com/doc/2072/) | ✓        |
 | Tm1014   | 会员解绑银行卡                 | [2429](https://prodoc.allinpay.com/doc/2429/) | ✓        |
+| Tm1015   | 银行卡信息同步                 | [2605](https://prodoc.allinpay.com/doc/2605/) | ✓        |
 | Tm1020   | 企业会员实名开户               | [661](https://prodoc.allinpay.com/doc/661/)   | ✓        |
 | Tm1022   | 会员资料补录                   | [662](https://prodoc.allinpay.com/doc/662/)   | ✓        |
 | Tm1023   | 账户余额查询                   | [673](https://prodoc.allinpay.com/doc/673/)   | ✓        |
+| Tm1024   | 会员绑定收银宝商户             | [676](https://prodoc.allinpay.com/doc/676/)   | ✓        |
 | Tm1025   | 企业会员支付账户开户           | [671](https://prodoc.allinpay.com/doc/671/)   | ✓        |
 | Tm1026   | 平台资金查询                   | [675](https://prodoc.allinpay.com/doc/675/)   | ✓        |
 | Tm1027   | 查询会员信息                   | [672](https://prodoc.allinpay.com/doc/672/)   | ✓        |
@@ -127,9 +131,13 @@ Tm 接口实现情况：
 | Tm1032   | 确认绑定/解绑手机号            | [666](https://prodoc.allinpay.com/doc/666/)   | ✓        |
 | Tm1033   | 企业会员新增绑定对公户         | [852](https://prodoc.allinpay.com/doc/852/)   | ✓        |
 | Tm1035   | 企业会员信息修改               | [1884](https://prodoc.allinpay.com/doc/1884/) | ✓        |
+| Tm1043   | 账户留存额度管理               | [2263](https://prodoc.allinpay.com/doc/2263/) | ✓        |
 | Tm1050   | 会员线上协议签约申请           | [668](https://prodoc.allinpay.com/doc/668/)   | ✓        |
 | Tm1051   | 线下协议文件上传               | [669](https://prodoc.allinpay.com/doc/669/)   | ✓        |
 | Tm1053   | 签约协议查看H5                 | [1075](https://prodoc.allinpay.com/doc/1075/) | ✓        |
+| Tm2299   | 银行资金调拨至商户             | [2723](https://prodoc.allinpay.com/doc/2723/) | ✓        |
+| Tm4001   | 终端信息管理                   | [677](https://prodoc.allinpay.com/doc/677/)   | ✓        |
+| Tm4043   | 根据授权码(付款码)获取用户ID   | [2197](https://prodoc.allinpay.com/doc/2197/) | ✓        |
 
 其中部分查询类接口还提供了语义化辅助方法，例如：
 
@@ -140,29 +148,54 @@ Tm 接口实现情况：
 
 Tx 接口实现情况：
 
-| 接口代码 | 接口标题                        | 文档地址                                      | 是否实现 |
-| -------- | ------------------------------- | --------------------------------------------- | -------- |
-| Tx2084   | 转账申请                        | [681](https://prodoc.allinpay.com/doc/681/)   | ✓        |
-| Tx2085   | 消费申请                        | [679](https://prodoc.allinpay.com/doc/679/)   | ✓        |
-| Tx2089   | 担保消费申请                    | [680](https://prodoc.allinpay.com/doc/680/)   | ✓        |
-| Tx2090   | 单订单担保确认                  | [680](https://prodoc.allinpay.com/doc/680/)   | ✓        |
-| Tx2091   | 单会员担保确认                  | [680](https://prodoc.allinpay.com/doc/680/)   | ✓        |
-| Tx2094   | 储值卡订单核销                  | [859](https://prodoc.allinpay.com/doc/859/)   | ✓        |
-| Tx2096   | 充值申请                        | [1516](https://prodoc.allinpay.com/doc/1516/) | ✓        |
-| Tx2290   | 提现申请                        | [682](https://prodoc.allinpay.com/doc/682/)   | ✓        |
-| Tx2294   | 退款申请                        | [683](https://prodoc.allinpay.com/doc/683/)   | ✓        |
-| Tx2295   | 订单关闭                        | [684](https://prodoc.allinpay.com/doc/684/)   | ✓        |
-| Tx3010   | 确认支付（后台+短信验证码确认） | [685](https://prodoc.allinpay.com/doc/685/)   | ✓        |
+| 接口代码 | 接口标题                         | 文档地址                                                                                      | 是否实现 |
+| -------- | -------------------------------- | --------------------------------------------------------------------------------------------- | -------- |
+| Tx2084   | 转账申请                         | [681](https://prodoc.allinpay.com/doc/681/)                                                   | ✓        |
+| Tx2085   | 消费申请                         | [679](https://prodoc.allinpay.com/doc/679/)                                                   | ✓        |
+| Tx2086   | 平台垫资发放                     | [2344](https://prodoc.allinpay.com/doc/2344/)                                                 | ✓        |
+| Tx2089   | 担保消费申请                     | [680](https://prodoc.allinpay.com/doc/680/)                                                   | ✓        |
+| Tx2090   | 单订单担保确认                   | [680](https://prodoc.allinpay.com/doc/680/)                                                   | ✓        |
+| Tx2091   | 单会员担保确认                   | [680](https://prodoc.allinpay.com/doc/680/)                                                   | ✓        |
+| Tx2094   | 储值卡订单核销                   | [859](https://prodoc.allinpay.com/doc/859/)                                                   | ✓        |
+| Tx2099   | 支付账户批量转账                 | [2601](https://prodoc.allinpay.com/doc/2601/)                                                 | ✓        |
+| Tx2096   | 充值申请                         | [1516](https://prodoc.allinpay.com/doc/1516/)                                                 | ✓        |
+| Tx2286   | 平台垫资还款                     | [2346](https://prodoc.allinpay.com/doc/2346/)                                                 | ✓        |
+| Tx2290   | 提现申请                         | [682](https://prodoc.allinpay.com/doc/682/)                                                   | ✓        |
+| Tx2293   | 银行资金调拨通联                 | [858](https://prodoc.allinpay.com/doc/858/)                                                   | ✓        |
+| Tx2294   | 退款申请                         | [683](https://prodoc.allinpay.com/doc/683/)                                                   | ✓        |
+| Tx2295   | 订单关闭                         | [684](https://prodoc.allinpay.com/doc/684/)                                                   | ✓        |
+| Tx3010   | 确认支付（后台+短信验证码确认）  | [685](https://prodoc.allinpay.com/doc/685/)                                                   | ✓        |
+| Tx4006   | 微信支付分服务单管理（间联模式） | [874](https://prodoc.allinpay.com/doc/874/)                                                   | ✓        |
+| Tx4013   | 自带参数的当面付 H5              | [1881](https://prodoc.allinpay.com/doc/1881/) / [2166](https://prodoc.allinpay.com/doc/2166/) | ✓        |
+| Tx4016   | 支付宝先享后付业务单管理接口     | [2547](https://prodoc.allinpay.com/doc/2547/)                                                 | ✓        |
+| Tx4023   | 吱口令生成                       | [2553](https://prodoc.allinpay.com/doc/2553/)                                                 | ✓        |
+| Tx4037   | 京东白条利息计算                 | [2341](https://prodoc.allinpay.com/doc/2341/)                                                 | ✓        |
 
 ### 交易结果查询类接口
 
 Tq 接口实现情况：
 
-| 接口代码 | 接口标题         | 文档地址                                    | 是否实现 |
-| -------- | ---------------- | ------------------------------------------- | -------- |
-| Tq3001   | 订单状态查询     | [689](https://prodoc.allinpay.com/doc/689/) | ✓        |
-| Tq3002   | 订单详情查询     | [690](https://prodoc.allinpay.com/doc/690/) | ✓        |
-| Tq3004   | 会员账户明细查询 | [674](https://prodoc.allinpay.com/doc/674/) | ✓        |
+| 接口代码 | 接口标题                 | 文档地址                                      | 是否实现 |
+| -------- | ------------------------ | --------------------------------------------- | -------- |
+| Tq1062   | 银行账户收支明细查询     | [1003](https://prodoc.allinpay.com/doc/1003/) | ✓        |
+| Tq3001   | 订单状态查询             | [689](https://prodoc.allinpay.com/doc/689/)   | ✓        |
+| Tq3002   | 订单详情查询             | [690](https://prodoc.allinpay.com/doc/690/)   | ✓        |
+| Tq3004   | 会员账户明细查询         | [674](https://prodoc.allinpay.com/doc/674/)   | ✓        |
+| Tq3007   | 支付账户批量转账结果查询 | [2602](https://prodoc.allinpay.com/doc/2602/) | ✓        |
+| Tq4003   | 电子回单下载             | [691](https://prodoc.allinpay.com/doc/691/)   | ✓        |
+
+### 通知模型
+
+- 会员协议签约结果通知：Tm1052NotifyResult，对应 [670](https://prodoc.allinpay.com/doc/670/)
+- 划款入账通知：Tx2080NotifyResult，对应 [687](https://prodoc.allinpay.com/doc/687/)
+- 微信支付分服务单回调通知：Tx4006NotifyResult，对应 [874](https://prodoc.allinpay.com/doc/874/)
+- 支付宝先享后付业务单变更通知：Tx4016NotifyResult，对应 [2547](https://prodoc.allinpay.com/doc/2547/)
+
+### 非接口文档页与忽略项
+
+- [1115](https://prodoc.allinpay.com/doc/1115/) 是接入说明页，不包含独立的请求 path / transCode，应继续落到其引用的具体接口页。
+- [686](https://prodoc.allinpay.com/doc/686/)、[2603](https://prodoc.allinpay.com/doc/2603/)、[2681](https://prodoc.allinpay.com/doc/2681/) 没有显式 transCode，按仓库规则视为通知订阅页，直接忽略，不纳入接口实现范围。
+- [2137](https://prodoc.allinpay.com/doc/2137/) 当前直接忽略，不纳入接口实现范围。
 
 接口文件命名与前缀约定如下：
 
