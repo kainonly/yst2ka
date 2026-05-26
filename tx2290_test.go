@@ -1,0 +1,35 @@
+package yst2ka_test
+
+import (
+	"context"
+	"testing"
+
+	"github.com/kainonly/yst2ka"
+	"github.com/stretchr/testify/assert"
+)
+
+func TestYst2Ka_Tx2290(t *testing.T) {
+	ctx := context.TODO()
+	num := Num(`X`, cfg.PersonCode, `0`)
+
+	signNum := ``
+	acctNum := ``
+	if signNum == `` || acctNum == `` {
+		t.Skip("请先准备有效的提现会员编号和已绑定银行卡号后再执行真实请求测试")
+	}
+
+	dto := yst2ka.NewTx2290Dto(signNum, num, 100, acctNum).
+		SetRespUrl(v.Notify(`/tx2290/callback`))
+
+	r, err := client.Tx2290(ctx, dto)
+	assert.NoError(t, err)
+
+	if err == nil {
+		t.Log(`respCode:`, r.RespCode)
+		t.Log(`respMsg:`, r.RespMsg)
+		t.Log(`reqTraceNum:`, r.ReqTraceNum)
+		t.Log(`respTraceNum:`, r.RespTraceNum)
+		t.Log(`result:`, r.Result)
+		t.Log(`chnlTradeCode:`, r.ChnlTradeCode)
+	}
+}
