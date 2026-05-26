@@ -27,9 +27,10 @@
 
 - 每个公开交易函数都需要对应真实请求测试，默认放在同名的 `_test.go` 文件中，测试函数命名为 `TestYst2Ka_<TradeCode>`。
 - 真实请求测试默认使用 `yst2ka_test` 包、`context.TODO()`、共享的 `client`、`cfg`、`v`、`Num(...)` 基座，不要用本地 mock 替代第三方挡板接口。
+- 不要为 `cfg.PersonCode`、`cfg.EnterpriseCode`、`cfg.Phone` 这类共享基座配置额外生成 `if ... == "" { t.Skip(...) }` 检测逻辑；测试应直接依赖现有基座配置执行。
 - 敏感字段在测试中发送前先按现有基座加密，例如用 `v.Encrypt(...)` 处理证件号、银行卡号等。
 - 测试至少记录关键返回字段，通常包括 `respCode`、`respMsg`、`respTraceNum`，以及该接口最关键的业务字段，例如 `signNum`、`signAgreementUrl`、`openAcctStatus`。
-- 如果真实请求依赖短时效文件 ID、短信验证码或人工前置条件，测试中显式 `t.Skip(...)` 或保留清晰占位说明，不要伪造数据绕过真实链路。
+- 如果真实请求依赖短时效文件 ID、短信验证码、支付模式参数、收款会员号或其他人工前置条件，测试中显式 `t.Skip(...)` 或保留清晰占位说明，不要伪造数据绕过真实链路；这类 `Skip` 仅用于真实前置条件，不用于共享配置判空。
 
 ## Existing Patterns
 
