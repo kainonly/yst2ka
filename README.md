@@ -99,6 +99,8 @@ configs:
 
 ## 已实现能力
 
+文档目录索引：会员及账户类目录为 [659](https://prodoc.allinpay.com/doc/659/)，交易类目录为 [678](https://prodoc.allinpay.com/doc/678/)，交易结果查询类目录为 [688](https://prodoc.allinpay.com/doc/688/)；生成或核对接口时，应先从目录页定位具体文档，再以具体页面里的请求 path 和 transCode 为准。
+
 ### 公共能力
 
 - 文件上传：[upload.go](upload.go)
@@ -106,26 +108,28 @@ configs:
 
 ### 会员及账户类接口
 
-当前已实现的 Tm 接口代码：
+Tm 接口实现情况：
 
-- 1010
-- 1011
-- 1014
-- 1020
-- 1022
-- 1023
-- 1025
-- 1026
-- 1027
-- 1029
-- 1030
-- 1031
-- 1032
-- 1033
-- 1035
-- 1050
-- 1051
-- 1053
+| 接口代码 | 接口标题                       | 文档地址                                      | 是否实现 |
+| -------- | ------------------------------ | --------------------------------------------- | -------- |
+| Tm1010   | 个人会员实名及绑卡（申请）     | [663](https://prodoc.allinpay.com/doc/663/)   | ✓        |
+| Tm1011   | 个人会员实名及绑卡（确认）     | [664](https://prodoc.allinpay.com/doc/664/)   | ✓        |
+| Tm1014   | 会员解绑银行卡                 | [2429](https://prodoc.allinpay.com/doc/2429/) | ✓        |
+| Tm1020   | 企业会员实名开户               | [661](https://prodoc.allinpay.com/doc/661/)   | ✓        |
+| Tm1022   | 会员资料补录                   | [662](https://prodoc.allinpay.com/doc/662/)   | ✓        |
+| Tm1023   | 账户余额查询                   | [673](https://prodoc.allinpay.com/doc/673/)   | ✓        |
+| Tm1025   | 企业会员支付账户开户           | [671](https://prodoc.allinpay.com/doc/671/)   | ✓        |
+| Tm1026   | 平台资金查询                   | [675](https://prodoc.allinpay.com/doc/675/)   | ✓        |
+| Tm1027   | 查询会员信息                   | [672](https://prodoc.allinpay.com/doc/672/)   | ✓        |
+| Tm1029   | 个人支付账户开户H5             | [1606](https://prodoc.allinpay.com/doc/1606/) | ✓        |
+| Tm1030   | 会员绑定手机号申请             | [665](https://prodoc.allinpay.com/doc/665/)   | ✓        |
+| Tm1031   | 会员解绑手机号（原手机号）申请 | [667](https://prodoc.allinpay.com/doc/667/)   | ✓        |
+| Tm1032   | 确认绑定/解绑手机号            | [666](https://prodoc.allinpay.com/doc/666/)   | ✓        |
+| Tm1033   | 企业会员新增绑定对公户         | [852](https://prodoc.allinpay.com/doc/852/)   | ✓        |
+| Tm1035   | 企业会员信息修改               | [1884](https://prodoc.allinpay.com/doc/1884/) | ✓        |
+| Tm1050   | 会员线上协议签约申请           | [668](https://prodoc.allinpay.com/doc/668/)   | ✓        |
+| Tm1051   | 线下协议文件上传               | [669](https://prodoc.allinpay.com/doc/669/)   | ✓        |
+| Tm1053   | 签约协议查看H5                 | [1075](https://prodoc.allinpay.com/doc/1075/) | ✓        |
 
 其中部分查询类接口还提供了语义化辅助方法，例如：
 
@@ -134,29 +138,31 @@ configs:
 
 ### 交易类接口
 
-当前已实现的 Tx 接口代码：
+Tx 接口实现情况：
 
-- 2084
-- 2085
-- 2089
-- 2090
-- 2091
-- 2094
-- 2096
-- 2290
-- 2294
-- 2295
-- 3010
-- 2090
-- 2091
+| 接口代码 | 接口标题                        | 文档地址                                      | 是否实现 |
+| -------- | ------------------------------- | --------------------------------------------- | -------- |
+| Tx2084   | 转账申请                        | [681](https://prodoc.allinpay.com/doc/681/)   | ✓        |
+| Tx2085   | 消费申请                        | [679](https://prodoc.allinpay.com/doc/679/)   | ✓        |
+| Tx2089   | 担保消费申请                    | [680](https://prodoc.allinpay.com/doc/680/)   | ✓        |
+| Tx2090   | 单订单担保确认                  | [680](https://prodoc.allinpay.com/doc/680/)   | ✓        |
+| Tx2091   | 单会员担保确认                  | [680](https://prodoc.allinpay.com/doc/680/)   | ✓        |
+| Tx2094   | 储值卡订单核销                  | [859](https://prodoc.allinpay.com/doc/859/)   | ✓        |
+| Tx2096   | 充值申请                        | [1516](https://prodoc.allinpay.com/doc/1516/) | ✓        |
+| Tx2290   | 提现申请                        | [682](https://prodoc.allinpay.com/doc/682/)   | ✓        |
+| Tx2294   | 退款申请                        | [683](https://prodoc.allinpay.com/doc/683/)   | ✓        |
+| Tx2295   | 订单关闭                        | [684](https://prodoc.allinpay.com/doc/684/)   | ✓        |
+| Tx3010   | 确认支付（后台+短信验证码确认） | [685](https://prodoc.allinpay.com/doc/685/)   | ✓        |
 
 ### 交易结果查询类接口
 
-当前已实现的 Tq 接口代码：
+Tq 接口实现情况：
 
-- 3001
-- 3002
-- 3004
+| 接口代码 | 接口标题         | 文档地址                                    | 是否实现 |
+| -------- | ---------------- | ------------------------------------------- | -------- |
+| Tq3001   | 订单状态查询     | [689](https://prodoc.allinpay.com/doc/689/) | ✓        |
+| Tq3002   | 订单详情查询     | [690](https://prodoc.allinpay.com/doc/690/) | ✓        |
+| Tq3004   | 会员账户明细查询 | [674](https://prodoc.allinpay.com/doc/674/) | ✓        |
 
 接口文件命名与前缀约定如下：
 
