@@ -11,7 +11,6 @@ import (
 func TestYst2Ka_Tm1025(t *testing.T) {
 	ctx := context.TODO()
 	code := `ES5000`
-	//Register(t, code)
 
 	num := Num(`X`, code, `0`)
 	legalPersonCerNum, err := v.Encrypt(`51370119380325580x`)

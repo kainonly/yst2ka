@@ -14,11 +14,8 @@ func TestYst2Ka_Tx2085(t *testing.T) {
 
 	receiverSignNum := ``
 	payMode := yst2ka.NewPayMode()
-	if receiverSignNum == `` || len(payMode) == 0 {
-		t.Skip("请先根据支付模式字典填写有效的收款会员编号和 payMode 后再执行真实请求测试")
-	}
 
-	dto := yst2ka.NewTx2085Dto(num, receiverSignNum, 100).
+	dto := yst2ka.NewTx2085Dto(num, receiverSignNum, 1).
 		SetPayMode(payMode).
 		SetReqsUrl(v.Notify(`/tx2085/return`)).
 		SetRespUrl(v.Notify(`/tx2085/callback`)).

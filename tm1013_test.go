@@ -10,13 +10,11 @@ import (
 
 func TestYst2Ka_Tm1013(t *testing.T) {
 	ctx := context.TODO()
-	signNum := Num(`E`, `H5`, `0`)
-	dto := yst2ka.NewTm1013Dto(
-		Num(`X`, `H5`, `1`),
-		signNum,
-		`上海测试企业有限公司`,
-		v.Notify(`/tm1013/callback`),
-	).SetJumpURL(v.Notify(`/tm1013/return`))
+	signNum := `T1001`
+	dto := yst2ka.NewTm1013Dto(Num(`X`, `H5`, `1`), signNum, `竹溪县子怡鞋店`, v.Notify(`/register`)).
+		SetMemberRole(`收款方`).
+		SetEnterpriseNature(`2`).
+		SetJumpURL(v.Notify(`/register-success`))
 
 	r, err := client.Tm1013(ctx, dto)
 	assert.NoError(t, err)
