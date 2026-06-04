@@ -12,10 +12,10 @@ func TestYst2Ka_Tx2290(t *testing.T) {
 	ctx := context.TODO()
 	num := Num(`X`, cfg.PersonCode, `0`)
 
-	signNum := ``
-	acctNum := ``
+	signNum := `T1002`
+	acctNum := `6210262695475575477`
 
-	dto := yst2ka.NewTx2290Dto(signNum, num, 100, acctNum).
+	dto := yst2ka.NewTx2290Dto(signNum, num, 1, acctNum).
 		SetRespUrl(v.Notify(`/tx2290/callback`))
 
 	r, err := client.Tx2290(ctx, dto)

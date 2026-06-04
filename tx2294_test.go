@@ -12,9 +12,9 @@ func TestYst2Ka_Tx2294(t *testing.T) {
 	ctx := context.TODO()
 	num := Num(`X`, cfg.PersonCode, `0`)
 
-	orgRespTraceNum := ``
+	orgRespTraceNum := `20260604110147208501591069`
 
-	dto := yst2ka.NewTx2294Dto(num, 100).
+	dto := yst2ka.NewTx2294Dto(num, 1).
 		SetOrgRespTraceNum(orgRespTraceNum).
 		SetRespUrl(v.Notify(`/tx2294/callback`))
 
