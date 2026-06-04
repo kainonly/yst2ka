@@ -8,14 +8,14 @@ import (
 )
 
 type Tx2094Dto struct {
-	ReqTraceNum  string           `json:"reqTraceNum"`            // 商户订单号
-	ReceiverList []Tx2094Receiver `json:"receiverList"`           // 收款人列表
-	RespUrl      string           `json:"respUrl,omitempty"`      // 后台通知地址
-	Remark       string           `json:"remark,omitempty"`       // 备注
-	ExtendParams string           `json:"extendParams,omitempty"` // 扩展参数
+	ReqTraceNum  string            `json:"reqTraceNum"`            // 商户订单号
+	ReceiverList []*Tx2094Receiver `json:"receiverList"`           // 收款人列表
+	RespUrl      string            `json:"respUrl,omitempty"`      // 后台通知地址
+	Remark       string            `json:"remark,omitempty"`       // 备注
+	ExtendParams string            `json:"extendParams,omitempty"` // 扩展参数
 }
 
-func NewTx2094Dto(reqTraceNum string, receiverList []Tx2094Receiver) *Tx2094Dto {
+func NewTx2094Dto(reqTraceNum string, receiverList []*Tx2094Receiver) *Tx2094Dto {
 	return &Tx2094Dto{
 		ReqTraceNum:  reqTraceNum,
 		ReceiverList: receiverList,
@@ -38,10 +38,10 @@ func (x *Tx2094Dto) SetExtendParams(v string) *Tx2094Dto {
 }
 
 type Tx2094Receiver struct {
-	SignNum      string            `json:"signNum"`                // 商户会员编号-收款方
-	Amount       int64             `json:"amount"`                 // 核销金额
-	CouponAmount int64             `json:"couponAmount,omitempty"` // 平台抽佣金额
-	SepDetail    []Tx2094SepDetail `json:"sepDetail,omitempty"`    // 储值卡核销分账人列表
+	SignNum      string             `json:"signNum"`                // 商户会员编号-收款方
+	Amount       int64              `json:"amount"`                 // 核销金额
+	CouponAmount int64              `json:"couponAmount,omitempty"` // 平台抽佣金额
+	SepDetail    []*Tx2094SepDetail `json:"sepDetail,omitempty"`    // 储值卡核销分账人列表
 }
 
 func NewTx2094Receiver(signNum string, amount int64) *Tx2094Receiver {
@@ -56,7 +56,7 @@ func (x *Tx2094Receiver) SetCouponAmount(v int64) *Tx2094Receiver {
 	return x
 }
 
-func (x *Tx2094Receiver) SetSepDetail(v []Tx2094SepDetail) *Tx2094Receiver {
+func (x *Tx2094Receiver) SetSepDetail(v []*Tx2094SepDetail) *Tx2094Receiver {
 	x.SepDetail = v
 	return x
 }

@@ -14,8 +14,8 @@ type Tx2294Dto struct {
 	OrgTransDate             string                          `json:"orgTransDate,omitempty"`             // 原订单创建日期
 	OrgRespTraceNum          string                          `json:"orgRespTraceNum,omitempty"`          // 原通联订单号
 	PromotionAmount          int64                           `json:"promotionAmount,omitempty"`          // 营销退款金额
-	RefundDetail             []Tx2294RefundDetail            `json:"refundDetail,omitempty"`             // 订单退款列表
-	SvcRefundDetail          []Tx2294SvcRefundDetail         `json:"svcRefundDetail,omitempty"`          // 储值卡核销退款列表
+	RefundDetail             []*Tx2294RefundDetail           `json:"refundDetail,omitempty"`             // 订单退款列表
+	SvcRefundDetail          []*Tx2294SvcRefundDetail        `json:"svcRefundDetail,omitempty"`          // 储值卡核销退款列表
 	IsFundAllocation         string                          `json:"isFundAllocation,omitempty"`         // 是否需要调拨资金
 	IsAdvancePay             string                          `json:"isAdvancePay,omitempty"`             // 是否允许收款人垫资
 	RespUrl                  string                          `json:"respUrl,omitempty"`                  // 后台通知地址
@@ -54,12 +54,12 @@ func (x *Tx2294Dto) SetPromotionAmount(v int64) *Tx2294Dto {
 	return x
 }
 
-func (x *Tx2294Dto) SetRefundDetail(v []Tx2294RefundDetail) *Tx2294Dto {
+func (x *Tx2294Dto) SetRefundDetail(v []*Tx2294RefundDetail) *Tx2294Dto {
 	x.RefundDetail = v
 	return x
 }
 
-func (x *Tx2294Dto) SetSvcRefundDetail(v []Tx2294SvcRefundDetail) *Tx2294Dto {
+func (x *Tx2294Dto) SetSvcRefundDetail(v []*Tx2294SvcRefundDetail) *Tx2294Dto {
 	x.SvcRefundDetail = v
 	return x
 }
@@ -110,11 +110,11 @@ func (x *Tx2294Dto) SetReason(v string) *Tx2294Dto {
 }
 
 type Tx2294RefundDetail struct {
-	SignNum      string            `json:"signNum"`                // 商户会员编号
-	OrderAmount  int64             `json:"orderAmount"`            // 退款金额
-	AcctType     string            `json:"acctType,omitempty"`     // 账户类型
-	CouponAmount int64             `json:"couponAmount,omitempty"` // 平台抽佣退款金额
-	SepDetail    []Tx2294SepDetail `json:"sepDetail,omitempty"`    // 分账退款列表
+	SignNum      string             `json:"signNum"`                // 商户会员编号
+	OrderAmount  int64              `json:"orderAmount"`            // 退款金额
+	AcctType     string             `json:"acctType,omitempty"`     // 账户类型
+	CouponAmount int64              `json:"couponAmount,omitempty"` // 平台抽佣退款金额
+	SepDetail    []*Tx2294SepDetail `json:"sepDetail,omitempty"`    // 分账退款列表
 }
 
 func NewTx2294RefundDetail(signNum string, orderAmount int64) *Tx2294RefundDetail {
@@ -134,7 +134,7 @@ func (x *Tx2294RefundDetail) SetCouponAmount(v int64) *Tx2294RefundDetail {
 	return x
 }
 
-func (x *Tx2294RefundDetail) SetSepDetail(v []Tx2294SepDetail) *Tx2294RefundDetail {
+func (x *Tx2294RefundDetail) SetSepDetail(v []*Tx2294SepDetail) *Tx2294RefundDetail {
 	x.SepDetail = v
 	return x
 }

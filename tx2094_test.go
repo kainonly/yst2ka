@@ -15,8 +15,8 @@ func TestYst2Ka_Tx2094(t *testing.T) {
 	receiverSignNum := ``
 
 	dto := yst2ka.NewTx2094Dto(num,
-		[]yst2ka.Tx2094Receiver{
-			*yst2ka.NewTx2094Receiver(receiverSignNum, 100),
+		[]*yst2ka.Tx2094Receiver{
+			yst2ka.NewTx2094Receiver(receiverSignNum, 100),
 		},
 	).
 		SetRespUrl(v.Notify(`/tx2094/callback`))

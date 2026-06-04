@@ -8,26 +8,26 @@ import (
 )
 
 type Tx2089Dto struct {
-	ReqTraceNum     string           `json:"reqTraceNum"`               // 商户订单号
-	SignNum         string           `json:"signNum,omitempty"`         // 商户会员编号-付款人
-	ReceiverList    []Tx2089Receiver `json:"receiverList"`              // 收款人列表
-	GoodsType       string           `json:"goodsType,omitempty"`       // 商品类型
-	BizGoodsNo      string           `json:"bizGoodsNo,omitempty"`      // 商户商品编号
-	OrderAmount     int64            `json:"orderAmount"`               // 订单金额
-	PayAmount       int64            `json:"payAmount,omitempty"`       // 支付金额
-	PromotionAmount int64            `json:"promotionAmount,omitempty"` // 营销金额
-	ReqsUrl         string           `json:"reqsUrl,omitempty"`         // 前台通知地址
-	RespUrl         string           `json:"respUrl,omitempty"`         // 后台通知地址
-	OrderValidTime  string           `json:"orderValidTime,omitempty"`  // 订单过期时间
-	PayMode         M                `json:"payMode"`                   // 支付模式
-	GoodsName       string           `json:"goodsName,omitempty"`       // 商品名称
-	Summary         string           `json:"summary,omitempty"`         // 摘要
-	ExtendParams    string           `json:"extendParams,omitempty"`    // 扩展参数
-	TxDistrictCode  string           `json:"txDistrictCode,omitempty"`  // 交易所在省市
-	GoodsDesc       string           `json:"goodsDesc,omitempty"`       // 商品描述
+	ReqTraceNum     string            `json:"reqTraceNum"`               // 商户订单号
+	SignNum         string            `json:"signNum,omitempty"`         // 商户会员编号-付款人
+	ReceiverList    []*Tx2089Receiver `json:"receiverList"`              // 收款人列表
+	GoodsType       string            `json:"goodsType,omitempty"`       // 商品类型
+	BizGoodsNo      string            `json:"bizGoodsNo,omitempty"`      // 商户商品编号
+	OrderAmount     int64             `json:"orderAmount"`               // 订单金额
+	PayAmount       int64             `json:"payAmount,omitempty"`       // 支付金额
+	PromotionAmount int64             `json:"promotionAmount,omitempty"` // 营销金额
+	ReqsUrl         string            `json:"reqsUrl,omitempty"`         // 前台通知地址
+	RespUrl         string            `json:"respUrl,omitempty"`         // 后台通知地址
+	OrderValidTime  string            `json:"orderValidTime,omitempty"`  // 订单过期时间
+	PayMode         M                 `json:"payMode"`                   // 支付模式
+	GoodsName       string            `json:"goodsName,omitempty"`       // 商品名称
+	Summary         string            `json:"summary,omitempty"`         // 摘要
+	ExtendParams    string            `json:"extendParams,omitempty"`    // 扩展参数
+	TxDistrictCode  string            `json:"txDistrictCode,omitempty"`  // 交易所在省市
+	GoodsDesc       string            `json:"goodsDesc,omitempty"`       // 商品描述
 }
 
-func NewTx2089Dto(reqTraceNum string, receiverList []Tx2089Receiver, orderAmount int64, payMode M) *Tx2089Dto {
+func NewTx2089Dto(reqTraceNum string, receiverList []*Tx2089Receiver, orderAmount int64, payMode M) *Tx2089Dto {
 	return &Tx2089Dto{
 		ReqTraceNum:  reqTraceNum,
 		ReceiverList: receiverList,

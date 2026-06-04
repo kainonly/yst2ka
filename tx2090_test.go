@@ -16,8 +16,8 @@ func TestYst2Ka_Tx2090(t *testing.T) {
 	receiverSignNum := ``
 
 	dto := yst2ka.NewTx2090Dto(num,
-		[]yst2ka.Tx2090Receiver{
-			*yst2ka.NewTx2090Receiver(receiverSignNum, 100),
+		[]*yst2ka.Tx2090Receiver{
+			yst2ka.NewTx2090Receiver(receiverSignNum, 100),
 		},
 	).
 		SetOrgRespTraceNum(orgRespTraceNum).

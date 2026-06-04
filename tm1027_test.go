@@ -11,7 +11,7 @@ import (
 
 func TestYst2Ka_Tm1027(t *testing.T) {
 	ctx := context.TODO()
-	dto := yst2ka.NewTm1027Dto(`T1001`, "1")
+	dto := yst2ka.NewTm1027Dto(`T1000`, "1")
 	// dto := yst2ka.NewTm1027Dto(`T1000`, "1")
 
 	var r yst2ka.Tm1027Result[yst2ka.Tm1027PersonInfo]
