@@ -8,17 +8,17 @@ import (
 )
 
 type Tx2099Dto struct {
-	BatchNo      string               `json:"batchNo"`            // 批次号
-	SignNum      string               `json:"signNum"`            // 商户会员编号-转出方
-	AcctType     string               `json:"acctType,omitempty"` // 转出账户类型
-	AcctNum      string               `json:"acctNum"`            // 支付账户号-转出方
-	TotalCount   string               `json:"totalCount"`         // 转账笔数
-	TransferList []Tx2099TransferList `json:"transferList"`       // 转账列表
-	RespURL      string               `json:"respUrl,omitempty"`  // 后台通知地址
-	Summary      string               `json:"summary,omitempty"`  // 摘要
+	BatchNo      string           `json:"batchNo"`            // 批次号
+	SignNum      string           `json:"signNum"`            // 商户会员编号-转出方
+	AcctType     string           `json:"acctType,omitempty"` // 转出账户类型
+	AcctNum      string           `json:"acctNum"`            // 支付账户号-转出方
+	TotalCount   string           `json:"totalCount"`         // 转账笔数
+	TransferList []Tx2099Transfer `json:"transferList"`       // 转账列表
+	RespURL      string           `json:"respUrl,omitempty"`  // 后台通知地址
+	Summary      string           `json:"summary,omitempty"`  // 摘要
 }
 
-type Tx2099TransferList struct {
+type Tx2099Transfer struct {
 	ReqTraceNum string `json:"reqTraceNum"`          // 商户订单号
 	InSignNum   string `json:"inSignNum"`            // 商户会员编号-转入方
 	InAcctNum   string `json:"inAcctNum"`            // 支付账户号-转入方
@@ -27,7 +27,7 @@ type Tx2099TransferList struct {
 	Summary     string `json:"summary,omitempty"`    // 摘要
 }
 
-func NewTx2099Dto(batchNo string, signNum string, acctNum string, totalCount string, transferList []Tx2099TransferList) *Tx2099Dto {
+func NewTx2099Dto(batchNo string, signNum string, acctNum string, totalCount string, transferList []Tx2099Transfer) *Tx2099Dto {
 	return &Tx2099Dto{
 		BatchNo:      batchNo,
 		SignNum:      signNum,
@@ -37,8 +37,8 @@ func NewTx2099Dto(batchNo string, signNum string, acctNum string, totalCount str
 	}
 }
 
-func NewTx2099TransferList(reqTraceNum string, inSignNum string, inAcctNum string, orderAmount int64) *Tx2099TransferList {
-	return &Tx2099TransferList{
+func NewTx2099Transfer(reqTraceNum string, inSignNum string, inAcctNum string, orderAmount int64) *Tx2099Transfer {
+	return &Tx2099Transfer{
 		ReqTraceNum: reqTraceNum,
 		InSignNum:   inSignNum,
 		InAcctNum:   inAcctNum,
@@ -61,12 +61,12 @@ func (x *Tx2099Dto) SetSummary(v string) *Tx2099Dto {
 	return x
 }
 
-func (x *Tx2099TransferList) SetInAcctType(v string) *Tx2099TransferList {
+func (x *Tx2099Transfer) SetInAcctType(v string) *Tx2099Transfer {
 	x.InAcctType = v
 	return x
 }
 
-func (x *Tx2099TransferList) SetSummary(v string) *Tx2099TransferList {
+func (x *Tx2099Transfer) SetSummary(v string) *Tx2099Transfer {
 	x.Summary = v
 	return x
 }

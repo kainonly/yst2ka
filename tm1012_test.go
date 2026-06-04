@@ -10,8 +10,9 @@ import (
 
 func TestYst2Ka_Tm1012(t *testing.T) {
 	ctx := context.TODO()
-	signNum := `T1000`
-	dto := yst2ka.NewTm1012Dto(Num(`X`, `H5`, `0`), signNum, `张三`, v.Notify(`/register`)).
+	no := Num(`X`, `H5`, `0`)
+	signNum := `T2001`
+	dto := yst2ka.NewTm1012Dto(no, signNum, `张三`, v.Notify(`/register`)).
 		SetMemberRole(`收款方`).
 		SetJumpURL(v.Notify(`/register-success`))
 

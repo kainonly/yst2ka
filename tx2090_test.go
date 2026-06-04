@@ -14,12 +14,11 @@ func TestYst2Ka_Tx2090(t *testing.T) {
 
 	orgRespTraceNum := ``
 	receiverSignNum := ``
-	if orgRespTraceNum == `` || receiverSignNum == `` {
-		t.Skip("请先准备有效的担保消费申请通联订单号和收款会员后再执行真实请求测试")
-	}
 
 	dto := yst2ka.NewTx2090Dto(num,
-		[]yst2ka.Tx2090ReceiverList{*yst2ka.NewTx2090ReceiverList(receiverSignNum, 100)},
+		[]yst2ka.Tx2090Receiver{
+			*yst2ka.NewTx2090Receiver(receiverSignNum, 100),
+		},
 	).
 		SetOrgRespTraceNum(orgRespTraceNum).
 		SetRespUrl(v.Notify(`/tx2090/callback`))
@@ -27,11 +26,9 @@ func TestYst2Ka_Tx2090(t *testing.T) {
 	r, err := client.Tx2090(ctx, dto)
 	assert.NoError(t, err)
 
-	if err == nil {
-		t.Log(`respCode:`, r.RespCode)
-		t.Log(`respMsg:`, r.RespMsg)
-		t.Log(`reqTraceNum:`, r.ReqTraceNum)
-		t.Log(`respTraceNum:`, r.RespTraceNum)
-		t.Log(`result:`, r.Result)
-	}
+	t.Log(`respCode:`, r.RespCode)
+	t.Log(`respMsg:`, r.RespMsg)
+	t.Log(`reqTraceNum:`, r.ReqTraceNum)
+	t.Log(`respTraceNum:`, r.RespTraceNum)
+	t.Log(`result:`, r.Result)
 }

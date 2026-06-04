@@ -11,21 +11,15 @@ import (
 func TestYst2Ka_Tm1024(t *testing.T) {
 	ctx := context.TODO()
 	sybMerchantCode := ``
-	if sybMerchantCode == `` {
-		t.Skip("请先准备有效的收银宝商户号后再执行真实请求测试")
-	}
-
 	dto := yst2ka.NewTm1024Dto(Num(`X`, cfg.PersonCode, `0`), cfg.PersonCode, `set`).
 		SetSybMerchantCode(sybMerchantCode)
 
 	r, err := client.Tm1024(ctx, dto)
 	assert.NoError(t, err)
 
-	if err == nil {
-		t.Log(`respCode:`, r.RespCode)
-		t.Log(`respMsg:`, r.RespMsg)
-		t.Log(`respTraceNum:`, r.RespTraceNum)
-		t.Log(`signNum:`, r.SignNum)
-		t.Log(`sybMerchantCodeArray:`, r.SybMerchantCodeArray)
-	}
+	t.Log(`respCode:`, r.RespCode)
+	t.Log(`respMsg:`, r.RespMsg)
+	t.Log(`respTraceNum:`, r.RespTraceNum)
+	t.Log(`signNum:`, r.SignNum)
+	t.Log(`sybMerchantCodeArray:`, r.SybMerchantCodeArray)
 }

@@ -20,10 +20,8 @@ func TestYst2Ka_Tx4023(t *testing.T) {
 	r, err := client.Tx4023(ctx, dto)
 	assert.NoError(t, err)
 
-	if err == nil {
-		t.Log(`respCode:`, r.RespCode)
-		t.Log(`respMsg:`, r.RespMsg)
-		t.Log(`shareToken:`, r.ShareToken)
-		t.Log(`expireDate:`, r.ExpireDate)
-	}
+	t.Log(`respCode:`, r.RespCode)
+	t.Log(`respMsg:`, r.RespMsg)
+	t.Log(`shareToken:`, r.ShareToken)
+	t.Log(`expireDate:`, r.ExpireDate)
 }

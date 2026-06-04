@@ -50,18 +50,18 @@ type Tm1012Result struct {
 }
 
 type Tm1012JumpURLResult struct {
-	ReqTraceNum         string     `json:"reqTraceNum"`                   // 商户请求流水号
-	SignNum             string     `json:"signNum"`                       // 商户会员编号
-	Name                string     `json:"name"`                          // 会员名称
-	AuditResult         string     `json:"auditResult"`                   // 审核结果，2-审核成功 3-审核失败
-	AuditTime           string     `json:"auditTime"`                     // 审核时间
-	Remark              string     `json:"remark,omitempty"`              // 人工审核备注
-	AuditResultMsg      string     `json:"auditResultMsg,omitempty"`      // 失败原因
-	Phone               string     `json:"phone,omitempty"`               // 绑定手机号
-	WithdrawAgreeStatus SignStatus `json:"withdrawAgreeStatus,omitempty"` // 账户提现协议状态
-	WithdrawAgreeNo     string     `json:"withdrawAgreeNo,omitempty"`     // 账户提现协议签约编号
-	MembershipNo        string     `json:"membershipNo,omitempty"`        // 会员关系证明函签约编号
-	MembershipStatus    SignStatus `json:"membershipStatus,omitempty"`    // 会员关系证明函协议状态
+	ReqTraceNum         string `json:"reqTraceNum"`                   // 商户请求流水号
+	SignNum             string `json:"signNum"`                       // 商户会员编号
+	Name                string `json:"name"`                          // 会员名称
+	AuditResult         string `json:"auditResult"`                   // 审核结果，2-审核成功 3-审核失败
+	AuditTime           string `json:"auditTime"`                     // 审核时间
+	Remark              string `json:"remark,omitempty"`              // 人工审核备注
+	AuditResultMsg      string `json:"auditResultMsg,omitempty"`      // 失败原因
+	Phone               string `json:"phone,omitempty"`               // 绑定手机号
+	WithdrawAgreeStatus string `json:"withdrawAgreeStatus,omitempty"` // 账户提现协议状态
+	WithdrawAgreeNo     string `json:"withdrawAgreeNo,omitempty"`     // 账户提现协议签约编号
+	MembershipNo        string `json:"membershipNo,omitempty"`        // 会员关系证明函签约编号
+	MembershipStatus    string `json:"membershipStatus,omitempty"`    // 会员关系证明函协议状态
 }
 
 func (x *Yst2Ka) Tm1012(ctx context.Context, dto *Tm1012Dto) (_ *Tm1012Result, err error) {

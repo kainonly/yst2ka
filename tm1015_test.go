@@ -12,9 +12,6 @@ func TestYst2Ka_Tm1015(t *testing.T) {
 	ctx := context.TODO()
 	agreementNo := ``
 	agreeMerchant := ``
-	if agreementNo == `` || agreeMerchant == `` {
-		t.Skip("请先准备有效的协议号、签约商户号和对应银行卡信息后再执行真实请求测试")
-	}
 
 	cerNum, err := v.Encrypt(`310101199001010011`)
 	assert.NoError(t, err)
@@ -25,11 +22,11 @@ func TestYst2Ka_Tm1015(t *testing.T) {
 		Num(`X`, cfg.PersonCode, `0`),
 		cfg.PersonCode,
 		`张三`,
-		yst2ka.CerTypeIdentityCard,
+		`1`,
 		cerNum,
 		acctNum,
 		cfg.Phone,
-		yst2ka.BindTypeAllinpayTongAgreementPay,
+		`6`,
 		agreementNo,
 		agreeMerchant,
 	)
@@ -37,10 +34,8 @@ func TestYst2Ka_Tm1015(t *testing.T) {
 	r, err := client.Tm1015(ctx, dto)
 	assert.NoError(t, err)
 
-	if err == nil {
-		t.Log(`respCode:`, r.RespCode)
-		t.Log(`respMsg:`, r.RespMsg)
-		t.Log(`respTraceNum:`, r.RespTraceNum)
-		t.Log(`signNum:`, r.SignNum)
-	}
+	t.Log(`respCode:`, r.RespCode)
+	t.Log(`respMsg:`, r.RespMsg)
+	t.Log(`respTraceNum:`, r.RespTraceNum)
+	t.Log(`signNum:`, r.SignNum)
 }

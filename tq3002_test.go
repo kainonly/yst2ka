@@ -14,5 +14,6 @@ func TestYst2Ka_Tq3002(t *testing.T) {
 
 	r, err := client.Tq3002(ctx, dto)
 	assert.NoError(t, err)
+
 	t.Log(`result:`, r)
 }

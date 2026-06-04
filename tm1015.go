@@ -8,20 +8,20 @@ import (
 )
 
 type Tm1015Dto struct {
-	ReqTraceNum   string   `json:"reqTraceNum"`          // 请求流水号
-	SignNum       string   `json:"signNum"`              // 商户会员编号
-	MemberRole    string   `json:"memberRole,omitempty"` // 会员角色，未注册时按文档上送
-	Name          string   `json:"name"`                 // 姓名
-	CerType       CerType  `json:"cerType"`              // 证件类型
-	CerNum        string   `json:"cerNum"`               // 证件号码，SM4 加密
-	AcctNum       string   `json:"acctNum"`              // 银行卡号，SM4 加密
-	Phone         string   `json:"phone"`                // 银行预留手机
-	BindType      BindType `json:"bindType"`             // 绑卡方式
-	AgreementNo   string   `json:"agreementNo"`          // 签约协议号
-	AgreeMerchant string   `json:"agreeMerchant"`        // 签约商户号
+	ReqTraceNum   string `json:"reqTraceNum"`          // 请求流水号
+	SignNum       string `json:"signNum"`              // 商户会员编号
+	MemberRole    string `json:"memberRole,omitempty"` // 会员角色，未注册时按文档上送
+	Name          string `json:"name"`                 // 姓名
+	CerType       string `json:"cerType"`              // 证件类型
+	CerNum        string `json:"cerNum"`               // 证件号码，SM4 加密
+	AcctNum       string `json:"acctNum"`              // 银行卡号，SM4 加密
+	Phone         string `json:"phone"`                // 银行预留手机
+	BindType      string `json:"bindType"`             // 绑卡方式
+	AgreementNo   string `json:"agreementNo"`          // 签约协议号
+	AgreeMerchant string `json:"agreeMerchant"`        // 签约商户号
 }
 
-func NewTm1015Dto(reqTraceNum string, signNum string, name string, cerType CerType, cerNum string, acctNum string, phone string, bindType BindType, agreementNo string, agreeMerchant string) *Tm1015Dto {
+func NewTm1015Dto(reqTraceNum string, signNum string, name string, cerType string, cerNum string, acctNum string, phone string, bindType string, agreementNo string, agreeMerchant string) *Tm1015Dto {
 	return &Tm1015Dto{
 		ReqTraceNum:   reqTraceNum,
 		SignNum:       signNum,

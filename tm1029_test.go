@@ -18,12 +18,10 @@ func TestYst2Ka_Tm1029(t *testing.T) {
 	r, err := client.Tm1029(ctx, dto)
 	assert.NoError(t, err)
 
-	if err == nil {
-		t.Log(`respCode:`, r.RespCode)
-		t.Log(`respMsg:`, r.RespMsg)
-		t.Log(`respTraceNum:`, r.RespTraceNum)
-		t.Log(`signNum:`, r.SignNum)
-		t.Log(`openAcctStatus:`, r.OpenAcctStatus)
-		t.Log(`openAcctUrl:`, r.OpenAcctUrl)
-	}
+	t.Log(`respCode:`, r.RespCode)
+	t.Log(`respMsg:`, r.RespMsg)
+	t.Log(`respTraceNum:`, r.RespTraceNum)
+	t.Log(`signNum:`, r.SignNum)
+	t.Log(`openAcctStatus:`, r.OpenAcctStatus)
+	t.Log(`openAcctUrl:`, r.OpenAcctUrl)
 }

@@ -11,7 +11,8 @@ import (
 
 func TestYst2Ka_Tm1027(t *testing.T) {
 	ctx := context.TODO()
-	dto := yst2ka.NewTm1027Dto(`PS2001`, "1")
+	dto := yst2ka.NewTm1027Dto(`T1001`, "1")
+	// dto := yst2ka.NewTm1027Dto(`T1000`, "1")
 
 	var r yst2ka.Tm1027Result[yst2ka.Tm1027PersonInfo]
 	err := client.Tm1027(ctx, dto, &r)
@@ -24,6 +25,7 @@ func TestYst2Ka_Tm1027(t *testing.T) {
 	var content string
 	content, err = sonic.MarshalString(r.MemberBasicInfo)
 	assert.NoError(t, err)
+
 	t.Log(`memberBasicInfo:`, content)
 	t.Log(`acctInfo:`, r.AcctInfo)
 	t.Log(`agreementArray:`, r.AgreementArray)

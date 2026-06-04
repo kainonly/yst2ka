@@ -14,9 +14,6 @@ func TestYst2Ka_Tx2084(t *testing.T) {
 
 	signNum := ``
 	inSignNum := ``
-	if signNum == `` || inSignNum == `` {
-		t.Skip("请先准备有效的转出方和转入方会员编号后再执行真实请求测试")
-	}
 
 	dto := yst2ka.NewTx2084Dto(num, signNum, inSignNum, 100).
 		SetRespUrl(v.Notify(`/tx2084/callback`))
@@ -24,12 +21,10 @@ func TestYst2Ka_Tx2084(t *testing.T) {
 	r, err := client.Tx2084(ctx, dto)
 	assert.NoError(t, err)
 
-	if err == nil {
-		t.Log(`respCode:`, r.RespCode)
-		t.Log(`respMsg:`, r.RespMsg)
-		t.Log(`reqTraceNum:`, r.ReqTraceNum)
-		t.Log(`respTraceNum:`, r.RespTraceNum)
-		t.Log(`result:`, r.Result)
-		t.Log(`authWay:`, r.AuthWay)
-	}
+	t.Log(`respCode:`, r.RespCode)
+	t.Log(`respMsg:`, r.RespMsg)
+	t.Log(`reqTraceNum:`, r.ReqTraceNum)
+	t.Log(`respTraceNum:`, r.RespTraceNum)
+	t.Log(`result:`, r.Result)
+	t.Log(`authWay:`, r.AuthWay)
 }

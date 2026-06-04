@@ -22,13 +22,11 @@ func TestYst2Ka_Tx2295(t *testing.T) {
 	r, err := client.Tx2295(ctx, dto)
 	assert.NoError(t, err)
 
-	if err == nil {
-		t.Log(`respCode:`, r.RespCode)
-		t.Log(`respMsg:`, r.RespMsg)
-		t.Log(`reqTraceNum:`, r.ReqTraceNum)
-		t.Log(`respTraceNum:`, r.RespTraceNum)
-		t.Log(`closeResult:`, r.CloseResult)
-		t.Log(`closeFinishTime:`, r.CloseFinishTime)
-		t.Log(`result:`, r.Result)
-	}
+	t.Log(`respCode:`, r.RespCode)
+	t.Log(`respMsg:`, r.RespMsg)
+	t.Log(`reqTraceNum:`, r.ReqTraceNum)
+	t.Log(`respTraceNum:`, r.RespTraceNum)
+	t.Log(`closeResult:`, r.CloseResult)
+	t.Log(`closeFinishTime:`, r.CloseFinishTime)
+	t.Log(`result:`, r.Result)
 }

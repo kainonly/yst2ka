@@ -20,8 +20,6 @@ func TestYst2Ka_Tm1022(t *testing.T) {
 	r, err := client.Tm1022(ctx, dto)
 	assert.NoError(t, err)
 
-	t.Log(r)
-
 	t.Log(`code:`, r.RespCode)
 	t.Log(`msg:`, r.RespMsg)
 	t.Log(`respTraceNum:`, r.RespTraceNum)

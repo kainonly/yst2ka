@@ -15,9 +15,6 @@ func TestYst2Ka_Tm1035(t *testing.T) {
 	legpCerFrontFileID := ""
 	legpCerBackFileID := ""
 	unifiedSocialCreditFileID := ""
-	if legpCerFrontFileID == "" || legpCerBackFileID == "" || unifiedSocialCreditFileID == "" {
-		t.Skip("请先上传法人身份证与统一社会信用证文件，并填写 fileId")
-	}
 
 	legalPersonCerNum, err := v.Encrypt(`51370119380325580x`)
 	assert.NoError(t, err)

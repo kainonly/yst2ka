@@ -14,12 +14,10 @@ func TestYst2Ka_Tm1043(t *testing.T) {
 	r, err := client.Tm1043(ctx, dto)
 	assert.NoError(t, err)
 
-	if err == nil {
-		t.Log(`reqTraceNum:`, r.ReqTraceNum)
-		t.Log(`respTraceNum:`, r.RespTraceNum)
-		t.Log(`respCode:`, r.RespCode)
-		t.Log(`respMsg:`, r.RespMsg)
-		t.Log(`retentionLimitAmt:`, r.RetentionLimitAmt)
-		t.Log(`result:`, r.Result)
-	}
+	t.Log(`reqTraceNum:`, r.ReqTraceNum)
+	t.Log(`respTraceNum:`, r.RespTraceNum)
+	t.Log(`respCode:`, r.RespCode)
+	t.Log(`respMsg:`, r.RespMsg)
+	t.Log(`retentionLimitAmt:`, r.RetentionLimitAmt)
+	t.Log(`result:`, r.Result)
 }

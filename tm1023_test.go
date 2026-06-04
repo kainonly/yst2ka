@@ -38,7 +38,7 @@ func TestYst2Ka_GetPlatformBalanceDetail(t *testing.T) {
 
 func TestYst2Ka_GetMemberBalanceDetails(t *testing.T) {
 	ctx := context.TODO()
-	details, err := client.GetMemberBalanceDetails(ctx, `SUP10000`)
+	details, err := client.GetMemberBalanceDetails(ctx, `T1001`)
 	assert.NoError(t, err)
 
 	for i, detail := range details {

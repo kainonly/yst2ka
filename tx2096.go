@@ -8,24 +8,24 @@ import (
 )
 
 type Tx2096Dto struct {
-	ReceiverSignNum    string  `json:"receiverSignNum"`              // 充值会员编号
-	ReqTraceNum        string  `json:"reqTraceNum"`                  // 商户订单号
-	OrderAmount        int64   `json:"orderAmount"`                  // 订单金额
-	PlatAcctType       string  `json:"platAcctType,omitempty"`       // 平台账户类型
-	SignNum            string  `json:"signNum,omitempty"`            // 付款人会员编号
-	PayAmount          int64   `json:"payAmount,omitempty"`          // 支付金额
-	PromotionAmount    int64   `json:"promotionAmount,omitempty"`    // 营销金额
-	CouponAmount       int64   `json:"couponAmount,omitempty"`       // 抽佣金额
-	IsHandleChannelFee string  `json:"isHandleChannelFee,omitempty"` // 是否处理渠道手续费
-	PayMode            PayMode `json:"payMode,omitempty"`            // 支付模式
-	ReqsUrl            string  `json:"reqsUrl,omitempty"`            // 前台通知地址
-	RespUrl            string  `json:"respUrl,omitempty"`            // 后台通知地址
-	OrderValidTime     string  `json:"orderValidTime,omitempty"`     // 订单过期时间
-	GoodsName          string  `json:"goodsName,omitempty"`          // 商品名称
-	GoodsDesc          string  `json:"goodsDesc,omitempty"`          // 商品描述
-	TxDistrictCode     string  `json:"txDistrictCode,omitempty"`     // 交易所在省市
-	Summary            string  `json:"summary,omitempty"`            // 摘要
-	ExtendParams       string  `json:"extendParams,omitempty"`       // 扩展参数
+	ReceiverSignNum    string `json:"receiverSignNum"`              // 充值会员编号
+	ReqTraceNum        string `json:"reqTraceNum"`                  // 商户订单号
+	OrderAmount        int64  `json:"orderAmount"`                  // 订单金额
+	PlatAcctType       string `json:"platAcctType,omitempty"`       // 平台账户类型
+	SignNum            string `json:"signNum,omitempty"`            // 付款人会员编号
+	PayAmount          int64  `json:"payAmount,omitempty"`          // 支付金额
+	PromotionAmount    int64  `json:"promotionAmount,omitempty"`    // 营销金额
+	CouponAmount       int64  `json:"couponAmount,omitempty"`       // 抽佣金额
+	IsHandleChannelFee string `json:"isHandleChannelFee,omitempty"` // 是否处理渠道手续费
+	PayMode            M      `json:"payMode,omitempty"`            // 支付模式
+	ReqsUrl            string `json:"reqsUrl,omitempty"`            // 前台通知地址
+	RespUrl            string `json:"respUrl,omitempty"`            // 后台通知地址
+	OrderValidTime     string `json:"orderValidTime,omitempty"`     // 订单过期时间
+	GoodsName          string `json:"goodsName,omitempty"`          // 商品名称
+	GoodsDesc          string `json:"goodsDesc,omitempty"`          // 商品描述
+	TxDistrictCode     string `json:"txDistrictCode,omitempty"`     // 交易所在省市
+	Summary            string `json:"summary,omitempty"`            // 摘要
+	ExtendParams       string `json:"extendParams,omitempty"`       // 扩展参数
 }
 
 func NewTx2096Dto(receiverSignNum string, reqTraceNum string, orderAmount int64) *Tx2096Dto {
@@ -66,7 +66,7 @@ func (x *Tx2096Dto) SetIsHandleChannelFee(v string) *Tx2096Dto {
 	return x
 }
 
-func (x *Tx2096Dto) SetPayMode(v PayMode) *Tx2096Dto {
+func (x *Tx2096Dto) SetPayMode(v M) *Tx2096Dto {
 	x.PayMode = v
 	return x
 }

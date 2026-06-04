@@ -8,19 +8,19 @@ import (
 )
 
 type Tx2290Dto struct {
-	SignNum         string  `json:"signNum"`                   // 商户会员编号
-	ReqTraceNum     string  `json:"reqTraceNum"`               // 商户订单号
-	OrderAmount     int64   `json:"orderAmount"`               // 订单金额
-	AcctNum         string  `json:"acctNum"`                   // 银行卡号
-	AcctType        string  `json:"acctType,omitempty"`        // 提现账户类型
-	PayAcctNo       string  `json:"payAcctNo,omitempty"`       // 支付账户号
-	CouponAmount    int64   `json:"couponAmount,omitempty"`    // 平台抽佣金额
-	RespUrl         string  `json:"respUrl,omitempty"`         // 后台通知地址
-	PayMode         PayMode `json:"payMode,omitempty"`         // 支付模式
-	ReceiveAcctType string  `json:"receiveAcctType,omitempty"` // 入账账户类型
-	WithdrawType    string  `json:"withdrawType,omitempty"`    // 提现方式
-	Summary         string  `json:"summary,omitempty"`         // 摘要
-	ExtendParams    string  `json:"extendParams,omitempty"`    // 扩展信息
+	SignNum         string `json:"signNum"`                   // 商户会员编号
+	ReqTraceNum     string `json:"reqTraceNum"`               // 商户订单号
+	OrderAmount     int64  `json:"orderAmount"`               // 订单金额
+	AcctNum         string `json:"acctNum"`                   // 银行卡号
+	AcctType        string `json:"acctType,omitempty"`        // 提现账户类型
+	PayAcctNo       string `json:"payAcctNo,omitempty"`       // 支付账户号
+	CouponAmount    int64  `json:"couponAmount,omitempty"`    // 平台抽佣金额
+	RespUrl         string `json:"respUrl,omitempty"`         // 后台通知地址
+	PayMode         string `json:"payMode,omitempty"`         // 支付模式
+	ReceiveAcctType string `json:"receiveAcctType,omitempty"` // 入账账户类型
+	WithdrawType    string `json:"withdrawType,omitempty"`    // 提现方式
+	Summary         string `json:"summary,omitempty"`         // 摘要
+	ExtendParams    string `json:"extendParams,omitempty"`    // 扩展信息
 }
 
 func NewTx2290Dto(signNum string, reqTraceNum string, orderAmount int64, acctNum string) *Tx2290Dto {
@@ -52,7 +52,7 @@ func (x *Tx2290Dto) SetRespUrl(v string) *Tx2290Dto {
 	return x
 }
 
-func (x *Tx2290Dto) SetPayMode(v PayMode) *Tx2290Dto {
+func (x *Tx2290Dto) SetPayMode(v string) *Tx2290Dto {
 	x.PayMode = v
 	return x
 }

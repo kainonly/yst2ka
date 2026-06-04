@@ -10,7 +10,7 @@ import (
 
 func TestYst2Ka_Tm1013(t *testing.T) {
 	ctx := context.TODO()
-	signNum := `T1001`
+	signNum := `T1006`
 	dto := yst2ka.NewTm1013Dto(Num(`X`, `H5`, `1`), signNum, `竹溪县子怡鞋店`, v.Notify(`/register`)).
 		SetMemberRole(`收款方`).
 		SetEnterpriseNature(`2`).
@@ -19,11 +19,9 @@ func TestYst2Ka_Tm1013(t *testing.T) {
 	r, err := client.Tm1013(ctx, dto)
 	assert.NoError(t, err)
 
-	if err == nil {
-		t.Log(`respCode:`, r.RespCode)
-		t.Log(`respMsg:`, r.RespMsg)
-		t.Log(`respTraceNum:`, r.RespTraceNum)
-		t.Log(`signNum:`, r.SignNum)
-		t.Log(`regInviteLink:`, r.RegInviteLink)
-	}
+	t.Log(`respCode:`, r.RespCode)
+	t.Log(`respMsg:`, r.RespMsg)
+	t.Log(`respTraceNum:`, r.RespTraceNum)
+	t.Log(`signNum:`, r.SignNum)
+	t.Log(`regInviteLink:`, r.RegInviteLink)
 }

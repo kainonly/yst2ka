@@ -16,10 +16,8 @@ func TestYst2Ka_Tm1053(t *testing.T) {
 	r, err := client.Tm1053(ctx, dto)
 	assert.NoError(t, err)
 
-	if err == nil {
-		t.Log(`code:`, r.RespCode)
-		t.Log(`msg:`, r.RespMsg)
-		t.Log(`signAgreementUrl:`, r.SignAgreementUrl)
-		t.Log(`respTraceNum:`, r.RespTraceNum)
-	}
+	t.Log(`code:`, r.RespCode)
+	t.Log(`msg:`, r.RespMsg)
+	t.Log(`signAgreementUrl:`, r.SignAgreementUrl)
+	t.Log(`respTraceNum:`, r.RespTraceNum)
 }

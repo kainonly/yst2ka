@@ -212,16 +212,14 @@ func (x *Tx2294WechatPayB2bRefundDetail) SetDescription(v string) *Tx2294WechatP
 	return x
 }
 
-type Tx2294ChannelParamInfo map[string]any
-
 type Tx2294Result struct {
-	Result           string                 `json:"result,omitempty"`           // 订单状态
-	ReqTraceNum      string                 `json:"reqTraceNum"`                // 商户订单号
-	RespTraceNum     string                 `json:"respTraceNum"`               // 通联订单号
-	ExtendParams     string                 `json:"extendParams,omitempty"`     // 扩展信息
-	ChannelParamInfo Tx2294ChannelParamInfo `json:"channelParamInfo,omitempty"` // 渠道参数信息
-	RespCode         string                 `json:"respCode"`                   // 业务返回码
-	RespMsg          string                 `json:"respMsg"`                    // 业务返回说明
+	Result           string `json:"result,omitempty"`           // 订单状态
+	ReqTraceNum      string `json:"reqTraceNum"`                // 商户订单号
+	RespTraceNum     string `json:"respTraceNum"`               // 通联订单号
+	ExtendParams     string `json:"extendParams,omitempty"`     // 扩展信息
+	ChannelParamInfo string `json:"channelParamInfo,omitempty"` // 渠道参数信息
+	RespCode         string `json:"respCode"`                   // 业务返回码
+	RespMsg          string `json:"respMsg"`                    // 业务返回说明
 }
 
 func (x *Yst2Ka) Tx2294(ctx context.Context, dto *Tx2294Dto) (_ *Tx2294Result, err error) {

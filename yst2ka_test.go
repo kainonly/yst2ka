@@ -76,3 +76,9 @@ func Num(prefix string, code string, kind string) string {
 	paddedStr := fmt.Sprintf("%03d", num)
 	return fmt.Sprintf("%s%s-%s%s%s", prefix, code, formatter, paddedStr, kind)
 }
+
+type M = map[string]any
+
+var PayMode = M{
+	`SCAN_WEIXIN`: M{},
+}

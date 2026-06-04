@@ -37,14 +37,14 @@ type Tm1029Result struct {
 }
 
 type Tm1029NotifyResult struct {
-	ReqTraceNum      string           `json:"reqTraceNum"`               // 商户请求流水号
-	RespTraceNum     string           `json:"respTraceNum,omitempty"`    // 响应流水号
-	SignNum          string           `json:"signNum"`                   // 商户会员编号
-	OpenAccoutResult string           `json:"openAccoutResult"`          // 支付账户开户结果，0：开户成功 1：开户失败
-	PayAcctNo        string           `json:"payAcctNo,omitempty"`       // 支付账户号
-	PayAcctNoStatus  PayAccountStatus `json:"payAcctNoStatus,omitempty"` // 支付账户状态
-	PayAcctType      string           `json:"payAcctType,omitempty"`     // 支付账户分类，1：1类 2：2类 3：3类
-	RespMsg          string           `json:"respMsg,omitempty"`         // 失败说明
+	ReqTraceNum      string `json:"reqTraceNum"`               // 商户请求流水号
+	RespTraceNum     string `json:"respTraceNum,omitempty"`    // 响应流水号
+	SignNum          string `json:"signNum"`                   // 商户会员编号
+	OpenAccoutResult string `json:"openAccoutResult"`          // 支付账户开户结果，0：开户成功 1：开户失败
+	PayAcctNo        string `json:"payAcctNo,omitempty"`       // 支付账户号
+	PayAcctNoStatus  string `json:"payAcctNoStatus,omitempty"` // 支付账户状态
+	PayAcctType      string `json:"payAcctType,omitempty"`     // 支付账户分类，1：1类 2：2类 3：3类
+	RespMsg          string `json:"respMsg,omitempty"`         // 失败说明
 }
 
 func (x *Yst2Ka) Tm1029(ctx context.Context, dto *Tm1029Dto) (_ *Tm1029Result, err error) {

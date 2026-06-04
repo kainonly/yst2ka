@@ -56,21 +56,21 @@ type Tm1013Result struct {
 }
 
 type Tm1013JumpURLResult struct {
-	ReqTraceNum              string     `json:"reqTraceNum"`                        // 商户请求流水号
-	SignNum                  string     `json:"signNum"`                            // 商户会员编号
-	EnterpriseName           string     `json:"enterpriseName"`                     // 企业名称
-	AuditResult              string     `json:"auditResult"`                        // 审核结果，2-审核成功 3-审核失败
-	AuditTime                string     `json:"auditTime"`                          // 审核时间
-	Remark                   string     `json:"remark,omitempty"`                   // 人工审核备注
-	AuditResultMsg           string     `json:"auditResultMsg,omitempty"`           // 失败原因
-	EnterpriseCompareResult  string     `json:"enterpriseCompareResult,omitempty"`  // OCR 识别与工商认证信息是否一致
-	LegalPersonCompareResult string     `json:"legalPersonCompareResult,omitempty"` // OCR 识别与法人实名信息是否一致
-	Phone                    string     `json:"phone,omitempty"`                    // 绑定手机号
-	BindPhoneType            string     `json:"bindPhoneType,omitempty"`            // 绑定手机号类型
-	WithdrawAgreeStatus      SignStatus `json:"withdrawAgreeStatus,omitempty"`      // 企业/个人主体账户提现协议状态
-	WithdrawAgreeNo          string     `json:"withdrawAgreeNo,omitempty"`          // 企业/个人主体账户提现协议签约编号
-	MembershipNo             string     `json:"membershipNo,omitempty"`             // 会员关系证明函签约编号
-	MembershipStatus         SignStatus `json:"membershipStatus,omitempty"`         // 会员关系证明函协议状态
+	ReqTraceNum              string `json:"reqTraceNum"`                        // 商户请求流水号
+	SignNum                  string `json:"signNum"`                            // 商户会员编号
+	EnterpriseName           string `json:"enterpriseName"`                     // 企业名称
+	AuditResult              string `json:"auditResult"`                        // 审核结果，2-审核成功 3-审核失败
+	AuditTime                string `json:"auditTime"`                          // 审核时间
+	Remark                   string `json:"remark,omitempty"`                   // 人工审核备注
+	AuditResultMsg           string `json:"auditResultMsg,omitempty"`           // 失败原因
+	EnterpriseCompareResult  string `json:"enterpriseCompareResult,omitempty"`  // OCR 识别与工商认证信息是否一致
+	LegalPersonCompareResult string `json:"legalPersonCompareResult,omitempty"` // OCR 识别与法人实名信息是否一致
+	Phone                    string `json:"phone,omitempty"`                    // 绑定手机号
+	BindPhoneType            string `json:"bindPhoneType,omitempty"`            // 绑定手机号类型
+	WithdrawAgreeStatus      string `json:"withdrawAgreeStatus,omitempty"`      // 企业/个人主体账户提现协议状态
+	WithdrawAgreeNo          string `json:"withdrawAgreeNo,omitempty"`          // 企业/个人主体账户提现协议签约编号
+	MembershipNo             string `json:"membershipNo,omitempty"`             // 会员关系证明函签约编号
+	MembershipStatus         string `json:"membershipStatus,omitempty"`         // 会员关系证明函协议状态
 }
 
 func (x *Yst2Ka) Tm1013(ctx context.Context, dto *Tm1013Dto) (_ *Tm1013Result, err error) {
