@@ -15,7 +15,7 @@ func TestYst2Ka_Tm1033(t *testing.T) {
 	acctNum, err := v.Encrypt(`123426789159100`)
 	assert.NoError(t, err)
 
-	bankAcctDetail := yst2ka.Tm1033BankAcctDetail{
+	bankAcctDetail := &yst2ka.Tm1033BankAcctDetail{
 		AcctAttr:           `1`,
 		AcctNum:            acctNum,
 		OpenBankNo:         `01020000`,

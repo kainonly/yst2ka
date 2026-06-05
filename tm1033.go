@@ -8,9 +8,9 @@ import (
 )
 
 type Tm1033Dto struct {
-	ReqTraceNum    string               `json:"reqTraceNum"`    // 商户请求流水号
-	SignNum        string               `json:"signNum"`        // 商户会员编号
-	BankAcctDetail Tm1033BankAcctDetail `json:"bankAcctDetail"` // 银行账户信息
+	ReqTraceNum    string                `json:"reqTraceNum"`    // 商户请求流水号
+	SignNum        string                `json:"signNum"`        // 商户会员编号
+	BankAcctDetail *Tm1033BankAcctDetail `json:"bankAcctDetail"` // 银行账户信息
 }
 
 type Tm1033BankAcctDetail struct {
@@ -23,7 +23,7 @@ type Tm1033BankAcctDetail struct {
 	OpenBankCity       string `json:"openBankCity"`       // 开户行所在市（中文）
 }
 
-func NewTm1033Dto(reqTraceNum string, signNum string, bankAcctDetail Tm1033BankAcctDetail) *Tm1033Dto {
+func NewTm1033Dto(reqTraceNum string, signNum string, bankAcctDetail *Tm1033BankAcctDetail) *Tm1033Dto {
 	return &Tm1033Dto{
 		ReqTraceNum:    reqTraceNum,
 		SignNum:        signNum,

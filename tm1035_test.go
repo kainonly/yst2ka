@@ -20,7 +20,7 @@ func TestYst2Ka_Tm1035(t *testing.T) {
 	assert.NoError(t, err)
 
 	num := Num(`X`, cfg.EnterpriseCode, `0`)
-	enterpriseBaseInfo := yst2ka.Tm1035EnterpriseBaseInfo{
+	enterpriseBaseInfo := &yst2ka.Tm1035EnterpriseBaseInfo{
 		EnterpriseName:            `竹溪县子怡鞋店`,
 		AddressCode:               `310115`,
 		EnterpriseAdress:          `上海市浦东新区金桥镇`,

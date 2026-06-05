@@ -20,19 +20,19 @@ func NewTm1027Dto(signNum string, infoType string) *Tm1027Dto {
 }
 
 type Tm1027Result[T Tm1027PersonInfo | Tm1027EnterpriseInfo | M] struct {
-	RespCode          string                  `json:"respCode"`                    // 业务返回码
-	RespMsg           string                  `json:"respMsg"`                     // 业务返回说明
-	SignNum           string                  `json:"signNum"`                     // 商户会员编号
-	MemberBasicInfo   T                       `json:"memberBasicInfo,omitempty"`   // 会员基本信息
-	AcctInfo          []*Tm1027AcctInfo       `json:"acctInfo,omitempty"`          // 银行账户信息
-	AgreementArray    []*Tm1027Agreement      `json:"agreementArray,omitempty"`    // 协议信息
-	OcrResultJson     Tm1027OcrResultJson     `json:"ocrResultJson,omitempty"`     // 影印件OCR核对结果
-	BindPhoneJson     Tm1027BindPhoneJson     `json:"bindPhoneJson,omitempty"`     // 绑定手机号信息
-	PayAcctOpenJson   Tm1027PayAcctOpenJson   `json:"payAcctOpenJson,omitempty"`   // 支付账户开户信息
-	PayAcctAuditJson  Tm1027PayAcctAuditJson  `json:"payAcctAuditJson,omitempty"`  // 支付账户审核结果详情
-	BankSubAcctInfo   M                       `json:"bankSubAcctInfo,omitempty"`   // 银行子账户信息
-	SettleAcctInfo    Tm1027SettleAcctInfo    `json:"settleAcctInfo,omitempty"`    // 待结算户信息
-	MemberControlInfo Tm1027MemberControlInfo `json:"memberControlInfo,omitempty"` // 会员交易控制类型
+	RespCode          string                   `json:"respCode"`                    // 业务返回码
+	RespMsg           string                   `json:"respMsg"`                     // 业务返回说明
+	SignNum           string                   `json:"signNum"`                     // 商户会员编号
+	MemberBasicInfo   T                        `json:"memberBasicInfo,omitempty"`   // 会员基本信息
+	AcctInfo          []*Tm1027AcctInfo        `json:"acctInfo,omitempty"`          // 银行账户信息
+	AgreementArray    []*Tm1027Agreement       `json:"agreementArray,omitempty"`    // 协议信息
+	OcrResultJson     *Tm1027OcrResultJson     `json:"ocrResultJson,omitempty"`     // 影印件OCR核对结果
+	BindPhoneJson     *Tm1027BindPhoneJson     `json:"bindPhoneJson,omitempty"`     // 绑定手机号信息
+	PayAcctOpenJson   *Tm1027PayAcctOpenJson   `json:"payAcctOpenJson,omitempty"`   // 支付账户开户信息
+	PayAcctAuditJson  *Tm1027PayAcctAuditJson  `json:"payAcctAuditJson,omitempty"`  // 支付账户审核结果详情
+	BankSubAcctInfo   M                        `json:"bankSubAcctInfo,omitempty"`   // 银行子账户信息
+	SettleAcctInfo    *Tm1027SettleAcctInfo    `json:"settleAcctInfo,omitempty"`    // 待结算户信息
+	MemberControlInfo *Tm1027MemberControlInfo `json:"memberControlInfo,omitempty"` // 会员交易控制类型
 }
 
 type Tm1027PersonInfo struct {
@@ -209,7 +209,9 @@ func (x *Yst2Ka) GetOcrResultJson(ctx context.Context, signNum string) (ocr Tm10
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
 		return
 	}
-	ocr = r.OcrResultJson
+	if r.OcrResultJson != nil {
+		ocr = *r.OcrResultJson
+	}
 	return
 }
 
@@ -219,7 +221,9 @@ func (x *Yst2Ka) GetBindPhoneJson(ctx context.Context, signNum string) (bindPhon
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
 		return
 	}
-	bindPhone = r.BindPhoneJson
+	if r.BindPhoneJson != nil {
+		bindPhone = *r.BindPhoneJson
+	}
 	return
 }
 
@@ -229,7 +233,9 @@ func (x *Yst2Ka) GetPayAcctOpenJson(ctx context.Context, signNum string) (info T
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
 		return
 	}
-	info = r.PayAcctOpenJson
+	if r.PayAcctOpenJson != nil {
+		info = *r.PayAcctOpenJson
+	}
 	return
 }
 
@@ -239,7 +245,9 @@ func (x *Yst2Ka) GetPayAcctAuditJson(ctx context.Context, signNum string) (info 
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
 		return
 	}
-	info = r.PayAcctAuditJson
+	if r.PayAcctAuditJson != nil {
+		info = *r.PayAcctAuditJson
+	}
 	return
 }
 
@@ -259,7 +267,9 @@ func (x *Yst2Ka) GetSettleAcctInfo(ctx context.Context, signNum string) (info Tm
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
 		return
 	}
-	info = r.SettleAcctInfo
+	if r.SettleAcctInfo != nil {
+		info = *r.SettleAcctInfo
+	}
 	return
 }
 
@@ -269,6 +279,8 @@ func (x *Yst2Ka) GetMemberControlInfo(ctx context.Context, signNum string) (info
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
 		return
 	}
-	info = r.MemberControlInfo
+	if r.MemberControlInfo != nil {
+		info = *r.MemberControlInfo
+	}
 	return
 }

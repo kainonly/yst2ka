@@ -8,13 +8,13 @@ import (
 )
 
 type Tm1030Dto struct {
-	ReqTraceNum string            `json:"reqTraceNum"` // 商户请求流水号
-	SignNum     string            `json:"signNum"`     // 商户会员编号
-	Phone       string            `json:"phone"`       // 绑定手机号
-	PhoneType   string            `json:"phoneType"`   // 绑定手机类型
-	JumpUrl     string            `json:"jumpUrl"`     // 前端跳转地址
-	NotifyUrl   string            `json:"notifyUrl"`   // 签约结果通知地址
-	AuthPerInfo Tm1030AuthPerInfo `json:"authPerInfo"` // 被授权人信息
+	ReqTraceNum string             `json:"reqTraceNum"` // 商户请求流水号
+	SignNum     string             `json:"signNum"`     // 商户会员编号
+	Phone       string             `json:"phone"`       // 绑定手机号
+	PhoneType   string             `json:"phoneType"`   // 绑定手机类型
+	JumpUrl     string             `json:"jumpUrl"`     // 前端跳转地址
+	NotifyUrl   string             `json:"notifyUrl"`   // 签约结果通知地址
+	AuthPerInfo *Tm1030AuthPerInfo `json:"authPerInfo"` // 被授权人信息
 }
 
 type Tm1030AuthPerInfo struct {
@@ -43,6 +43,11 @@ func (x *Tm1030Dto) SetJumpUrl(v string) *Tm1030Dto {
 
 func (x *Tm1030Dto) SetNotifyUrl(v string) *Tm1030Dto {
 	x.NotifyUrl = v
+	return x
+}
+
+func (x *Tm1030Dto) SetAuthPerInfo(v *Tm1030AuthPerInfo) *Tm1030Dto {
+	x.AuthPerInfo = v
 	return x
 }
 

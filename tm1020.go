@@ -9,12 +9,12 @@ import (
 )
 
 type Tm1020Dto struct {
-	ReqTraceNum        string                   `json:"reqTraceNum"`        // 商户请求流水号
-	SignNum            string                   `json:"signNum"`            // 商户会员编号
-	MemberRole         string                   `json:"memberRole"`         // 会员角色
-	NotifyUrl          string                   `json:"notifyUrl"`          // 企业会员审核结果通知地址
-	EnterpriseBaseInfo Tm1020EnterpriseBaseInfo `json:"enterpriseBaseInfo"` // 企业基本信息
-	BankAcctDetail     Tm1020BankAcctDetail     `json:"bankAcctDetail"`     // 银行账户信息
+	ReqTraceNum        string                    `json:"reqTraceNum"`        // 商户请求流水号
+	SignNum            string                    `json:"signNum"`            // 商户会员编号
+	MemberRole         string                    `json:"memberRole"`         // 会员角色
+	NotifyUrl          string                    `json:"notifyUrl"`          // 企业会员审核结果通知地址
+	EnterpriseBaseInfo *Tm1020EnterpriseBaseInfo `json:"enterpriseBaseInfo"` // 企业基本信息
+	BankAcctDetail     *Tm1020BankAcctDetail     `json:"bankAcctDetail"`     // 银行账户信息
 }
 
 type Tm1020EnterpriseBaseInfo struct {
@@ -153,12 +153,12 @@ func (x *Tm1020Dto) SetMemberRole(v string) *Tm1020Dto {
 	return x
 }
 
-func (x *Tm1020Dto) SetEnterpriseBaseInfo(v Tm1020EnterpriseBaseInfo) *Tm1020Dto {
+func (x *Tm1020Dto) SetEnterpriseBaseInfo(v *Tm1020EnterpriseBaseInfo) *Tm1020Dto {
 	x.EnterpriseBaseInfo = v
 	return x
 }
 
-func (x *Tm1020Dto) SetBankAcctDetail(v Tm1020BankAcctDetail) *Tm1020Dto {
+func (x *Tm1020Dto) SetBankAcctDetail(v *Tm1020BankAcctDetail) *Tm1020Dto {
 	x.BankAcctDetail = v
 	return x
 }

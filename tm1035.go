@@ -8,10 +8,10 @@ import (
 )
 
 type Tm1035Dto struct {
-	ReqTraceNum        string                   `json:"reqTraceNum"`        // 商户请求流水号
-	SignNum            string                   `json:"signNum"`            // 商户会员编号
-	NotifyUrl          string                   `json:"notifyUrl"`          // 企业会员信息修改结果通知地址
-	EnterpriseBaseInfo Tm1035EnterpriseBaseInfo `json:"enterpriseBaseInfo"` // 企业基础信息
+	ReqTraceNum        string                    `json:"reqTraceNum"`        // 商户请求流水号
+	SignNum            string                    `json:"signNum"`            // 商户会员编号
+	NotifyUrl          string                    `json:"notifyUrl"`          // 企业会员信息修改结果通知地址
+	EnterpriseBaseInfo *Tm1035EnterpriseBaseInfo `json:"enterpriseBaseInfo"` // 企业基础信息
 }
 
 type Tm1035EnterpriseBaseInfo struct {
@@ -31,7 +31,7 @@ type Tm1035EnterpriseBaseInfo struct {
 	UnifiedSocialCreditFileID string `json:"unifiedSocialCreditFileId"` // 统一信用证文件ID
 }
 
-func NewTm1035Dto(reqTraceNum string, signNum string, notifyUrl string, enterpriseBaseInfo Tm1035EnterpriseBaseInfo) *Tm1035Dto {
+func NewTm1035Dto(reqTraceNum string, signNum string, notifyUrl string, enterpriseBaseInfo *Tm1035EnterpriseBaseInfo) *Tm1035Dto {
 	return &Tm1035Dto{
 		ReqTraceNum:        reqTraceNum,
 		SignNum:            signNum,

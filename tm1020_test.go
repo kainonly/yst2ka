@@ -25,7 +25,7 @@ func register(ctx context.Context, t *testing.T, code string) {
 	dto := yst2ka.NewTm1020Dto(num, code, v.Notify(`/tm1020/callback`)).
 		SetMemberRole(`门店`).
 		SetEnterpriseBaseInfo(
-			*yst2ka.NewTm1020EnterpriseBaseInfo(
+			yst2ka.NewTm1020EnterpriseBaseInfo(
 				`竹溪县子怡鞋店`,
 				`310115`,
 				`上海市浦东新区金桥镇`,
@@ -41,7 +41,7 @@ func register(ctx context.Context, t *testing.T, code string) {
 				SetIdValidateEnd(`9999-12-31`),
 		).
 		SetBankAcctDetail(
-			*yst2ka.NewTm1020BankAcctDetail(acctNum, `上海市`, `上海市`).
+			yst2ka.NewTm1020BankAcctDetail(acctNum, `上海市`, `上海市`).
 				SetAcctAttr(`1`).
 				SetBankReservePhone(`12312341234`).
 				SetOpenBankNo(`01020000`).
