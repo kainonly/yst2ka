@@ -56,11 +56,11 @@ func (x *Tq3004Dto) SetQryCount(qryCount string) *Tq3004Dto {
 }
 
 type Tq3004Result struct {
-	SignNum     string             `json:"signNum"`     // 商户会员编号
-	AcctDetails []Tq3004AcctDetail `json:"acctDetails"` // 账户明细记录
-	RespCode    string             `json:"respCode"`    // 业务返回码
-	RespMsg     string             `json:"respMsg"`     // 业务返回说明
-	TotalCount  int                `json:"totalCount"`  // 总笔数
+	SignNum     string              `json:"signNum"`     // 商户会员编号
+	AcctDetails []*Tq3004AcctDetail `json:"acctDetails"` // 账户明细记录
+	RespCode    string              `json:"respCode"`    // 业务返回码
+	RespMsg     string              `json:"respMsg"`     // 业务返回说明
+	TotalCount  int                 `json:"totalCount"`  // 总笔数
 }
 
 type Tq3004AcctDetail struct {

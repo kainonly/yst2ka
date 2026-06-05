@@ -16,7 +16,7 @@ type Tx2290Dto struct {
 	PayAcctNo       string `json:"payAcctNo,omitempty"`       // 支付账户号
 	CouponAmount    int64  `json:"couponAmount,omitempty"`    // 平台抽佣金额
 	RespUrl         string `json:"respUrl,omitempty"`         // 后台通知地址
-	PayMode         string `json:"payMode,omitempty"`         // 支付模式
+	PayMode         M      `json:"payMode,omitempty"`         // 支付模式
 	ReceiveAcctType string `json:"receiveAcctType,omitempty"` // 入账账户类型
 	WithdrawType    string `json:"withdrawType,omitempty"`    // 提现方式
 	Summary         string `json:"summary,omitempty"`         // 摘要
@@ -52,7 +52,7 @@ func (x *Tx2290Dto) SetRespUrl(v string) *Tx2290Dto {
 	return x
 }
 
-func (x *Tx2290Dto) SetPayMode(v string) *Tx2290Dto {
+func (x *Tx2290Dto) SetPayMode(v M) *Tx2290Dto {
 	x.PayMode = v
 	return x
 }

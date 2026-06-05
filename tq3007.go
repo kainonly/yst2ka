@@ -16,11 +16,11 @@ func NewTq3007Dto(batchNo string) *Tq3007Dto {
 }
 
 type Tq3007Result struct {
-	BatchNo    string             `json:"batchNo"`              // 批次号
-	ResultList []Tq3007ResultItem `json:"resultList,omitempty"` // 处理结果列表
-	Status     string             `json:"status"`               // 批次处理状态
-	RespCode   string             `json:"respCode"`             // 业务返回码
-	RespMsg    string             `json:"respMsg,omitempty"`    // 业务返回说明
+	BatchNo    string              `json:"batchNo"`              // 批次号
+	ResultList []*Tq3007ResultItem `json:"resultList,omitempty"` // 处理结果列表
+	Status     string              `json:"status"`               // 批次处理状态
+	RespCode   string              `json:"respCode"`             // 业务返回码
+	RespMsg    string              `json:"respMsg,omitempty"`    // 业务返回说明
 }
 
 type Tq3007ResultItem struct {

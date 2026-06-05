@@ -69,7 +69,7 @@ func (x *Yst2Ka) GetPlatformBalanceDetail(ctx context.Context) (detail Tm1023Bal
 	return
 }
 
-func (x *Yst2Ka) GetMemberBalanceDetails(ctx context.Context, signNum string) (details []Tm1023BalanceDetail, err error) {
+func (x *Yst2Ka) GetMemberBalanceDetails(ctx context.Context, signNum string) (details []*Tm1023BalanceDetail, err error) {
 	var r *Tm1023Result[string]
 	if err = x.Tm1023(ctx, NewTm1023Dto(signNum), &r); err != nil {
 		return
@@ -84,7 +84,7 @@ func (x *Yst2Ka) GetMemberBalanceDetails(ctx context.Context, signNum string) (d
 		return
 	}
 
-	details = make([]Tm1023BalanceDetail, 0)
+	details = make([]*Tm1023BalanceDetail, 0)
 	if err = sonic.UnmarshalString(r.BalanceDetail, &details); err != nil {
 		return
 	}

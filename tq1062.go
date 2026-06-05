@@ -34,9 +34,9 @@ func (x *Tq1062Dto) SetQryTradeType(v string) *Tq1062Dto {
 }
 
 type Tq1062Result struct {
-	TotalPage   string              `json:"totalPage"`   // 总页数
-	TotalNum    string              `json:"totalNum"`    // 记录总行数
-	InExpDetail []Tq1062InExpDetail `json:"inExpDetail"` // 银行账户收支明细
+	TotalPage   string               `json:"totalPage"`   // 总页数
+	TotalNum    string               `json:"totalNum"`    // 记录总行数
+	InExpDetail []*Tq1062InExpDetail `json:"inExpDetail"` // 银行账户收支明细
 }
 
 type Tq1062InExpDetail struct {

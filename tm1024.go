@@ -34,11 +34,11 @@ func (x *Tm1024Dto) SetSybMerchantCode(v string) *Tm1024Dto {
 }
 
 type Tm1024Result struct {
-	RespTraceNum         string              `json:"respTraceNum,omitempty"`         // 响应流水号
-	SignNum              string              `json:"signNum,omitempty"`              // 商户会员编号
-	RespCode             string              `json:"respCode"`                       // 业务返回码
-	RespMsg              string              `json:"respMsg"`                        // 失败原因
-	SybMerchantCodeArray []Tm1024SybMerchant `json:"sybMerchantCodeArray,omitempty"` // 已绑定收银宝商户列表
+	RespTraceNum         string               `json:"respTraceNum,omitempty"`         // 响应流水号
+	SignNum              string               `json:"signNum,omitempty"`              // 商户会员编号
+	RespCode             string               `json:"respCode"`                       // 业务返回码
+	RespMsg              string               `json:"respMsg"`                        // 失败原因
+	SybMerchantCodeArray []*Tm1024SybMerchant `json:"sybMerchantCodeArray,omitempty"` // 已绑定收银宝商户列表
 }
 
 type Tm1024SybMerchant struct {

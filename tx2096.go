@@ -111,20 +111,16 @@ func (x *Tx2096Dto) SetExtendParams(v string) *Tx2096Dto {
 	return x
 }
 
-type Tx2096ChannelParamInfo map[string]any
-
-type Tx2096ChnlFrontParamInfo map[string]any
-
 type Tx2096Result struct {
-	Result             string                   `json:"result,omitempty"`             // 订单状态
-	RespTraceNum       string                   `json:"respTraceNum"`                 // 通联订单号
-	ReqTraceNum        string                   `json:"reqTraceNum"`                  // 商户订单号
-	ExtendParams       string                   `json:"extendParams,omitempty"`       // 扩展参数
-	ChannelParamInfo   Tx2096ChannelParamInfo   `json:"channelParamInfo,omitempty"`   // 渠道参数信息（支付详情）
-	ChnlFrontParamInfo Tx2096ChnlFrontParamInfo `json:"chnlFrontParamInfo,omitempty"` // 渠道参数信息（前端支付参数）
-	RespCode           string                   `json:"respCode"`                     // 业务返回码
-	RespMsg            string                   `json:"respMsg"`                      // 业务返回说明
-	IsPreConsume       string                   `json:"isPreConsume,omitempty"`       // 是否微信订单预消费
+	Result             string `json:"result,omitempty"`             // 订单状态
+	RespTraceNum       string `json:"respTraceNum"`                 // 通联订单号
+	ReqTraceNum        string `json:"reqTraceNum"`                  // 商户订单号
+	ExtendParams       string `json:"extendParams,omitempty"`       // 扩展参数
+	ChannelParamInfo   string `json:"channelParamInfo,omitempty"`   // 渠道参数信息（支付详情）
+	ChnlFrontParamInfo string `json:"chnlFrontParamInfo,omitempty"` // 渠道参数信息（前端支付参数）
+	RespCode           string `json:"respCode"`                     // 业务返回码
+	RespMsg            string `json:"respMsg"`                      // 业务返回说明
+	IsPreConsume       string `json:"isPreConsume,omitempty"`       // 是否微信订单预消费
 }
 
 func (x *Yst2Ka) Tx2096(ctx context.Context, dto *Tx2096Dto) (_ *Tx2096Result, err error) {

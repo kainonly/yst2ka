@@ -140,10 +140,10 @@ func (x *Tx2294RefundDetail) SetSepDetail(v []*Tx2294SepDetail) *Tx2294RefundDet
 }
 
 type Tx2294SvcRefundDetail struct {
-	SignNum      string            `json:"signNum"`                // 商户会员编号
-	OrderAmount  int64             `json:"orderAmount"`            // 储值卡核销退款金额
-	CouponAmount int64             `json:"couponAmount,omitempty"` // 平台抽佣退款金额
-	SepDetail    []Tx2294SepDetail `json:"sepDetail,omitempty"`    // 分账退款列表
+	SignNum      string             `json:"signNum"`                // 商户会员编号
+	OrderAmount  int64              `json:"orderAmount"`            // 储值卡核销退款金额
+	CouponAmount int64              `json:"couponAmount,omitempty"` // 平台抽佣退款金额
+	SepDetail    []*Tx2294SepDetail `json:"sepDetail,omitempty"`    // 分账退款列表
 }
 
 func NewTx2294SvcRefundDetail(signNum string, orderAmount int64) *Tx2294SvcRefundDetail {
@@ -158,7 +158,7 @@ func (x *Tx2294SvcRefundDetail) SetCouponAmount(v int64) *Tx2294SvcRefundDetail 
 	return x
 }
 
-func (x *Tx2294SvcRefundDetail) SetSepDetail(v []Tx2294SepDetail) *Tx2294SvcRefundDetail {
+func (x *Tx2294SvcRefundDetail) SetSepDetail(v []*Tx2294SepDetail) *Tx2294SvcRefundDetail {
 	x.SepDetail = v
 	return x
 }

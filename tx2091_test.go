@@ -17,9 +17,9 @@ func TestYst2Ka_Tx2091(t *testing.T) {
 	receiverSignNum := ``
 
 	dto := yst2ka.NewTx2091Dto(batchNo,
-		[]yst2ka.Tx2091Apply{*yst2ka.NewTx2091Apply(
+		[]*yst2ka.Tx2091Apply{yst2ka.NewTx2091Apply(
 			reqTraceNum,
-			[]yst2ka.Tx2091ApplyInfo{*yst2ka.NewTx2091ApplyInfo(100).SetOrgRespTraceNum(orgRespTraceNum)},
+			[]*yst2ka.Tx2091ApplyInfo{yst2ka.NewTx2091ApplyInfo(100).SetOrgRespTraceNum(orgRespTraceNum)},
 			receiverSignNum,
 			100,
 		)},

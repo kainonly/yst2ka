@@ -16,7 +16,7 @@ func TestYst2Ka_Tx2099(t *testing.T) {
 	inAcctNum := ``
 
 	transfer := yst2ka.NewTx2099Transfer(Num(`X`, cfg.EnterpriseCode, `1`), inSignNum, inAcctNum, 1)
-	dto := yst2ka.NewTx2099Dto(Num(`B`, cfg.EnterpriseCode, `0`), signNum, acctNum, `1`, []yst2ka.Tx2099Transfer{*transfer})
+	dto := yst2ka.NewTx2099Dto(Num(`B`, cfg.EnterpriseCode, `0`), signNum, acctNum, `1`, []*yst2ka.Tx2099Transfer{transfer})
 	r, err := client.Tx2099(ctx, dto)
 	assert.NoError(t, err)
 

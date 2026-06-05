@@ -24,8 +24,8 @@ type Tm1027Result[T Tm1027PersonInfo | Tm1027EnterpriseInfo | M] struct {
 	RespMsg           string                  `json:"respMsg"`                     // 业务返回说明
 	SignNum           string                  `json:"signNum"`                     // 商户会员编号
 	MemberBasicInfo   T                       `json:"memberBasicInfo,omitempty"`   // 会员基本信息
-	AcctInfo          []Tm1027AcctInfo        `json:"acctInfo,omitempty"`          // 银行账户信息
-	AgreementArray    []Tm1027Agreement       `json:"agreementArray,omitempty"`    // 协议信息
+	AcctInfo          []*Tm1027AcctInfo       `json:"acctInfo,omitempty"`          // 银行账户信息
+	AgreementArray    []*Tm1027Agreement      `json:"agreementArray,omitempty"`    // 协议信息
 	OcrResultJson     Tm1027OcrResultJson     `json:"ocrResultJson,omitempty"`     // 影印件OCR核对结果
 	BindPhoneJson     Tm1027BindPhoneJson     `json:"bindPhoneJson,omitempty"`     // 绑定手机号信息
 	PayAcctOpenJson   Tm1027PayAcctOpenJson   `json:"payAcctOpenJson,omitempty"`   // 支付账户开户信息
@@ -183,7 +183,7 @@ func (x *Yst2Ka) GetEnterpriseInfo(ctx context.Context, signNum string) (info Tm
 	return
 }
 
-func (x *Yst2Ka) GetAcctInfos(ctx context.Context, signNum string) (infos []Tm1027AcctInfo, err error) {
+func (x *Yst2Ka) GetAcctInfos(ctx context.Context, signNum string) (infos []*Tm1027AcctInfo, err error) {
 	var r Tm1027Result[map[string]any]
 	dto := NewTm1027Dto(signNum, "2")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
@@ -193,7 +193,7 @@ func (x *Yst2Ka) GetAcctInfos(ctx context.Context, signNum string) (infos []Tm10
 	return
 }
 
-func (x *Yst2Ka) GetAgreements(ctx context.Context, signNum string) (agreements []Tm1027Agreement, err error) {
+func (x *Yst2Ka) GetAgreements(ctx context.Context, signNum string) (agreements []*Tm1027Agreement, err error) {
 	var r Tm1027Result[M]
 	dto := NewTm1027Dto(signNum, "3")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {

@@ -8,12 +8,12 @@ import (
 )
 
 type Tx2091Dto struct {
-	BatchNo   string        `json:"batchNo"`           // 商户批次号
-	ApplyList []Tx2091Apply `json:"applyList"`         // 批量担保消费申请订单列表
-	RespUrl   string        `json:"respUrl,omitempty"` // 后台通知地址
+	BatchNo   string         `json:"batchNo"`           // 商户批次号
+	ApplyList []*Tx2091Apply `json:"applyList"`         // 批量担保消费申请订单列表
+	RespUrl   string         `json:"respUrl,omitempty"` // 后台通知地址
 }
 
-func NewTx2091Dto(batchNo string, applyList []Tx2091Apply) *Tx2091Dto {
+func NewTx2091Dto(batchNo string, applyList []*Tx2091Apply) *Tx2091Dto {
 	return &Tx2091Dto{
 		BatchNo:   batchNo,
 		ApplyList: applyList,
@@ -26,15 +26,15 @@ func (x *Tx2091Dto) SetRespUrl(v string) *Tx2091Dto {
 }
 
 type Tx2091Apply struct {
-	ReqTraceNum  string            `json:"reqTraceNum"`            // 商户订单号
-	ApplyInfo    []Tx2091ApplyInfo `json:"applyInfo"`              // 源担保消费申请订单付款信息
-	SignNum      string            `json:"signNum"`                // 商户会员编号-收款人
-	Amount       int64             `json:"amount"`                 // 确认金额
-	Summary      string            `json:"summary,omitempty"`      // 摘要
-	ExtendParams string            `json:"extendParams,omitempty"` // 商户扩展参数
+	ReqTraceNum  string             `json:"reqTraceNum"`            // 商户订单号
+	ApplyInfo    []*Tx2091ApplyInfo `json:"applyInfo"`              // 源担保消费申请订单付款信息
+	SignNum      string             `json:"signNum"`                // 商户会员编号-收款人
+	Amount       int64              `json:"amount"`                 // 确认金额
+	Summary      string             `json:"summary,omitempty"`      // 摘要
+	ExtendParams string             `json:"extendParams,omitempty"` // 商户扩展参数
 }
 
-func NewTx2091Apply(reqTraceNum string, applyInfo []Tx2091ApplyInfo, signNum string, amount int64) *Tx2091Apply {
+func NewTx2091Apply(reqTraceNum string, applyInfo []*Tx2091ApplyInfo, signNum string, amount int64) *Tx2091Apply {
 	return &Tx2091Apply{
 		ReqTraceNum: reqTraceNum,
 		ApplyInfo:   applyInfo,
@@ -54,12 +54,12 @@ func (x *Tx2091Apply) SetExtendParams(v string) *Tx2091Apply {
 }
 
 type Tx2091ApplyInfo struct {
-	OrgReqTraceNum  string            `json:"orgReqTraceNum,omitempty"`  // 担保消费申请商户订单号
-	OrgTransDate    string            `json:"orgTransDate,omitempty"`    // 担保消费申请订单创建日期
-	OrgRespTraceNum string            `json:"orgRespTraceNum,omitempty"` // 担保消费申请通联订单号
-	OrderAmount     int64             `json:"orderAmount"`               // 金额
-	CouponAmount    int64             `json:"couponAmount,omitempty"`    // 平台抽佣金额
-	SepDetail       []Tx2091SepDetail `json:"sepDetail,omitempty"`       // 分账列表
+	OrgReqTraceNum  string             `json:"orgReqTraceNum,omitempty"`  // 担保消费申请商户订单号
+	OrgTransDate    string             `json:"orgTransDate,omitempty"`    // 担保消费申请订单创建日期
+	OrgRespTraceNum string             `json:"orgRespTraceNum,omitempty"` // 担保消费申请通联订单号
+	OrderAmount     int64              `json:"orderAmount"`               // 金额
+	CouponAmount    int64              `json:"couponAmount,omitempty"`    // 平台抽佣金额
+	SepDetail       []*Tx2091SepDetail `json:"sepDetail,omitempty"`       // 分账列表
 }
 
 func NewTx2091ApplyInfo(orderAmount int64) *Tx2091ApplyInfo {
@@ -88,7 +88,7 @@ func (x *Tx2091ApplyInfo) SetCouponAmount(v int64) *Tx2091ApplyInfo {
 	return x
 }
 
-func (x *Tx2091ApplyInfo) SetSepDetail(v []Tx2091SepDetail) *Tx2091ApplyInfo {
+func (x *Tx2091ApplyInfo) SetSepDetail(v []*Tx2091SepDetail) *Tx2091ApplyInfo {
 	x.SepDetail = v
 	return x
 }
