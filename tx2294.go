@@ -181,7 +181,7 @@ func (x *Tx2294SepDetail) SetRemark(v string) *Tx2294SepDetail {
 	return x
 }
 
-type Tx2294ChnlDiscAmt map[string]any
+type Tx2294ChnlDiscAmt M
 
 func NewTx2294ChnlDiscAmt() Tx2294ChnlDiscAmt {
 	return Tx2294ChnlDiscAmt{}

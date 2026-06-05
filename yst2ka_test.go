@@ -77,7 +77,7 @@ func Num(prefix string, code string, kind string) string {
 	return fmt.Sprintf("%s%s-%s%s%s", prefix, code, formatter, paddedStr, kind)
 }
 
-type M = map[string]any
+type M = yst2ka.M
 
 var PayMode = M{
 	`SCAN_WEIXIN`: M{},

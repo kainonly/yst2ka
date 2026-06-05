@@ -184,7 +184,7 @@ func (x *Yst2Ka) GetEnterpriseInfo(ctx context.Context, signNum string) (info Tm
 }
 
 func (x *Yst2Ka) GetAcctInfos(ctx context.Context, signNum string) (infos []*Tm1027AcctInfo, err error) {
-	var r Tm1027Result[map[string]any]
+	var r Tm1027Result[M]
 	dto := NewTm1027Dto(signNum, "2")
 	if err = x.Tm1027(ctx, dto, &r); err != nil {
 		return
