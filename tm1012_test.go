@@ -11,9 +11,9 @@ import (
 func TestYst2Ka_Tm1012(t *testing.T) {
 	ctx := context.TODO()
 	no := Num(`X`, `H5`, `0`)
-	signNum := `T2001`
+	signNum := `T2002`
 	dto := yst2ka.NewTm1012Dto(no, signNum, `张三`, v.Notify(`/register`)).
-		SetMemberRole(`收款方`).
+		SetMemberRole(`门店`).
 		SetJumpURL(v.Notify(`/register-success`))
 
 	r, err := client.Tm1012(ctx, dto)
