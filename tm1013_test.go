@@ -10,9 +10,10 @@ import (
 
 func TestYst2Ka_Tm1013(t *testing.T) {
 	ctx := context.TODO()
-	signNum := `T1006`
+	// B10000
+	signNum := `B10000`
 	dto := yst2ka.NewTm1013Dto(Num(`X`, `H5`, `1`), signNum, `竹溪县子怡鞋店`, v.Notify(`/register`)).
-		SetMemberRole(`收款方`).
+		SetMemberRole(`门店`).
 		SetEnterpriseNature(`2`).
 		SetJumpURL(v.Notify(`/register-success`))
 

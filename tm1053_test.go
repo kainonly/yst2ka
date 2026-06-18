@@ -10,9 +10,11 @@ import (
 
 func TestYst2Ka_Tm1053(t *testing.T) {
 	ctx := context.TODO()
-	num := Num(`X`, cfg.PersonCode, `0`)
 
-	dto := yst2ka.NewTm1053Dto(num, cfg.PersonCode, `李一四`, `1`)
+	signNum := `B10000`
+	num := Num(`X`, signNum, `0`)
+
+	dto := yst2ka.NewTm1053Dto(num, signNum, `竹溪县子怡鞋店`, `1`)
 	r, err := client.Tm1053(ctx, dto)
 	assert.NoError(t, err)
 

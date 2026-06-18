@@ -60,7 +60,7 @@ func TestYst2Ka_GetPersonInfo(t *testing.T) {
 
 func TestYst2Ka_GetEnterpriseInfo(t *testing.T) {
 	ctx := context.TODO()
-	info, err := client.GetEnterpriseInfo(ctx, `ES1002`)
+	info, err := client.GetEnterpriseInfo(ctx, `B10000`)
 	assert.NoError(t, err)
 
 	t.Log(`memberRole:`, info.MemberRole)
