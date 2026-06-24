@@ -27,6 +27,16 @@ func NewTm1050Dto(reqTraceNum string, signNum string, memberName string, agreeme
 	}
 }
 
+func (x *Tm1050Dto) SetJumpPageType(v string) *Tm1050Dto {
+	x.JumpPageType = v
+	return x
+}
+
+func (x *Tm1050Dto) SetJumpUrl(v string) *Tm1050Dto {
+	x.JumpUrl = v
+	return x
+}
+
 type Tm1050Result struct {
 	RespTraceNum     string `json:"respTraceNum"`     // 响应流水号
 	RespCode         string `json:"respCode"`         // 业务返回码
