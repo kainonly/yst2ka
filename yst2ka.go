@@ -42,10 +42,6 @@ func NewYst2Ka(opt Option) (x *Yst2Ka, err error) {
 	return
 }
 
-func (x *Yst2Ka) Debug() {
-	x.Client.EnableTrace()
-}
-
 func (x *Yst2Ka) GetPublicKey() *ecdsa.PublicKey {
 	return x.pubKey
 }
